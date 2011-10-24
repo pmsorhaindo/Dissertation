@@ -1,0 +1,8 @@
+Ant
+
+location (float x, float y, float z)
+scent (int differentScents, float...)
+movement (dx,dy,dz)
+energy (float)
+hunger (float
+thirst (float)
