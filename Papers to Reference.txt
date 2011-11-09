@@ -17,7 +17,12 @@ Ant facts
 http://news.bbc.co.uk/earth/hi/earth_news/newsid_8100000/8100876.stm
 http://insected.arizona.edu/antrear.htm
 Different roles
-Oster GF, Wilson EO (1978). Caste and ecology in the social insects. Princeton University Press, Princeton. pp. 21ñ22. ISBN 0-691-02361-1.
+Oster GF, Wilson EO (1978). Caste and ecology in the social insects. Princeton University Press, Princeton. pp. 21¬ñ22. ISBN 0-691-02361-1.
+
+Paradigms
+Association for Computing Machinery (ACM) & IEEE Computer Society (IEEE-CS). ‚ÄúComputer Science Curriculum 2008: An Interim Revision of CS 2001.‚Äù Computing Curriculum Series
+
+
 
 Parralell the future
 http://parlab.eecs.berkeley.edu/publication/137
@@ -34,10 +39,12 @@ ming control.  C o m m .   A C M   8, 9 (Sept. 1965), 569.
 C o m m .   A C M   11,  5  (May 1968), 341-346. 
 
 
+Collision DETECTION
+A real-Time Algorithm for Accurate Collision Deteciton for Deformable Polyhedral Objects
+Yoshifumi Kitamura and Andrew Smith
 
-
-On the KarpñFlatt metric -  an indication of the extent to which a particular computer code is parallelized. It was proposed by Alan H. Karp and Horace P. Flatt in 1990.
-Karp, Alan H.; Flatt, Horace P. (1990). "Measuring Parallel Processor Performance". Communication of the ACM 33 (5): 539ñ543.
+On the Karp¬ñFlatt metric -  an indication of the extent to which a particular computer code is parallelized. It was proposed by Alan H. Karp and Horace P. Flatt in 1990.
+Karp, Alan H.; Flatt, Horace P. (1990). "Measuring Parallel Processor Performance". Communication of the ACM 33 (5): 539¬ñ543.
 Quinn, Michael J. (2004). Parallel Programming in C with MPI and OpenMP. Boston: McGraw-Hill.
 
 
@@ -47,9 +54,9 @@ Advanced Computer Architectures: A Design Space Approach, D. Sima, T. Fountain a
 
 
 Amdahls law
-The speedup of a program using multiple processors in parallel computing is limited by the sequential fraction of the program. For example, if 95% of the program can be parallelized, the theoretical maximum speedup using parallel computing would be 20◊, no matter how many processors are used.
-Amdahl, Gene (1967). "Validity of the Single Processor Approach to Achieving Large-Scale Computing Capabilities" (PDF). AFIPS Conference Proceedings (30): 483ñ485.
-Rodgers, David P. (June 1985). "Improvements in multiprocessor system design". ACM SIGARCH Computer Architecture News archive (New York, NY, USA: ACM) 13 (3): 225ñ231. doi:10.1145/327070.327215. ISSN 0163-5964.
+The speedup of a program using multiple processors in parallel computing is limited by the sequential fraction of the program. For example, if 95% of the program can be parallelized, the theoretical maximum speedup using parallel computing would be 20√ó, no matter how many processors are used.
+Amdahl, Gene (1967). "Validity of the Single Processor Approach to Achieving Large-Scale Computing Capabilities" (PDF). AFIPS Conference Proceedings (30): 483¬ñ485.
+Rodgers, David P. (June 1985). "Improvements in multiprocessor system design". ACM SIGARCH Computer Architecture News archive (New York, NY, USA: ACM) 13 (3): 225¬ñ231. doi:10.1145/327070.327215. ISSN 0163-5964.
 
 COMPARE with Hilis and Gustafson
 

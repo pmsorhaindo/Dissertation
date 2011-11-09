@@ -1,0 +1,163 @@
+\documentclass{report}
+
+\usepackage{graphicx}
+\usepackage{listings}
+
+\begin{document}
+
+\title {Planning and Research Report}
+\author{Paul-Michael Sorhaindo}
+\date {October 2011}
+
+\maketitle
+\tableofcontents
+\listoffigures
+
+\begin{abstract}
+(!TODO) Abstract
+\end{abstract}
+
+\chapter{Introduction}
+(!TODO)
+
+\section{Getting a topic (<?phrase)}
+The process of settling on a topic for my project took quite some time I initially wanted to produce something which was more in the Natural Language Programming field. With the initial aim to implement an intelligent agent that would intelligently parse text recognizing relationships between pronouns and the nouns they actually relate to(?word) and store store everything in a database that it parsed so that it could analize the data statistically and self optimize the parsing rules I initially gave it in order to parse more efficiently and accurately. Furthermore I wanted to extend that idea further and include text generation functionality to the proposed project and allow it to communicate with a user(<?word) via a keyboaard and screen so it would effectively become a chatbot which "learnt" from its mistakes. After further research into the NLP field I realized how ambitious these plans were and that just the subject of data mining descriptive text(<?words) in isolation is a broad field. (... still I was interested in it and talked about producing a small murder mystery game which could be completed by the player through interacting with the various Non-player characters within the game, Natural language Processors ...) I also interested exploring the field of AI in particular genetic algorithms. The main concept of the idea was to recreate a race track and racing car and implement an intelligent agent with a limited view of the track such as a human would have and after exposing functionality of the car such as a human would have give the agent the goal of completing the track in the least amount of time possible. It turned out I didn't go with this idea because it would have been an incredible amount of work to develop the track and car and to accurately simulate all the physics involved that it was possible that the AI element wouldn't get time required to produce a finished artifact.(<?word)
+
+After reading around the field of AI I came across the topic of swarm intelligence, which was first used in reference to robots. The definition given by Beni, G. and Wang, J. (1989) (!cite)\cite{Beni1993} of Swarm Intelligence is "systems of non-intelligent robots exhibiting collectively intelligent behaviour evident in the ability to unpredictably produce "specific" ([i.e.] not in a statistical sense) ordered patterns of matter in the external environment" the idea of implementing a system that could simulate a group of dumb(<?word) objects that together worked intelligently appealed to me. I looked to the real world for something to use as a model, so I could simulate on a computer with AI, and I realized that ants and an ant colony as a whole would offer a great model to simulate after analyzing the problem and how it would be implemented (with my supervisor), I realized that again the problem consisted of many issues the first of which was ant colonies often consist of tens of thousands(<?be more exact) if not more ants. Simulating that many objects which are all moving independently each with their own location and each with their own task, has the potential to be very processor intensive. As the number of ants in the simulation increase, depending on the implemntation used, the simulation model could easily give out(<?word) and stop producing correct values in real time resulting in something inaccurate and laggy(<?word). In the context of a casual simulation the accuracy and need for it to be real time aren't imperative but, in the computer games industry this is increasingly becoming not the case. The games produced by the big development houses which really turnover money, in terms of the amount spent developing them and the amount they sell for, come under more and more scrutiny from the average game player as they expect their gaming experience to become more immersive and realistic. Although the realtime in games, often classified as soft realtime because the usefulness of information recieved after it is due degrades the longer the delay is, the market has become such that game development houses who allow their products too push the leaniancy of the soft realtime requirements will suffer at the hand of bad reviews. As the major companies in the industry who produce AAA titles sell alot of releases based of the reputation their previous products have a good reputation, as in most industries, is vital.
+
+\section{Relevance to degree}
+Making games has been described by many as an art, and just as in the art of story telling it is important for characters to have life and feel real so too it's important for many games because of the (... aesthetic path ...) they've chosen to present every object and every movement within as realistically as the end users machine will allow in order to fully immerse the player. Ofcourse there are many tricks a programmer can employ to fake the feeling of real physics, true artificial intelligence and produce graphics that stun(<?word) the gamer. But these tricks often get swapped out for the real deal when technology catches up with designers imaginations. Way back games were displayed on monochrome screens and made use of coloured film over the display to create the illusion that different colours were on the screen, while today most people think nothing of their 1080p widescreen displays which absorb our natural field of view with high definition. There is always a demand for accuracy within computer games and research tries to meet these demands. Take for example one of the most(<?phrase) accurate forms of rendering in computer graphics, ray tracing, in August of 2009 Nvidia launched what they dubbed 'The World's First Interactive Ray Tracing Engine' the engine OptiX (<?better source) which is just the result of one of many projects which will ultimately allow developers to bring games and many other application of computers to another level of accuracy and realism.
+
+\section{Project overview}
+In my project I will be taking the problem of simulating the independant movements of a group of ants, instead of hacking(<?word) the problem and allowing every ant to see the whole 'world' the ants will have a realistic limited field of sense each going about their own tasks independantly but while sharing the common goals of the colony. This will provide several problems which I'll attempt to address over the course of my project but I will particularlly focus on the amount of ants working indidually yet simultaneously, while trying to keep the nature of their interaction as accurate as possible. However I feel I should mention here that when I use the terms realistic and accurate I will be using them to mean 'accurately conforming to list of given assumptions', as in this paper(<?word) the finer details of how an ant or ant colony functions is not the point. I will however do some breif reading of secondary sources to produce a list of assumtions which will define the realistic, to a given definition of realistic, behaviour of an ant and ant colony which hopefully should be agreeable to by the average non-entomologist. After this I will start analyzing and discussing various approaches to tackling the problem I have posed firstly abstractly then programatically looking at various programming paradigms. I will then research further the methods mentioned in this disscussion that seem most likely to provide a solution and present various ways of implementing the solution using the techniques I will discover during my research. 
+
+\section{Ant Colony Generalizations}
+I will now list as aforementioned a few generalizations or preconceptions about ants and their colonies, that I will assume as factual for the purposes of this project. All ants need both food and water to survive, according to the Center for Insect Science Education Outreach at the University of Arizona ants can go for quite some time without food but without water they will be dead within a day. For this reason water will be a stronger priority for all ants over food and ants within the simulation will die without water or food, I will determine the amount of time a satiated ant can survive for as three simulation days without food and six simulation hours without water. After reading an article on the BBC News website about sleeping patterns in ants I learnt that that queen ants live for years where as worker ants live for months because of this statement I'm giving queen ants within my simulation a lifespan of three to four simulation years and likewise worker ants will have a life span of three to four simulation months. The same article went on to talk about how ants sleep in short power naps lasting just over a minute two hundred and fifty times a day and the queen sleeps for longer periods of around six minutes nintey times a day, I also will reflect this in the context of my simulation. The concept of insects having different roles or jobs within a hive is explored in the work of Oster and Wilson (1978) (!cite) although I won't get into too much detail on this point I will outline different roles that ants within the simulation can take. Firstly there is a queen, in my simulation this will be dramatically simplified to one per colony, her job will to simply lay eggs to produce more workers.
+
+In my simulation I'll allow the queen to produce eggs at varying frequency depending on how much food and water is available to her and she will only produce while there is room in the nest. Her main priority will be ensuring the colony doesn't run out of workers. I will then subdivide the 'worker' class of ants into 4(<?right amount) seperate castes. Firstly I will create a builder caste of ant who's main priority is to build, maintain and repair the colony's nest. A builder ants work will never be done as even when the nest is in excellent condition (<?phrase) the ants will always strive to make the nest bigger so the queen can continue producing ants and for increased space for food storage. Builder caste ants will also be responsible for cleaning the nest. The second class of ants I will create will be be the gatherers(<?word - collectors,harvesters) this castes' number one priority is to go out to known sources of food and water and carry it back to the colony's nest for storage. Slightly different from this class is the scout whose main purpose is to explore new territory and communicate to other ants where new sources of food and water are aswell as building materials useful for the builder caste of ant. Finally I will outline the last caste as the soldier ants main job is to protect the the nest and provide security, it will do this by patrolling the perimiter of the nest, the perimiter of the ant colony's territory as defined by the scout caste, and other important areas to the colony such as the food store and the queen.
+
+Within my artifact I'll have to represent each of these castes by varying values of attributes assigned to each ant. I will go into further detail about the attributes I will use to represent ants within my system in further detail later. But I will also have to represent communication between the ants, to keep communication between ants to some level of realism I will allow each ant within the simulation to produce pheremones. Pheremones will vary in strength  All ants will have the capability to release a pheremone indicating danger. When ants die they will release a very strong pheremone signaling general danger, but scout ants will be able to release strong pheremones indicating whether this is a danger all ants should flee from or if soldier ants should move in and either protect the nest. Situations will often occur where scout ants will call in the aid of soldier ants to attack a larger insect and once this attack is successful the target is now a food source. Scout ants will notify gatherer ants of this by again releasing a pheremone which indicates a food source has been discovered while returning to the nest. I will also allow builder ants to communicate with a similar system detecting scout pheremones indicating building resources or an area of damaged nest and react accordingly. Scout ants will be able to release most pheremones that all castes of ant are capable of producing while other castes range of pheremones will be more specialized I will layout details of my plan in a table below (!!!Table fig.1)
+
+\section{Problem Area}
+When the concept of the simulation is broken down it is immediately evident that a crutial element of the system to be produced is the ant. As mentioned before in a real world colony amount of ants in a colony can be very large, within my simulation however in order to produce a working final product I will take an incremental approach to solving the problem loooking at first representing one ant then two ants and look at getting collision detection working between them before increasing the complexity of an ant and increasing the amount of ants in the system. Even though starting small will allow me to take a numerous amount of approaches to the problem I will be aiming to take an approach that scales well, so that when I add more ants to the simulation the performance doesn't drop to a point where it is no longer accurate and realistic to a given definition of realism. This is important to note as when I look for a programming approach it would be sensible choose one that inherently produces solutions capable of scaling well so that performance doesn't dip as the demand on the system is increased. With this in mind a notable observation that can be made of  my problem is it is steeped in concurrency. Concurrency is a property attributted to a system which performs more than one "possibly unrelated tasks at the same time." (O'sullivan 2008) When holding this definition against my problem it is clear that my problem is a concurrent one.
+
+\section {Research Aims}
+Throughout the following section I will provide a breakdow
+
+\section {Overall Project Aims and Objectives} % move this section up maybe?
+(!TODO)
+\subsection{Technical Aims}
+(!TODO)
+\subsection{Qualititive Aims}
+(!TODO)
+\subsection{Learning Outcomes}
+(!TODO)
+	
+\section{Why Parallel}
+
+\section {Brief History of Parallelism}
+
+\section What problems can be parallelized
+Flynn MIMD models Kuck
+and its limits Amdahl's
+
+
+(!TODO)A description of what you are planning to investigate, analyse, develop etc.
+
+(!TODO)A specification of the stages or deliverables this can be broken down into
+
+(!TODO)a schedule of activities.
+
+(!TODO)A risk analysis of potential problems.
+
+(!TODO)Ethics
+
+(!TODO)A report on your background research with an annotated bibliography.
+
+
+-Aims and objs
+Discus my problem area, identify property of concurrency and parallelism.
+
+
+
+
+****************************************************Research Findings
+-Use of Programming Language
+-Key Programming Concepts
+-Graphical Style \& Asset Creation
+-Use of Realistic Physics in Games
+-Creating Innovative Gameplay
+-MultiPlatform Gaming
+-Research Summary
+
+Talk about the difference between concurrency and parallelism.
+Different areas of parallel computing
+-Cloud computing,High-performance computing,Cluster computing,Distributed computing,Grid computing
+Levels of parralelism
+-Bit,Instruction,Data,Task
+?Threads
+What is Superthreading,Hyperthreading?relavant.
+Theory behind Concurrency and parallelism
+-Amdahl's law,Gustafson's law,Cost efficiency,Karp-Flatt metric,slowdown,speedup
+Elements of concurrency
+-Process,Thread,Fiber,PRAM,Instruction window
+Programming	
+!!!Models(Implicit parallelism,Explicit parallelism,Concurrency)!!!Flynn's taxonomy (SISD - SIMD - MISD - MIMD (SPMD))!!! Thread(computer science)  � Non-blocking algorithm.
+Different API's and Hardware - Methods to implement?
+Hardware
+Multiprocessing(Symmetric - Asymmetric),Memory(NUMA-COMA-distributed-shared-distributed shared),SimultaneousMultiThreading(SMT)
+MassivelyParralelProcessing,Superscalar,Vector processor,Supercomputer,Beowulf.
+API's
+Ateji PX,POSIX Threads,OpenMP,OpenHMPP,ParralelVirtualMachine,MessagePassingInterface,UnifiedParallelC,Intel Threading Building Blocks,Boost.Thread,Global Arrays,Charm++,Cilk,Co-array Fortran,OpenCL,CUDA,Dryad,DryadLINQ 
+Coordination	
+-Multiprocessing � Multithreading (computer architecture) � Memory coherency � Cache coherency � Cache invalidation � Barrier � Synchronization � Application checkpointing
+Problems
+-Embarrassingly parallel,Grand Challenge,Software lockout!!!Scalability!!!Race conditions,Deadlock,Livelock,Deterministic algorithm,Parallel slowdown
+!!!!!!!!!!Hybrid parallel continuous collision detection
+
+
+
+main aims of project
+about the application
+back knowledge
+explanations on implentation
+programs I'm going to use
+Code
+Realisim
+More about the application.
+
+
+Research
+is a substantial document
+annotated bibliography
+100 hours before Planning Research report.
+Continue throughout sd.
+
+Resources
+Books, journals, proceedings, white papers
+WWW/Databases (Student Central/library)
+Personal approaches interviews
+/
+What is research
+Systematic investigation - research method.
+Establish facts and reach new conclusions.
+Discover new facts and collate old facts
+
+HopCRoFT Mutwani - Introduction to automata theory! - BIG O-Notation...
+Mutwani----Google--- Sergey Brin Larry Page.
+
+%\begin{figure}
+%  \begin{center}
+%   \includegraphics{images/foo}
+%   \caption{My caption}
+%   \label{fig:foo}
+%  \end{center}
+%\end{figure}
+
+%\begin{lstlisting}
+%\input{src/fib.hs}
+%\end{lstlisting}
+
+\bibliographystyle{plain}
+\bibliography{Biblio}
+\end{document}

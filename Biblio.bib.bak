@@ -122,7 +122,7 @@
   url = {http://www.worldcat.org/isbn/0321462254}
 }
 
-@ARTICLE{Hughes1984,
+@ARTICLE{Hughes84whyfunctional,
   author = {John Hughes},
   title = {Why Functional Programming Matters},
   journal = {The Computer Journal},

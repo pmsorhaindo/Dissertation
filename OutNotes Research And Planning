@@ -1,0 +1,61 @@
+RNP Notes and Dreams
+
+main aims of project
+about the application
+back knowledge
+explanations on implentation
+programs I'm going to use
+Code
+Realisim
+More about the application.
+
+
+Research
+is a substantial document
+annotated bibliography
+100 hours before Planning Research report.
+Continue throughout sd.
+
+Resources
+Books, journals, proceedings, white papers
+WWW/Databases (Student Central/library)
+What is research
+Systematic investigation - research method.
+Establish facts and reach new conclusions.
+Discover new facts and collate old facts
+
+HopCRoFT Mutwani - Introduction to automata theory! - BIG O-Notation...
+Mutwani----Google--- Sergey Brin Larry Page.
+
+
+%Talk about the difference between concurrency and parallelism.
+%Different areas of parallel computing
+%-Cloud computing,High-performance computing,Cluster computing,Distributed computing,Grid computing
+
+%?Threads
+%What is Superthreading,Hyperthreading?relavant?
+
+%Elements of concurrency
+%-Process,Thread,Fiber,PRAM,Instruction window
+
+%Programming	
+%!Models(Implicit parallelism,Explicit parallelism,Concurrency)!!!Flynn's taxonomy (SISD - SIMD - MISD - MIMD (SPMD))!!! Thread(computer science)  · Non-blocking algorithm.
+
+%Different API's and Hardware - Methods to implement?
+%Hardware
+%Multiprocessing(Symmetric - Asymmetric), Memory(NUMA-COMA-distributed-shared-distributed shared), SimultaneousMultiThreading(SMT)
+%MassivelyParralelProcessing, Superscalar,Vector processor, Supercomputer,Beowulf.
+
+%API's
+%Ateji PX, POSIX Threads,OpenMP, OpenHMPP, ParralelVirtualMachine, MessagePassingInterface, UnifiedParallelC, Intel Threading Building Blocks, Boost.Thread, Global Arrays, Charm++, Cilk, Co-array Fortran, OpenCL, CUDA, Dryad, DryadLINQ 
+
+%Coordination	
+%-Multiprocessing · Multithreading (computer architecture) · Memory coherency · Cache coherency · Cache invalidation · Barrier · Synchronization · Application checkpointing
+
+%Problems
+%-Embarrassingly parallel,Grand Challenge,Software lockout!!!Scalability!!!Race conditions, Deadlock, Livelock, Deterministic algorithm, Parallel slowdown
+
+%A second property is that the memory is a single memory, sequentially addressed. A third, which is really a consequence of the previous property, is that the memory is one-dimensional. Again, these are in conflict with our programming languages. Most of the resulting program, therefore, is generated to provide for the mapping of multidimensional data onto the one dimensioned memory and to contend with the placement of all of the data into the same memory.
+%Finally, the fourth property is that the meaning of the data is not stored with it. In other words, it is not possible to tell by looking at a set of bits whether that set of bits represents an integer, a floating point number or a character string. In a higher level language, we associate such a meaning with the data, and expect a generic operation to take on.
+%A third proposal aims at replacing the notion of defining computation in terms of a sequence of discrete operations [Sharp 1985]. This model, deeply rooted in the von Neumann tradition, sees a program in terms of an orderly execution of instructions as set forth by the program. The programmer defines the order in which operations will take place, and the program counter follows this order as the control executes the instructions. This "control flow" approach would be replaced by a "data flow" model in which the operations are executed in an order resulting only from the interdependencies of the data. This is a newer idea, dating only from the early 1970s.
+%Data movement in nearly all modern imperative languages is based on a single primitive: traditional assignment. (With traditional assignment, data are moved between variables by copying.) Unfortunately, traditional assignment poses many known software engineering drawbacks with respect to efﬁciency for value types, and with respect to modular reasoning for reference types. Moreover, its entrenched legacy has stiﬂed serious regard of potentially superior data-movement primitives. Exploration of the complete design space for data-movement primitives supports the following conclusions: (1) traditional assignment is fundamentally ﬂawed, and (2) any other data-movement primitive would be better. PIKE
