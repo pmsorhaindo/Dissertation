@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{Amdahl1967}
+Gene~M. Amdahl?
+\newblock Validity of the single processor approach to achieving large scale
+  computing capabilities.
+\newblock {\em AFIPS Spring joint Computer Conference}, 1967.
+
+\bibitem{Backus1978}
+John Backus.
+\newblock Can programming be liberated from the von neumann style?: a
+  functional style and its algebra of programs.
+\newblock {\em Commun. ACM}, 21:613--641, August 1978.
+
+\bibitem{Hughes1984}
+John Hughes.
+\newblock Why functional programming matters.
+\newblock {\em The Computer Journal}, 32:98--107, 1984.
+
+\bibitem{OSullivan2008}
+Bryan O'Sullivan, John Goerzen, and Don Stewart.
+\newblock {\em {Real World Haskell}}.
+\newblock O'Reilly Media, Inc., 1 edition, December 2008.
+
+\bibitem{Curriculum2008}
+Andrew~McGettrick Renée~McCauley.
+\newblock Computer science curriculum 2008: An interim revision of cs
+  2001report from the interim review task force, 2008?
+
+\bibitem{Skiena2010}
+Steven~S. Skiena.
+\newblock {\em The Algorithm Design Manual}.
+\newblock Springer, second edition edition, 2010.
+
+\bibitem{Taivalsaari1993}
+Antero Taivalsaari.
+\newblock On the notion of object.
+\newblock {\em Journal of Systems and Software}, 21(1):3--16, 1993.
+
+\bibitem{Vujosevic2008}
+M~Vujošević-Janičić and D~Tošić.
+\newblock The role of programming paradigms in the first programming courses.
+\newblock {\em The Teaching of Mathematics}, XI(2):63–83, 2008.
+
+\end{thebibliography}
