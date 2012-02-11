@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: Research and Planning.aux
+The style file: plain.bst
+Database file #1: Biblio.bib
+Warning--entry type for "Curriculum2008" isn't style-file defined
+--line 184 of file Biblio.bib
+You've used 6 entries,
+            2118 wiz_defined-function locations,
+            543 strings with 5003 characters,
+and the built_in function-call counts, 1532 in all, are:
+= -- 150
+> -- 48
+< -- 0
++ -- 22
+- -- 14
+* -- 91
+:= -- 268
+add.period$ -- 17
+call.type$ -- 6
+change.case$ -- 25
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 62
+empty$ -- 139
+format.name$ -- 14
+if$ -- 314
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 6
+newline$ -- 32
+num.names$ -- 12
+pop$ -- 27
+preamble$ -- 1
+purify$ -- 19
+quote$ -- 0
+skip$ -- 43
+stack$ -- 0
+substring$ -- 94
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 22
+warning$ -- 0
+while$ -- 17
+width$ -- 7
+write$ -- 64
+(There was 1 warning)

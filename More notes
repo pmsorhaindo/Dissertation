@@ -1,0 +1,7 @@
+Perhaps the simplest operation, the map (or apply) operation operates just like a mapping function in Lisp. Given a stream of data elements and a function, map will apply the function to every element in the stream. A simple example of the map operator is applying scale and bias to a set of input data for display in a color buffer.
+
+The GPU implementation of map is straightforward. Since map is also the most fundamental operation to GPGPU applications, we will describe its GPU implementation in detail. In Section 2.3, we saw how to use the GPU’s fragment processor as the computation engine for GPGPU. These five steps are the essence of the map implementation on the GPU.
+
+First, the programmer writes a function that gets applied to every element as a fragment program, and stores the stream of data elements in texture memory. The programmer then invokes the fragment program by rendering geometry that causes the rasterizer to generate a fragment for every pixel
+location in the specified geometry. The fragments are processed by the fragment processors, which apply the program to the input elements. The result of the fragment program execution is the result of the map operation.
+

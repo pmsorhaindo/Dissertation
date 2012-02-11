@@ -1,0 +1,86 @@
+Planning and Research Report
+
+**the aims and objectives of your project
+
+The process of settling on a topic for my project took quite some time I initially wanted to produce something which was more in the Natural Language Programming field. With the initial aim to implement an intelligent agent that would intelligently parse text recognizing relationships between pronouns and the nouns they actually relate to(?word) and store store everything in a database that it parsed so that it could analize the data statistically and self optimize the parsing rules I initially gave it in order to parse more efficiently and accurately. Furthermore I wanted to extend that idea further and include text generation functionality to the proposed project and allow it to communicate with a user(<?word) via a keyboaard and screen so it would effectively become a chatbot which "learnt" from its mistakes. After further research into the NLP field I realized how ambitious these plans were and that just the subject of data mining descriptive text(<?words) in isolation is a broad field. (... still I was interested in it and talked about producing a small murder mystery game which could be completed by the player through interacting with the various Non-player characters within the game, Natural language Processors ...)
+I also interested exploring the field of AI in particular genetic algorithms. The main concept of the idea was to recreate a race track and racing car and implement an intelligent agent with a limited view of the track such as a human would have and after exposing functionality of the car such as a human would have give the agent the goal of completing the track in the least amount of time possible. It turned out I didn't go with this idea because it would have been an incredible amount of work to develop the track and car and to accurately simulate all the physics involved that it was possible that the AI element wouldn't get time required to produce a finished artifact.(?word)
+
+After reading around the field of AI I came across the topic of swarm intelligence, which was first used in reference to robots. The definition given in the article by Beni, G. and Wang, J. (1989) "systems of non-intelligent robots exhibiting collectively intelligent behaviour evident in the ability to unpredictably produce ‘specific’ ([i.e.] not in a statistical sense) ordered patterns of matter in the external environment"
+
+History of Parallelism
+
+What problems can be parallelized
+
+
+**a description of what you are planning to investigate, analyse, develop etc.
+
+**a specification of the stages or deliverables this can be broken down into
+
+**a schedule of activities.
+
+**a risk analysis of potential problems.
+
+**ethics
+
+**a report on your background research with an annotated bibliography.
+
+-Aims and objs
+Discus my problem area, identify property of concurrency and parallelism.
+Talk about the difference between concurrency and parallelism.
+Different areas of parallel computing
+-Cloud computing,High-performance computing,Cluster computing,Distributed computing,Grid computing
+Levels of parralelism
+-Bit,Instruction,Data,Task
+?Threads
+What is Superthreading,Hyperthreading?relavant.
+Theory behind Concurrency and parallelism
+-Amdahl's law,Gustafson's law,Cost efficiency,Karp–Flatt metric,slowdown,speedup
+Elements of concurrency
+-Process,Thread,Fiber,PRAM,Instruction window
+Programming	
+!!!Models(Implicit parallelism,Explicit parallelism,Concurrency)!!!Flynn's taxonomy (SISD • SIMD • MISD • MIMD (SPMD))!!! Thread(computer science)  · Non-blocking algorithm.
+Different API's and Hardware - Methods to implement?
+Hardware
+Multiprocessing(Symmetric - Asymmetric),Memory(NUMA-COMA-distributed-shared-distributed shared),SimultaneousMultiThreading(SMT)
+MassivelyParralelProcessing,Superscalar,Vector processor,Supercomputer,Beowulf.
+API's
+Ateji PX,POSIX Threads,OpenMP,OpenHMPP,ParralelVirtualMachine,MessagePassingInterface,UnifiedParallelC,Intel Threading Building Blocks,Boost.Thread,Global Arrays,Charm++,Cilk,Co-array Fortran,OpenCL,CUDA,Dryad,DryadLINQ 
+Coordination	
+-Multiprocessing · Multithreading (computer architecture) · Memory coherency · Cache coherency · Cache invalidation · Barrier · Synchronization · Application checkpointing
+Problems
+-Embarrassingly parallel,Grand Challenge,Software lockout!!!Scalability!!!Race conditions,Deadlock,Livelock,Deterministic algorithm,Parallel slowdown
+
+AND CONCURRENCY!?!
+
+main aims of project
+about the application
+back knowledge
+explanations on implentation
+programs I'm going to use
+Code
+Realisim
+More about the application.
+1.5k words
+
+Planning and Investigating
+1.5k words
+
+
+Research
+is a substantial document
+annotated bibliography
+100 hours befoer Planning Research report.
+Continue throughout project.
+
+Resources
+Books, journals, proceedings, white papers
+WWW/Databases (Student Central/library)
+Personal approaches interviews
+/
+What is research
+Systematic investigation - research method.
+Establish facts and reach new conclusions.
+Discover new facts and collate old facts
+
+HopCRoFT Mutwani - Introduction to automata theory! - BIG O-Notation...
+Mutwani----Google--- Sergey Brin Larry Page.

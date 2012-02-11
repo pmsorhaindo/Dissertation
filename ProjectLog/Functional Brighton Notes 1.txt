@@ -1,0 +1,88 @@
+pResearch and Planning Report
+Aims and objectives
+Breakdown of deliverable.
+
+Talk with Aidan, mainly concurrent problem, a paragraph or so setting up the context of the problem, talk about my ants, then straight into the technical arena. Look at SIMD and MIMD,
+
+FUNCTIONAL BRIGHTON!!
+
+Purely functional languages give you advatages
+
+You never have to lock
+share stuctures
+you can make things lazy
+ignore time and sequences 
+
+What is a persistant data structure. - 
+-immutable, 
+
+
+Purely Functional Data Structures
+Chris Okasaki (also wrote a thesis)
+
+Erlang demonstration of tuples
+Erlang sends lists everywhere.
+Pattern matching,
+Actors die and send messages to other actors connect that they've died to other actors/processes connected to them. If they don't handle it they die till a process/actor restarts the process.
+
+Zippers in Haskell
+When you have  a lot of updates near a certain data structure, Zippers can provide a cursor position. allows you to edit deep down in a tree.
+
+Demo a zipper on binary trees.
+
+you have a focus point.
+a version of the data structre with a hole in it.(recursively defined data structures can go in the hole
+TreeContext everything else Tree records the sub tree beneath you.
+for example in a tree with two branches
+and too leaves for each branch
+the Tree would contain everything beneath the point of focus.
+The tree contexct would vcontain the paths not taken.
+
+making modifications at the point of focus is O of 1
+and make modifications else where is O of the depth of the trees
+Using algerbra on types.
+Gerard Huet (Functional Pearl, The zipper)
+
+Quad trees
+Concurrent KD trees...
+
+Have a process telling the 
+
+Parallel sodoku puzzels.
+Recurssive backtrackeing..
+-Depth first search (DFS) - using the values  1-9
+
+Immutable collections
+Laziness
+High order functions
+Restule is less code 40 LOC Vs 600 lines closjure vs C#
+-Closjure is a modern version of lisp.
+
+Agents in closjure...
+Agents have a state you  can send a function to them and they'll change state in a seperate thread.
+
+parralel maps using sudoku boards (not lazy version.
+(in closjure, an AGENT is DATA you send FUNCTIONS TOO!)
+
+demo in scala 2.9 to show th difference in speed.
+
+clojures pmap works better with equal load function
+not  a ptoblem for non-lazy parrallel maps
+fork/join enabled map (pvmap/pvreduce).
+http://blip.tv/clojure/david-liebke-from-concurrency-to-parralelsim-4663526
+github maruks
+alwasys profile your code!
+
+
+github.com/almost - bloom filters
+Sounds a bit dodgey - sometimes  tells you  it isn't when it is. but will never tell you it is when it isn't.
+
+Scala list is polymorphic
+all values in list must have the same type.
+List with (1,"baz,1.0) ->type any
+tuples preserve type
+with H lists you can create a list with types preserved.
+Tricky things come when you try and index into the array you have to encode the type of each index to get the right one.
+Can be used in Haskell
+
+
