@@ -1,0 +1,1 @@
+I plan to simulate a swarm of ants and explore AI techniques to affect their behaviour. I will look at concurrent and sequential methods of approaching  this problem implementing solutions in both functional and imperative paradigms. 

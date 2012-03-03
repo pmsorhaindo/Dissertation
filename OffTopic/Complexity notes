@@ -1,0 +1,14 @@
+P - Poly nomial time
+NP - hard
+Exponential time
+
+What do engineers do,
+Input: Specifications x
+We want a design - the nice picture
+Once we have y  we can check that whether y is a good specification (satisfys x)
+c of xy is true
+Obviously building can't go on too long so the design can't be too complex.
+length of y should be limited by some polynomial of the length of x.
+
+Once we have an answer checking is easy. what is difficult is coming up with the answer.
+

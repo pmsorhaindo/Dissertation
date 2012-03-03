@@ -1,0 +1,46 @@
+Dissertation Notes
+
+GRAPHS AND TABLES Andrew is a graphs and tables guy (for analysis (compare speeds of Haskell to Java))
+
+Why is my problem a parallel Problem.
+
+Data structures - Why I chose graphs.
+- The list approach (Duplication of Data)
+
+Types of parallelism - Divide and conquor et. al.
+My approach and why I am choosing the one I am.
+
+Reduction
+Several movements/Decions being made simultaneously. All decisions must be reduced to a viewable world state,
+Map Reduce
+Processing sections of the world can be mapped out.
+Large scale not neccesarily a few processes, this could be expanded to model 1000,000's of ants. If there are two many divisions for one machine, distrubtion could be not only useful but necessary.
+
+Discussion of my problem (Ant Colony) and other elements involved in creating the artefact.
+
+What behaviour am I aiming for my resulting artefact to exhibit.
+Ants seek out food randomly, when food is found Ants return to the colony leaving a trail of pheremone. Other Ants can then pick up on this trail to more efficiently find food.
+
+
+Why things are hard (Never programmed in Haskell before, Different Paradigm)
+
+Introduction (background and context)
+Requirements (Different ways of doing parallelism (previous work)) constraints your setting on the project
+Design
+Implementation
+Testing (algebraic testing)
+How I've implemented quickcheck
+Threadscope
+
+Conclusion
+Future work.
+
+
+
+
+Haskell allows implicit parallelism instead of explicitly programming threads.
+-Functional Programming makes reasoning about parallelism easier, but why?
+-Determinism/Non-Determinism, Haskell can achieve Deterministic Parallelism
+
+One approach.
+Actors Erlang Scala - http://ruben.savanne.be/articles/concurrency-in-erlang-scala
