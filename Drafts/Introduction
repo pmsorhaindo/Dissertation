@@ -1,3 +1,16 @@
-Background and Research
+Acknowledgements
 
- (background and context)
+
+Background and Research
+(background and context)
+
+Processor clockspeeds aren't increasing at the rate they used to, with the [cite!]. However Moore's law is still in tact as the processors are consisting of more cores. In order to harness the full potential of these multicore processors it is necessary to run computations on all the processors available cores. While the splitting up of work between a processor's cores might be a trivial process in theory. In practice it opens up several new issues which a programmer must address; into how many pieces should the computation be split, will the smaller computations need to communicate their results to other computations, is it necessary for some computations to finish executing before others begin? These are all questions which face a programmer when designing an application to make use of a multicore processor. 
+
+Simulation is a genre of game, a life simulation game could revolve around a particular character and its relationships with other things within the simulation, or it could be a simulation of an ecosystem (Spore). Biological simulations may allow the player to experiment with genetics, survival or ecosystems, this can often be for educational purposes. Outside of games, biological simulations can be used for more than education but are also made use of in research. Unlike other genres of games, simulation games do not usually have a set goals that allow a player to win the game. Rather they focus on the experience of control, wheter it be the lives of people, when micromanaging a family (The most notable example of this is Will Wright's The Sims.) to overseeing the rise of a civilization or success of a business.
+
+Functional programming as opposed to other paradigms
+A functional language is language  in  which  computation  is  carried  out  entirely  through  the evaluation  of  expressions. [Evolution of Functional hudak]
+
+Parallelism as opposed to concurrency.
+
+In order to explore the effects of parallelism this [project] will take on the problem of simulating an Ant colony. Ant colonies are a large problem, in perspective, often containing tens of thousands of ants within it's [ecosystem]. Each ant is a seperate entity acting of its own free will, yet the colony works together towards a common purpose. Due to the fact each ant is it's own entity it is capabable of making decisions at exactly the same time as other ants. To model this effectively would require the ant's decision making to happen in parallel.

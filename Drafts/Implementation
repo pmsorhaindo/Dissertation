@@ -1,0 +1,110 @@
+Implementation
+
+Unlike imperative languages such as Java and C++ haskell does not use classes to create objects and then send messages between objects. Rather it uses Declarative and Data-driven methods.
+
+Modelling Programs in Haskell
+
+good broad question ;-)  You could try looking at Real World Haskell, which has several examples of that.
+
+ah, good question.  Perhaps I misinterpreted "modelling"
+representing source code? code flow? data flow? generating UML diagrams? evaluating them? all of the above? ;)
+-yes like UML -- who uses UML?
+
+<_Mikey> a lot of what I'm reading is telling me use Data types in Haskell and then quick checks
+ mauke, imperative people?
+<mauke> no
+<_Mikey> but I'm wondering if I can find that written down in a book somewhere, 
+<efie> UML is not limited to OOP?
+<Philippa> poor bastards whose bosses want them to. Also, a lot of unis still teach it
+ efie: it's founded in OOA/D, though
+ obviously you can adapt a long way
+<Botje> _Mikey: your data structures are typically determined by the operations you want to do on them, so what kind of UML model do you want to make?
+<Philippa> _Mikey: mostly we do old-school structured programming stuff, except we've got more ability to abstract
+<_Mikey> Botje: I'm aiming to model the code flow of my application.
+<Philippa> we also use a lot of EDSLs though, which can be good for modelling
+<Botje> _Mikey: on the function/method level? or finer than that?
+<_Mikey> Philippa, ok, do you mean using Type signatures to lay out a structure?
+<Philippa> and what do you want to be able to do with your model? Just introspect it as source, or something more involved?
+<_Mikey> Botje, on the function level would be fine. Philippa, just for documentation of my project really.
+
+<Philippa> _Mikey: really I mean a collection of techniques that were around prior to the big 90s OO craze. Modular design, various flow diagrams etc etc (which will be a partial model of code flow as well, just one with no notion of 'time')
+
+<Philippa> using type signatures and stub functions can also be useful if you're after that kind of model of course
+<_Mikey> Yea, I've found that really useful during development
+
+<_Mikey> Philippa, but I was just wondering if there is a standard 'Haskell' way of doing things
+<Philippa> there's no single standard really, Haskell's community has a TIMTOWTDI approach to things
+
+
+<efie> philippa: I'm uncertain when to make own monad instances / how to really do it (though i read some examples) and I'd like to practise this
+
+<Philippa> did I miss anything?
+<Philippa> efie: fair enough. I don't have a good set of exercises to hand. Personally I recommend building a new instance the moment you want something that's not covered by existing instances but should make an okay "haskell-like language" (definition to be supplied) and covers how you want to express your code. Mileage varies on that. I also recommend building instances from existing instances where
+ possible! Wrapping existing monads or transformer stacks is pretty effective
+<Philippa> writing an interpreter for a language and bolting on features is a good way to explore the monad transformers from the libs, at least
+ feel free to skip writing a parser in favour of just building AST nodes in Haskell!
+
+<Philippa> if you write yourself a typechecker that does inference for the simply-typed lambda calculus or Hindley-Milner you'll quickly find yourself wanting a monad to pipe around your typing problem too
+<Philippa> transformers're actually easier than writing your own instance from scratch
+<Philippa> Botje: or at least, not yet I assume
+
+
+<_Mikey> is there a specific chapter in RWH which focuses on the design of programs? other than the JSON library chapter
+<Philippa> _Mikey: aside from having to build 'dataflow piping' of various sorts, you can treat it just like old-school procedural programming and it'll work out
+<Philippa> I guess I count as an old fart now if I can say something like that and have to realise there's plenty of programmers out there who never met that stuff, though :-)
+<_Mikey> hehe
+
+<Philippa> efie: does it make sense when I say "write an interpreter"? (to implement a new monad)
+<hiptobecubic> Philippa, it doesn't really make sense to me.
+<Philippa> hiptobecubic: okay, guess I get to write the identity monad as a deep embedding yet again :-)
+ data Identity a where Return :: a -> Identity a; Bind :: Identity a -> (a -> Identity b) -> Identity b
+<hiptobecubic> Philippa, i'm still learning about monads and categories. Had a nice long talk last night with DrSyzygy about it :)
+
+<_Mikey> Jafet, I'm looking for something which says "It's a good Idea to model your haskell programs like this...."
+ It doesn't really do that.
+
+<Philippa> there's the syntax for the lang corresponding to the identity monad
+<Philippa> _Mikey: one good way is as lots of programs in DSLs, interacting via thin layers of glue code. Think *nix shell scripting, in Haskell
+<Axman6> _Mikey: many people tend to start with the data types they're going to need. then implement the functions for working with them, then writing modules that bring it all together. how you do that will probably be different for each project however
+
+<Philippa> hiptobecubic: when you come to write your class instance, return = Return, (>>=) = Bind and you have to hide Identity's constructors to avoid breaching the monad laws. Need to see the interpreter as well?
+<Jafet> I've seen many different ways to model Haskell programs
+<Jafet> There is nothing you can look at that will instantly convey how to design software
+<Philippa> Jafet: yeah, there's a lot and most have their uses. That's one reason there aren't many "just do this" recommendations
+<osfameron> probably most of the advice in, say, Code Complete, applies as much to FP as to imperative/OO programming
+<osfameron> it's all about how you decompose the problem
+<Philippa> having pervasive, cheap parametric polymorphism does change things a little though
+<_Mikey> Philippa, I like the DSL idea,
+
+<Philippa> but I think the biggest piece of advice I'd offer is to try to write code that's high level in the Perlis sense  (plus the code needed to enable that)
+
+<Philippa> parametric polymorphism's also remarkably effective at helping strip out the irrelevant
+
+<merijn> Data Parallel Haskell(screencast)
+<osfameron> Philippa: what do you mean about "pervasive, cheap parametric polymorphism" changing things?
+<Philippa> osfameron: the stuff you get from having an H-M-derived type system rather than, say, STLC
+<Philippa> we don't even think about having it most of the time, because the system just figures out where we've got it
+ but once we know it's there, we can use it to make sure we don't overconstrain ourselves
+
+<osfameron> Philippa: sure.  but does that change the *way* you build programs?
+<merijn> osfameron: Compared to say Java/C? Sure.
+
+<merijn> osfameron: Compared to say Java/C? Sure.
+<Philippa> massively, unless your starting point is dynamic typing where you can pretend you've got the same and hope nobody breaks it
+<merijn> Much easier to define nice generic combinators to combine your code, which you cannot do in C
+<osfameron> Philippa: ah, gotcha.  cos I mostly write in dynamic typed languages, it's very much the same process
+<_Mikey> thanks merijn!
+<osfameron> again though, I'm not sure it's that different in process from writing Java/C in terms of design of code
+<osfameron> it's just faster
+
+<Philippa> hah. No, people do dirty shit in langs without parametric polymorphism, or they don't push it as far if it's not cheap and pervasive
+<merijn> timthelion: So my blind guess is that gtk2hs just doesn't work with 7.4 yet
+
+<Philippa> there are subcultures around C that act like they've got it to some extent, but you don't see the same kind of stuff that you do in Haskell there
+<merijn> I could be massively wrong, though
+ Philippa: You just hack it in with CPP :D
+<timthelion> merijn: I didn't realise that after so many decades of development ghc was still under "rapid development"
+<_Mikey> whats CPP?
+<merijn> _Mikey: C Pre-Processor
+<_Mikey> ahh ok
+<merijn> i.e. C macro's

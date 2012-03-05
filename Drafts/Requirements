@@ -1,0 +1,7 @@
+Requirements
+Discussion of my problem (Ant Colony) and other elements involved in creating the artifact.
+
+What behaviour is the project's resulting artifact aiming to exhibit.
+
+Ants seek out food randomly, when food is found Ants return to the colony leaving a trail of pheremone. Other ants can then pick up on this trail to more efficiently find food.
+
