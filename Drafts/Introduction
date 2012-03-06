@@ -1,8 +1,9 @@
 Acknowledgements
 
-
 Background and Research
 (background and context)
+
+Knowing that
 
 Processor clockspeeds aren't increasing at the rate they used to, with the [cite!]. However Moore's law is still in tact as the processors are consisting of more cores. In order to harness the full potential of these multicore processors it is necessary to run computations on all the processors available cores. While the splitting up of work between a processor's cores might be a trivial process in theory. In practice it opens up several new issues which a programmer must address; into how many pieces should the computation be split, will the smaller computations need to communicate their results to other computations, is it necessary for some computations to finish executing before others begin? These are all questions which face a programmer when designing an application to make use of a multicore processor. 
 
@@ -11,6 +12,54 @@ Simulation is a genre of game, a life simulation game could revolve around a par
 Functional programming as opposed to other paradigms
 A functional language is language  in  which  computation  is  carried  out  entirely  through  the evaluation  of  expressions. [Evolution of Functional hudak]
 
-Parallelism as opposed to concurrency.
+Parallelism as opposed to concurrency, 
+
+In order to make programs run faster on parallel hardware, it is not neccessary to have concurrency. distinction between concurrency and parallelism.
+
+I should stress that these ideas are not mine, and are by no means new, but I think it’s important that this issue is well understood if we’re to find a way to enable everyday programmers to use multicore CPUs.
+
+I was moved to write about this after reading Tim Bray’s articles on Concur.next: while I agree with a lot of what’s said there, particularly statements like "Exposing real pre-emptive threading with shared mutable data structures to application programmers is wrong"
+
+Parallelism and concurrency are still being conflated.
+
+Concurrency is needed in languages, but the aim is to make programs run faster on a multicore, [Concurrency should be a last resort].
+
+Terminology.
+A concurrent program is one with multiple threads of control.  Each thread of control has effects on the world, and those threads are interleaved in some arbitrary way by the scheduler.
+We say that a concurrent programming language is non-deterministic, because the total effect of the program may depend on the particular interleaving at runtime.
+The programmer has the tricky task of controlling this non-determinism using synchronisation, to make sure that the program ends up doing what it was supposed to do regardless of the scheduling order.
+And that’s no mean feat, because there’s no reasonable way to test that you have covered all the cases.
+This is regardless of what synchronisation technology you’re using: yes, STM is better than locks, and message passing has its advantages, but All of these are just ways to communicate between threads in a non-deterministic language.
+A concurrent program needs to perform several possibly unrelated tasks at the same time. Consider the example of a game server: it is typically composed of dozens of components, each of which has complicated interactions with the outside world. One component might handle multi-user chat; several more will process the inputs of players, and feed state updates back to them; while another performs physics calculations. The correct operation of a concurrent program does not require multiple cores, though they may improve performance and responsiveness. (RWH)
+A parallel program, on the other hand, is one that merely runs on multiple processors, with the goal of hopefully running faster than it would on a single CPU.
+
+In contrast, a parallel program solves a single problem. Consider a financial model that attempts to predict the next minute of fluctuations in the price of a single stock. If we want to apply this model to every stock listed on an exchange, for example to estimate which ones we should buy and sell, we hope to get an answer more quickly if we run the model on five hundred cores than if we use just one. As this suggests, a parallel program does not usually depend on the presence of multiple cores to work correctly.
+Another useful distinction between concurrent and parallel programs lies in their interaction with the outside world. By definition, a concurrent program deals continuously with networking protocols, databases, and the like. A typical parallel program is likely to be more focused: it streams data in, crunches it for a while (with little further I/O), then streams data back out.
+
+Many traditional languages further blur the already indistinct boundary between concurrent and parallel programming, because they force programmers to use the same primitives to construct both kinds of program.
+In this chapter, we will concern ourselves with concurrent and parallel programs that operate within the boundaries of a single operating system process.
+
+
+So where did this dangerous assumption that Parallelism == Concurrency come from?  It’s a natural consequence of languages with side-effects: when your language has side-effects everywhere, then any time you try to do more than one thing at a time you essentially have non-determinism caused by the interleaving of the effects from each operation.  So in side-effecty languages, the only way to get parallelism is concurrency; it’s therefore not surprising that we often see the two conflated.
+
+However, in a side-effect-free language, you are free to run different parts of the program at the same time without observing any difference in the result.  This is one reason that our salvation lies in programming languages with controlled side-effects.  The way forward for those side-effecty languages is to start being more explicit about the effects, so that the effect-free parts can be identified and exploited.
+
+It pains me to see Haskell’s concurrency compared against the concurrency support in other languages, when the goal is simply to make use of multicore CPUs (Edit: Ted followed up with a clarification).   It’s missing the point: yes of course Haskell has the best concurrency support  , but for this problem domain it has something even better: deterministic parallelism.  In Haskell you can use multicore CPUs without getting your hands dirty with concurrency and non-determinism, without having to get the synchronisation right, and with a guarantee that the parallel program gives the same answer every time, just more quickly.
+
+There are two facets to Haskell’s determinstic parallelism support:
+par/pseq and Strategies. These give you a way to add parallelism to an existing program, usually without requiring much restructuring.  For instance, there’s a parallel version of ‘map’. Support for this kind of parallelism is maturing with the soon to be released GHC 6.12.1, where we made some significant performance improvements over previous versions.
+
+Nested Data Parallelism.  This is for taking advantage of parallelism in algorithms that are best expressed by composing operations on (possibly nested) arrays.  The compiler takes care of flattening the array structure, fusing array operations, and dividing the work amongst the available CPUs.  Data-Parallel Haskell will let us take advantage of GPUs and many-core machines for large-scale data-parallelism in the future.  Right now, DPH support in GHC is experimental, but work on it continues.
+
+That’s not to say that concurrency doesn’t have its place.  So when should you use concurrency?  Concurrency is most useful as a method for structuring a program that needs to communicate with multiple external clients simultaneously, or respond to multiple asynchronous inputs.  It’s perfect for a GUI that needs to respond to user input while talking to a database and updating the display at the same time, for a network application that talks to multiple clients simultaneously, or a program that communicates with multiple hardware devices, for example.  Concurrency lets you structure the program as if each individual communication is a sequential task, or a thread, and in these kinds of settings it’s often the ideal abstraction.  STM is vitally important for making this kind of programming more tractable.
+
+As luck would have it, we can run concurrent programs in parallel without changing their semantics.  However, concurrent programs are often not compute-bound, so there’s not a great deal to be gained by actually running them in parallel, except perhaps for lower latency.
+
+However, there is some overlap between concurrency and parallelism.
+Some algorithms use multiple threads for parallelism deliberately; for example, search-type problems in which multiple threads search branches of a problem space, where knowledge gained in one branch may be exploited in other concurrent searches.  SAT-solvers and game-playing algorithms are good examples.
+An open problem is how to incorporate this kind of non-deterministic parallelism in a safe way: in Haskell these algorithms would end up in the IO monad, despite the fact that the result could be deterministic.
+Still, I believe these kinds of problems are in the minority, and we can get a long way with purely deterministic parallelism.
+
+With GHC it is possible to mix parallelism and concurrency on multicore CPUs at will.
 
 In order to explore the effects of parallelism this [project] will take on the problem of simulating an Ant colony. Ant colonies are a large problem, in perspective, often containing tens of thousands of ants within it's [ecosystem]. Each ant is a seperate entity acting of its own free will, yet the colony works together towards a common purpose. Due to the fact each ant is it's own entity it is capabable of making decisions at exactly the same time as other ants. To model this effectively would require the ant's decision making to happen in parallel.

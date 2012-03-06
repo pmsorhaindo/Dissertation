@@ -1,1 +1,64 @@
 Design
+
+Types
+The types that will be involved in modeling the simulation of an Ant colony are as follows.
+
+Ant          :: Ant
+Pheremone    :: Double
+Food         :: Double
+Nest         :: Bool
+AntQuadrant  :: Graph -> Holds- Possible Ant
+PherQuadrant :: Graph -> Holds- Pheremone Level
+FoodQuadrant :: Graph -> Holds- Possible Food
+NestQuadrant :: Graph -> Holds- Possible NestArea
+AntWorld     :: Graph -> Holds- Many Ant Quadrants
+PherWorld    :: Graph -> Holds- Many PherQuadrants
+FoodWorld    :: Graph -> Holds- Many FoodQuadrants
+NestWorld    :: Graph -> Holds- Many NestQuadrants
+
+Key Functions
+The functions responsible for the flow of the program are
+
+stitchUpAntQuads - Sequentially processes pairs of edge-nodes on a Graph (to possibly move Ants between AntQuadrants).
+stitchUpPherQuads - Sequentially processes pairs of edge-nodes on a Graph (to manage the spread of Phermone between PherQuadrants).
+
+processAntQuadrant - Moves each Ant within a quadrant.
+processPherQuadrant - Evaporates the Pheremone 
+
+
+Main
+Given Starting parameters create a World.
+-Parameters
+Size of Quadrant :: Int
+Size of World :: Int
+Amount of Ants :: Int
+Amount of Food :: Int
+
+-Initialize random nest area proportional to the amount of Ants.
+-Randomly position Ants around the Nest Area
+-Randomly position Food (not In Food Area)
+-Initialize all PherQuadrants as 0 except for Food Quadrants which maintain 10.0
+
+Loop
+
+In parallel
+-stitchAntQuads
+-stitchPherQuads
+
+In parallel
+- processAntQuads
+- processPherQuads
+
+Display
+
+
+
+
+
+
+
+
+
+
+
+
