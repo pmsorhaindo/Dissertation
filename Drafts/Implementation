@@ -1,27 +1,3 @@
 Implementation
 
-Unlike imperative languages such as Java and C++ haskell does not use classes to create objects and then send messages between objects. Rather it uses Declarative and Data-driven methods.
-
-Modelling Programs in Haskell (Real World Haskell: JSON library chapter)
-
-There is no standard way to model programs in Haskell and many methods are used to carry an idea through from concept to code. Some programmers use modelling techniques similar to the Unified Modeling Language (UML) [Commonly used in object-orientated languages such as Java] while others use concept maps and data flow diagrams to provide a general picture of the design before they begin coding. However, because Haskell is a strongly and statically typed language it is common practise to start with the data types need to complete the task. Then implement the functions for working with the newly created data types. Finally culminating in writing modules that bring together all the functions in a structured way. The approach to modelling however, differs from project to project.
-
-Data types in Haskell and then quick checks [ Method::Type-> Type -> Type  - Method x y = undefined  - quickCheck]
--- reference
-
-UML is not limited to OOP. Even though it's founded in OOA/D it can be adapted a long way.Your data structures are typically determined by the operations you want to do on them, so it depends on the kind of UML model do you wish to make
-
-Parametric polymorphism's also remarkably effective at helping strip out the irrelevant
-
-Predicted code flow of the application
-On the function/method level.
-More detailed than that.
-
-
-Data flow
-
-Representing Source code
-
-
-
-
+This chapter will discuss what has been done so far in terms of implementation and the problems that appeared in the process.

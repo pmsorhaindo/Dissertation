@@ -2,17 +2,6 @@ Design
 
 Unlike imperative languages such as Java and C++ Haskell does not use classes to create objects and then send messages between objects. Rather it uses Declarative and Data-driven methods to process data.
 
-I disagree. Haskell doesn't do any of those; it's the programmer that does things using Haskell
-The important thing is using the right technique for the job
-
-But you wouldn't agree that Haskell makes it more natural to take a different approach to programming?
-
-I disagree, depends on your definition of “different”. Different coming from what? OOP? Yes. Other pure functional languages? Perhaps not
-
-I would agree with “Haskell makes it more natural for OOP programmers totake a different approach to programming”
- for a haskell programmer, java would be "more natural for taking a different approach to programming"
-
-
 Modelling Programs in Haskell (Real World Haskell: JSON library chapter)
 
 There is no standard way to model programs in Haskell and many methods are used to carry an idea through from concept to code. Some programmers use modelling techniques similar to the Unified Modeling Language (UML) [Commonly used in object-orientated languages such as Java] while others use concept maps and data flow diagrams to provide a general picture of the design before they begin coding. However, because Haskell is a strongly and statically typed language it is common practise to start with the data types need to complete the task. Then implement the functions for working with the newly created data types. Finally culminating in writing modules that bring together all the functions in a structured way. The approach to modelling however, differs from project to project.

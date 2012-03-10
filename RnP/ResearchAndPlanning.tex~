@@ -104,90 +104,6 @@ One advantages of programming in the Object Orientated paradigm %Disadvantages..
 \subsection{The Functional Paradigm}
 Object orientated programming has been described as ``the antithesis of functiontional programming'' \cite{Taivalsaari1993} From the two programming paradigms above it can be deduced that a good programming language is modular. But John Hughes claims that it is not enough for a language to just support modularity, it needs to go a step further and make modular programming easy. To do this a programming language needs to provide flexible functionality in order to bring modules together. In an an article on Functional Programming Hughes writes ``Functional programming languages provide two new kinds of glue - higher-order functions and lazy evaluation.''\cite{Hughes1984} %High order functions and Lazy evaluation.
 
-FP******************
-
-Functional programming is a style of programming which models computations as the evaluation of expressions. This article is meant to describe it briefly; however, the best way to understand functional programming is to learn the basics of one of the functional programming languages (learn Haskell).
-
-Contents [hide]
-1 What is functional programming?
-2 Functional vs imperative languages
-3 Features of functional languages
-3.1 Higher-order functions
-3.2 Purity
-3.2.1 Immutable data
-3.2.2 Referential transparency
-3.2.3 Lazy evaluation
-3.2.4 Purity and effects
-3.2.4.1 Side effects in the language
-3.2.4.2 Side effects through monads
-3.3 Recursion
-4 Benefits of functional programming
-1 What is functional programming?
-In functional programming, programs are executed by evaluating expressions, in contrast with imperative programming where programs are composed of statements which change global state when executed. Functional programming typically avoids using mutable state.
-
-Functional programming requires that functions are first-class, which means that they are treated like any other values and can be passed as arguments to other functions or be returned as a result of a function. Being first-class also means that it is possible to define and manipulate functions from within other functions. Special attention needs to be given to functions that reference local variables from their scope. If such a function escapes their block after being returned from it, the local variables must be retained in memory, as they might be needed later when the function is called. Often it is difficult to determine statically the when those resources can be released, so it is necessary to use automatic memory management.
-
-2 Functional vs imperative languages
-Many programming languages support programming in both functional and imperative style but the syntax and facilities of a language are typically optimised for only one of these styles, and social factors like coding conventions and libraries often force the programmer towards one of the styles. Therefore, programming languages may be categorized into functional and imperative ones.
-
-The following table shows which languages support functional programming (by supporting first-class functions) and for which the functional style is the dominant one.
-
-Language	 Closures	 Functional
-C/C++	 No	 No
-Pascal	 No	 No
-Java	 Yes	 No
-Modula-3	 Yes	 No
-Python	 Yes	 No
-Ruby	 Yes	 No
-D (2.0)	 Yes	 No
-Ocaml	 Yes	 Yes
-Erlang	 Yes	 Yes
-Haskell	 Yes	 Yes
-3 Features of functional languages
-3.1 Higher-order functions
-Higher-order functions (HOFs) are functions that take other functions as their arguments. A basic example of a HOF is map which takes a function and a list as its arguments, applies the function to all elements of the list, and returns the list of its results. For instance, we can write a function that subtracts 2 from all elements of a list without using loops or recursion:
-subtractTwoFromList l = map (\x -> x - 2) l
-We can generalize this function to subtract any given number:
-
-subtractFromList l y = map (\x -> x - y) l
-The function given to map then becomes a closure because \x -> x - y references a local variable y from outside its body.
-Higher-order functions are very useful for refactoring code and reduce the amount of repetition. For example, typically most for loops can be expressed using maps or folds. Custom iteration schemes, such as parallel loops, can be easily expressed using HOFs.
-
-Higher-order functions are often used to implement domain-specific languages embedded in Haskell as combinator libraries.
-
-Higher-order functions can be usually simulated in object-oriented languages by functions that take function-objects, also called functors (note that functor in Haskell is an entirely different concept). Variables from the scope of the call can be bound inside the function-object which acts as if it were a closure. This way of simulating HOFs is, however, very verbose and requires declaring a new class each time we want to use a HOF.
-
-3.2 Purity
-Some functional languages allow expressions to yield actions in addition to return values. These actions are called side effects to emphasize that the return value is the most important outcome of a function (as opposed to the case in imperative programming). Languages that prohibit side effects are called pure. Even though some functional languages are impure they often contain a pure subset that is also useful as a programming language. It is usually beneficial to write a significant part of a functional program in a purely functional fashion and keep the code involving state and I/O to the minimum as impure code is more prone to errors.
-
-3.2.1 Immutable data
-Purely functional programs typically operate on immutable data. Instead of altering existing values, altered copies are created and the original is preserved. Since the unchanged parts of the structure cannot be modified, they can often be shared between the old and new copies, which saves memory.
-
-3.2.2 Referential transparency
-Pure computations yield the same value each time they are invoked. This property is called referential transparency and makes possible to conduct equational reasoning on the code. For instance if y = f x and g = h y y then we should be able to replace the definition of g with g = h (f x) (f x) and get the same result; only the efficiency might change.
-3.2.3 Lazy evaluation
-Since pure computations are referentially transparent they can be performed at any time and still yield the same result. This makes it possible to defer the computation of values until they are needed, that is, to compute them lazily. Lazy evaluation avoids unnecessary computations and allows, for example, infinite data structures to be defined and used.
-
-3.2.4 Purity and effects
-Even though purely functional programming is very beneficial, the programmer might want to use features that are not available in pure programs, like efficient mutable arrays or convenient I/O. There are two approaches to this problem.
-
-3.2.4.1 Side effects in the language
-Some functional languages extend their purely functional core with side effects. The programmer must be careful not to use impure functions in places where only pure functions are expected.
-
-3.2.4.2 Side effects through monads
-Another way of introducing side effects to a pure language is to simulate them using monads. While the language remains pure and referentially transparent, monads can provide implicit state by threading it inside them. The compiler does not even have to 'know' about the imperative features because the language itself remains pure, however usually the implementations do 'know' about them due to the efficiency reasons, for instance to provide O(1) mutable arrays.
-
-Allowing side effects only through monads and keeping the language pure makes it possible to have lazy evaluation that does not conflict with the effects of impure code. Even though lazy expressions can be evaluated in any order, the monad structure forces the effects to be executed in the correct order.
-
-3.3 Recursion
-Recursion is heavily used in functional programming as it is the canonical and often the only way to iterate. Functional language implementations will often include tail call optimisation to ensure that heavy recursion does not consume excessive memory.
-
-4 Benefits of functional programming
-Functional programming is known to provide better support for structured programming than imperative programming. To make a program structured it is necessary to develop abstractions and split it into components which interface each other with those abstractions. Functional languages aid this by making it easy to create clean and simple abstractions. It is easy, for instance, to abstract out a recurring piece of code by creating a higher-order function, which will make the resulting code more declarative and comprehensible.
-
-Functional programs are often shorter and easier to understand than their imperative counterparts. Since various studies have shown that the average programmer's productivity in terms of lines of code is more or less the same for any programming language, this translates also to higher productivity.
-
-
 \subsection{The Logic Paradigm}
 The logic programming paradigm - talk about inference and goals and pedicates. refer Prolog.
 %Talk the relevancy of logic programming, and also the negatives.
@@ -208,7 +124,7 @@ When looking for a language to develop this project in it was hard not to consid
 
 %Discuss Haskell and Erlang
 %
-What are functional programming languages?
+1 What are functional programming languages?
 Programming languages such as C/C++/Java/Python are called imperative programming languages because they consist of sequences of actions. The programmer quite explicitly tells the computer how to perform a task, step-by-step. Functional programming languages work differently. Rather than performing actions in a sequence, they evaluate expressions.
 
 1.1 The level of abstraction
@@ -245,8 +161,6 @@ Because functional languages are more intuitive and offer more and easier ways t
 Haskell is a modern general purpose language developed to incorporate the collective wisdom of the functional programming community into one elegant, powerful and general language.
 
 2.1 Purity
-See FP***************
-
 Unlike some other functional programming languages Haskell is pure. It doesn't allow any side-effects. This is probably the most important feature of Haskell. We've already briefly discussed the benefits of pure, side-effect free, programming - and there's not much more we can say about that. You'll need to experience it yourself.
 
 2.2 Laziness

@@ -1,12 +1,6 @@
 Acknowledgements
+
 Background and Research and Context
-
-A simulation is a genre of game, a life simulation game could revolve around a particular character and its relationships with other things within the simulation, or it could be a simulation of an ecosystem (Spore). Biological simulations may allow the player to experiment with genetics, survival or ecosystems, this can often be for educational purposes. Unlike other genres of games, simulation games do not usually have a set goals that allow a player to win the game. Rather they focus on the experience of control, wheter it be the lives of people, when micromanaging a family (The most notable example of this is Will Wright's The Sims.) to overseeing the rise of a civilization or success of a business. 
-
-Outside of games, biological simulations can be used for more than educational purposes, and are utilized by researchers, to test theories, which in practise would be impossible to carry out because of technological or financial constraints, and show their findings visually. These are often large scale simulations which demand large anounts of processing power due to the nature of the problems. for example the Blue Brain Project http://www.newscientist.com/article/dn7470--mission-to-build-a-simulated-brain-begins.html and weather prediction http://en.wikipedia.org/wiki/Climate_model
-
-Processor clockspeeds aren't increasing at the rate they used to, with the [cite!]. However Moore's law is still in tact as the processors are consisting of more cores. In order to harness the full potential of these multicore processors it is necessary to run computations on all the processors available cores. While the splitting up of work between a processor's cores might be a trivial process in theory. In practice it opens up several new issues which a programmer must address; into how many pieces should the computation be split, will the smaller computations need to communicate their results to other computations, is it necessary for some computations to finish executing before others begin? These are all questions which face a programmer when designing an application to make use of a multicore processor. 
-
 
 Functional Programming
 
@@ -16,6 +10,13 @@ Concurrency
 Haskell's Benifits
 
 The problem
+
+
+Processor clockspeeds aren't increasing at the rate they used to, with the [cite!]. However Moore's law is still in tact as the processors are consisting of more cores. In order to harness the full potential of these multicore processors it is necessary to run computations on all the processors available cores. While the splitting up of work between a processor's cores might be a trivial process in theory. In practice it opens up several new issues which a programmer must address; into how many pieces should the computation be split, will the smaller computations need to communicate their results to other computations, is it necessary for some computations to finish executing before others begin? These are all questions which face a programmer when designing an application to make use of a multicore processor. 
+
+Simulation is a genre of game, a life simulation game could revolve around a particular character and its relationships with other things within the simulation, or it could be a simulation of an ecosystem (Spore). Biological simulations may allow the player to experiment with genetics, survival or ecosystems, this can often be for educational purposes. Unlike other genres of games, simulation games do not usually have a set goals that allow a player to win the game. Rather they focus on the experience of control, wheter it be the lives of people, when micromanaging a family (The most notable example of this is Will Wright's The Sims.) to overseeing the rise of a civilization or success of a business. 
+
+Outside of games, biological simulations can be used for more than educational purposes, and are utilized by researchers, to test theories, which in practise would be impossible to carry out because of technological or financial constraints, and show their findings visually. These are often large scale simulations which demand large of processing power due to the nature of the problems. for example the Blue Brain Project http://www.newscientist.com/article/dn7470--mission-to-build-a-simulated-brain-begins.html and weather prediction http://en.wikipedia.org/wiki/Climate_model
 
 Functional programming as opposed to other paradigms
 A functional language is language  in  which  computation  is  carried  out  entirely  through  the evaluation  of  expressions. [Evolution of Functional hudak]
@@ -33,11 +34,10 @@ Parallelism and concurrency are still being conflated.
 Concurrency is needed in languages, but the aim is to make programs run faster on a multicore, [Concurrency should be a last resort].
 
 Terminology.
-A concurrent program can be described as having multiple threads of control. Each thread of control has effects on the world, and those threads are interleaved in some arbitrary way by the scheduler.
+A concurrent program is one with multiple threads of control.  Each thread of control has effects on the world, and those threads are interleaved in some arbitrary way by the scheduler.
 We say that a concurrent programming language is non-deterministic, because the total effect of the program may depend on the particular interleaving at runtime.
-
-The programmer has the tricky task of controlling this non-determinism using synchronisation, to make sure that the program ends up doing what it was supposed to do regardless of the scheduling order. And that’s no mean feat, because there’s no reasonable way to test that you have covered all the cases.
-
+The programmer has the tricky task of controlling this non-determinism using synchronisation, to make sure that the program ends up doing what it was supposed to do regardless of the scheduling order.
+And that’s no mean feat, because there’s no reasonable way to test that you have covered all the cases.
 This is regardless of what synchronisation technology you’re using: yes, STM is better than locks, and message passing has its advantages, but All of these are just ways to communicate between threads in a non-deterministic language.
 A concurrent program needs to perform several possibly unrelated tasks at the same time. Consider the example of a game server: it is typically composed of dozens of components, each of which has complicated interactions with the outside world. One component might handle multi-user chat; several more will process the inputs of players, and feed state updates back to them; while another performs physics calculations. The correct operation of a concurrent program does not require multiple cores, though they may improve performance and responsiveness. (RWH)
 A parallel program, on the other hand, is one that merely runs on multiple processors, with the goal of hopefully running faster than it would on a single CPU.

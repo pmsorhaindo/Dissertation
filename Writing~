@@ -1,0 +1,69 @@
+Dissertation Notes
+
+In general, every dissertation must define the problem that motivated the research, tell why that problem is important, tell what others have done, describe the new contribution, document the experiments that validate the contribution, and draw conclusions. There is no canonical organization for a dissertation; each is unique. However, novices writing a dissertation in the experimental areas of CS may find the following example a good starting point: 
+
+-Introduction (background and context)
+Why Haskell (There was Erlang and Scala ect.)
+One approach- Actors Erlang Scala - http://ruben.savanne.be/articles/concurrency-in-erlang-scala
+Haskell allows implicit parallelism instead of explicitly programming threads.
+Functional Programming makes reasoning about parallelism easier, but why?
+Determinism/Non-Determinism, Haskell can achieve Deterministic Parallelism
+Relate project to Computer Science (Games).
+
+-Requirements (Different ways of doing parallelism (previous work)) constraints your setting on the project
+Discussion of my problem (Ant Colony) and other elements involved in creating the artifact.
+What behaviour am I aiming for my resulting artefact to exhibit.
+Ants seek out food randomly, when food is found Ants return to the colony leaving a trail of pheremone. Other Ants can then pick up on this trail to more efficiently find food.
+
+-Design
+Why is my problem a parallel Problem?
+Data structures - Why I chose graphs?
+The list approach (Duplication of Data)
+Types of parallelism - Divide and conquor et. al.
+Reduction
+Several movements/Decions being made simultaneously. All decisions must be reduced to a viewable world state,
+Map Reduce
+Processing sections of the world can be mapped out.
+Large scale not neccesarily a few processes, this could be expanded to model 1000,000's of ants. If there are two many divisions for one machine, distrubtion could be not only useful but necessary.
+My approach and why I am choosing the one I am.
+
+-Implementation
+Testing (algebraic testing)
+How I've implemented quickcheck
+Threadscope
+
+-Conclusion
+GRAPHS AND TABLES Andrew is a graphs and tables guy (for analysis (compare speeds of Haskell to Java))
+Why things are hard (Never programmed in Haskell before, Different Paradigm)
+
+-Future work.
+
+
+Canonical Organization:
+
+Chapter 1: Introduction
+An overview of the problem; why it is important; a summary of extant work and a statement of your hypothesis or specific question to be explored. Make it readable by anyone.
+
+Chapter 2: Definitions
+New terms only. Make the definitions precise, concise, and unambiguous.
+Deterministic - Non deterministic
+Functional Programming
+Imperative Programming
+Parallel
+Concurrent
+
+Chapter 3: Conceptual Model
+Describe the central concept underlying your work. Make it a ``theme'' that ties together all your arguments. It should provide an answer to the question posed in the introduction at a conceptual level. If necessary, add another chapter to give additional reasoning about the problem or its solution.
+
+Chapter 4: Experimental Measurements
+Describe the results of experiments that provide evidence in support of your thesis. Usually experiments either emphasize proof-of-concept (demonstrating the viability of a method/technique) or efficiency (demonstrating that a method/technique provides better performance than those that exist).
+
+Chapter 5: Corollaries And Consequences
+Describe variations, extensions, or other applications of the central idea.
+
+Chapter 6: Conclusions
+Summarize what was learned and how it can be applied. Mention the possibilities for future research.
+
+Abstract:
+A short (few paragraphs) summary of the the dissertation. Describe the problem and the research approach. Emphasize the original contributions.
+
