@@ -1,46 +1,69 @@
 Acknowledgements
 Background and Research and Context
 
+- Simulations
+
 A simulation is a genre of game, a life simulation game could revolve around a particular character and its relationships with other things within the simulation, or it could be a simulation of an ecosystem (Spore). Biological simulations may allow the player to experiment with genetics, survival or ecosystems, this can often be for educational purposes. Unlike other genres of games, simulation games do not usually have a set goals that allow a player to win the game. Rather they focus on the experience of control, wheter it be the lives of people, when micromanaging a family (The most notable example of this is Will Wright's The Sims.) to overseeing the rise of a civilization or success of a business. 
 
 Outside of games, biological simulations can be used for more than educational purposes, and are utilized by researchers, to test theories, which in practise would be impossible to carry out because of technological or financial constraints, and show their findings visually. These are often large scale simulations which demand large anounts of processing power due to the nature of the problems. for example the Blue Brain Project http://www.newscientist.com/article/dn7470--mission-to-build-a-simulated-brain-begins.html and weather prediction http://en.wikipedia.org/wiki/Climate_model
 
-Processor clockspeeds aren't increasing at the rate they used to, with the [cite!]. However Moore's law is still in tact as the processors are consisting of more cores. In order to harness the full potential of these multicore processors it is necessary to run computations on all the processors available cores. While the splitting up of work between a processor's cores might be a trivial process in theory. In practice it opens up several new issues which a programmer must address; into how many pieces should the computation be split, will the smaller computations need to communicate their results to other computations, is it necessary for some computations to finish executing before others begin? These are all questions which face a programmer when designing an application to make use of a multicore processor. 
+LINKING PARAGRAPH!!!!!!!!!!
 
+- Multicore Programming
 
-Functional Programming
+Processor clockspeeds aren't increasing at the rate they used to, with the [GPGPU cite!]. However Moore's law is still in tact as the processors are consisting of more cores. In order to harness the full potential of these multicore processors it is necessary to run computations on all the processors available cores. While the splitting up of work between a processor's cores might be a trivial process in theory. In practice it opens up several new issues which a programmer must address; into how many pieces should the computation be split, will the smaller computations need to communicate their results to other computations, is it necessary for some computations to finish executing before others begin? These are all questions which face a programmer when designing an application to make use of a multicore processor. 
 
-Parallelism
-Concurrency
+There are two words which occur often in discussions about multicore programming and these are Parallelism and Concurrency. It is important to clarify these terms:
 
-Haskell's Benifits
+Parallelism: It’s a property of the machine where software is to be run. The application runs on multiple processors/cores, with the hope for faster speed than on a single processor machine.
 
-The problem
+Concurrency: Software is composed of, possibly unrelated, computations and multiple threads of control making effects to the world, via arbitrary interleaving. The expected results are therefore, non-deterministic because the total effect of the program may depend on the particular order of interleaving at runtime. Computation is based on this nondeterminism. [Nino and RWH]
 
-Functional programming as opposed to other paradigms
-A functional language is language  in  which  computation  is  carried  out  entirely  through  the evaluation  of  expressions. [Evolution of Functional hudak]
+Where concurrency is utilized the programmer has the responsibility of controlling the non-determinism using synchronisation, to make sure that the program runs as it is supposed to regardless of the order of execution. This is not an easy task because there’s no reasonable way to test that you have covered all the cases. <testing threaded programs cite!>
 
-Parallelism as opposed to concurrency, 
-
-In order to make programs run faster on parallel hardware, it is not neccessary to have concurrency. distinction between concurrency and parallelism.
-
+In order to make programs run faster on parallel hardware, it is not neccessary to have concurrency.
 It’s important that this issue is well understood if we’re to find a way to enable everyday programmers to use multicore CPUs.
 
-I was moved to write about this after reading Tim Bray’s articles on Concur.next: while I agree with a lot of what’s said there, particularly statements like "Exposing real pre-emptive threading with shared mutable data structures to application programmers is wrong"
 
-Parallelism and concurrency are still being conflated.
+-Functional programming as opposed to other paradigms
+
+A functional language is language  in  which  computation  is  carried  out  entirely  through  the evaluation  of  expressions. [Evolution of Functional hudak] Burge back in 1975 suggested the approach of evaluating function arguments in parallel, with the possibility of functions absorbing unevaluated arguments and perhaps also exploiting speculative evaluation [W. H. Burge. Recursive Programming Techniques. Addison-Wesley, 1975.]. <??Berkling also considered the application of functional languages to parallel processing??> [K. J. Berkling. Reduction Languages for Reduction Machines. In 2nd. Annual ACM Symp. on Comp. Arch., pages 133-140. ACM/IEEE 75CH0916-7C, 1975.].
+
+<!Definition of purity!>
+To be functionally pure, a method must satisfy two critical properties
+First, it must have no side effects. For a computational method to be free of side effects, its execution must not have any visible effect other than to generate a result. A method that modiﬁes its arguments or global variables, or that causes an external effect like writing to disk or printing to the console, is not side-effect free.
+
+The second property is functional determinism: the method’s behavior must depend only on the arguments provided to the method. The method must return the same answer every time it is invoked
+on equivalent arguments, even across different executions of the program
+[Verifiable functional purity in java Matthew Finifter Adrian Mettler Naveen Sastry David Wagner 2008]
+
+Due to the absence of side-effects in a purely functional program, it is relatively easy to partition programs into sub-programs which can be executed in parallel: any computation which is needed to produce the result of the program may be run as a separate task. There may, however, be implicit control- and data- dependencies between parallel tasks, which will limit parallelism to a greater or lesser extent. [Parallel Functional programming an introduction Kevin Hammond] http://www-fp.dcs.st-and.ac.uk/~kh/papers/pasco94/pasco94.html
+
+<!!needed? Higher-order functions (functions which act on functions) can also introduce program-specific control structures, which may be exploited by suitable parallel implementations, such as those for algorithmic skeletons (Section 3.2).!!>
+
+Here is a classic divide-and-conquer program, a variant on the naive Fibonacci program. Since the two recursive calls to nfib are independent, they can each be executed in parallel. If this is done naively, then the number of tasks created is the same as the result of the program. This is an exponentially large number ().
+
+
+There are many ways to exploit the possible parallelism present in a functional program. <<<Most systems have selected a set of these, and it is therefore difficult to isolate the effect of a single technique on overall performance, even when concrete performance results are available.>>>
+
+There are two basic strategies for deciding how to partition a program. With implicit partitioning, the compilation system decides which tasks should be created; with explicit partitioning, however, the programmer is left with the problem of determining which expressions should be created as tasks. In either case, the partition could be static, in which case the number of tasks which will be created at runtime is predetermined, or dynamic, in which case tasks are created depending on factors such as the overall runtime load, or load control annotations. Tasks may be placed on the processor creating the task, on the processor owning the data which the task requires, or on some other processor. Task placement may also be explicit or implicit, static or dynamic.
+
+It is, of course, vitally important to choose tasks of an appropriate granularity (or duration) for the target machine. The best partition for a given machine will be one which maximises the available parallelism, up to the number of processors available, while minimising the parallel overhead. Coarse-grained tasks are desirable in order to minimise task creation overheads. However, excessively coarse granularity can lead to increased idle time if too few tasks are created, and can also introduce high task migration overheads, if the load is imperfectly distributed (Section 4.1).
+
+nfib n = if n <= 1 then 1 
+         else 1 + nfib(n-1) + nfib(n-2)
+
+
+
+-Haskell's Benifits
+-The problem
+
+
 
 Concurrency is needed in languages, but the aim is to make programs run faster on a multicore, [Concurrency should be a last resort].
 
-Terminology.
-A concurrent program can be described as having multiple threads of control. Each thread of control has effects on the world, and those threads are interleaved in some arbitrary way by the scheduler.
-We say that a concurrent programming language is non-deterministic, because the total effect of the program may depend on the particular interleaving at runtime.
-
-The programmer has the tricky task of controlling this non-determinism using synchronisation, to make sure that the program ends up doing what it was supposed to do regardless of the scheduling order. And that’s no mean feat, because there’s no reasonable way to test that you have covered all the cases.
-
 This is regardless of what synchronisation technology you’re using: yes, STM is better than locks, and message passing has its advantages, but All of these are just ways to communicate between threads in a non-deterministic language.
-A concurrent program needs to perform several possibly unrelated tasks at the same time. Consider the example of a game server: it is typically composed of dozens of components, each of which has complicated interactions with the outside world. One component might handle multi-user chat; several more will process the inputs of players, and feed state updates back to them; while another performs physics calculations. The correct operation of a concurrent program does not require multiple cores, though they may improve performance and responsiveness. (RWH)
-A parallel program, on the other hand, is one that merely runs on multiple processors, with the goal of hopefully running faster than it would on a single CPU.
+
 
 In contrast, a parallel program solves a single problem. Consider a financial model that attempts to predict the next minute of fluctuations in the price of a single stock. If we want to apply this model to every stock listed on an exchange, for example to estimate which ones we should buy and sell, we hope to get an answer more quickly if we run the model on five hundred cores than if we use just one. As this suggests, a parallel program does not usually depend on the presence of multiple cores to work correctly.
 Another useful distinction between concurrent and parallel programs lies in their interaction with the outside world. By definition, a concurrent program deals continuously with networking protocols, databases, and the like. A typical parallel program is likely to be more focused: it streams data in, crunches it for a while (with little further I/O), then streams data back out.
@@ -48,10 +71,10 @@ Another useful distinction between concurrent and parallel programs lies in thei
 Many traditional languages further blur the already indistinct boundary between concurrent and parallel programming, because they force programmers to use the same primitives to construct both kinds of program.
 In this chapter, we will concern ourselves with concurrent and parallel programs that operate within the boundaries of a single operating system process.
 
+So where did this dangerous assumption that Parallelism == Concurrency come from?  
+It’s a natural consequence of languages with side-effects: when your language has side-effects everywhere, then any time you try to do more than one thing at a time you essentially have non-determinism caused by the interleaving of the effects from each operation.  So in side-effecty languages, the only way to get parallelism is concurrency; it’s therefore not surprising that we often see the two conflated.
 
-So where did this dangerous assumption that Parallelism == Concurrency come from?  It’s a natural consequence of languages with side-effects: when your language has side-effects everywhere, then any time you try to do more than one thing at a time you essentially have non-determinism caused by the interleaving of the effects from each operation.  So in side-effecty languages, the only way to get parallelism is concurrency; it’s therefore not surprising that we often see the two conflated.
-
-However, in a side-effect-free language, you are free to run different parts of the program at the same time without observing any difference in the result.  This is one reason that our salvation lies in programming languages with controlled side-effects.  The way forward for those side-effecty languages is to start being more explicit about the effects, so that the effect-free parts can be identified and exploited.
+However, in a without side affects, it is possible to run different parts of a program at the same time without any differences occuring in its result.  This is one reason that our salvation lies in programming languages with controlled side-effects. xxxxxThe way forward for those side-effecty languages is to start being more explicit about the effects, so that the effect-free parts can be identified and exploited.xxxxxxxx
 
 It pains me to see Haskell’s concurrency compared against the concurrency support in other languages, when the goal is simply to make use of multicore CPUs (Edit: Ted followed up with a clarification).   It’s missing the point: yes of course Haskell has the best concurrency support  , but for this problem domain it has something even better: deterministic parallelism.  In Haskell you can use multicore CPUs without getting your hands dirty with concurrency and non-determinism, without having to get the synchronisation right, and with a guarantee that the parallel program gives the same answer every time, just more quickly.
 
@@ -74,7 +97,7 @@ With GHC it is possible to mix parallelism and concurrency on multicore CPUs at 
 In order to explore the effects of parallelism this [project] will take on the problem of simulating an Ant colony. Ant colonies are a large problem, in perspective, often containing tens of thousands of ants within it's [ecosystem]. Each ant is a seperate entity acting of its own free will, yet the colony works together towards a common purpose. Due to the fact each ant is it's own entity it is capabable of making decisions at exactly the same time as other ants. To model this effectively would require the ant's decision making to happen in parallel.
 
 
-
+[AWC 1043]
 
 
 <<<

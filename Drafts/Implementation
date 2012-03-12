@@ -1,3 +1,21 @@
 Implementation
 
 This chapter will discuss what has been done so far in terms of implementation and the problems that appeared in the process.
+
+Started off by implementing a Graph in Haskell. Difficulties with the Graph api. As this was the first time being exposed to real functional code outside the protection of tutorials it took time to grasp the concepts behind how the Graph API worked and how it was used. Discussed further in the conclusion, (Looking back I may have chosen a different API to implement my graph Data structure as Data.Graph isn't a functor there for it doesn't export a function to allow the user to map over it, this would have produced tidier code.)
+
+Developed a way to swap nodes on a graph.
+
+Developed to move nodes based on other values.
+
+Stitching together the Graphs.
+
+Developing the process loop. Parallel Strategies.
+
+Positioning new Ants in the world.
+
+Positioning food locations.
+
+
+
+[AWC 145]

@@ -1,7 +1,20 @@
 Requirements
+
+The requirements therfore on this project are to produce an ant colony simulation which exploits the benifits parallel of the functional programming language Haskell. The behaviour of the project's resulting artifact aims to portray an functioning ant colony. Ants should seek out food using exploratory strategies, communicate locations of food to other ants in the colony using pheremones and return to the colony's nest. Modeling the increase in colony size will
+
+Exploratory Strategies
+Moving randomly away fromt the nest.
+Moving away from other ants with no food.
+
+Communicating locations of food
+leaving a trail of pheremone.
+
+Returning to the colony
+This could again be achieved through the use of pheremones, or by allowing ants to retrace their steps.
+
+Other ants can then pick up on this trail to more efficiently find food.
+
 Discussion of my problem (Ant Colony) and other elements involved in creating the artifact.
 
-What behaviour is the project's resulting artifact aiming to exhibit.
 
-Ants seek out food randomly, when food is found Ants return to the colony leaving a trail of pheremone. Other ants can then pick up on this trail to more efficiently find food.
-
+[AWC 149]
