@@ -1,10 +1,16 @@
 Implementation
 
+{
+The progression of 
+Feature sets
+
+}
+
 This chapter will discuss what has been done so far in terms of implementation and the problems that appeared in the process.
 
 Started off by implementing a Graph in Haskell. Difficulties with the Graph api. As this was the first time being exposed to real functional code outside the protection of tutorials it took time to grasp the concepts behind how the Graph API worked and how it was used. Discussed further in the conclusion, (Looking back I may have chosen a different API to implement my graph Data structure as Data.Graph isn't a functor there for it doesn't export a function to allow the user to map over it, this would have produced tidier code.)
 
-Developed a way to swap nodes on a graph.
+The project then progressed by way of finding ways to modify the graph data structure, because data in Haskell is persistent this means creating new data of the graph type as there is no assignment. The first function to be developed was swapping nodes on a graph.
 
 Developed to move nodes based on other values.
 
@@ -16,6 +22,10 @@ Positioning new Ants in the world.
 
 Positioning food locations.
 
+Debugging
+http://www.haskell.org/haskellwiki/Haskell_program_coverage
+http://www.haskell.org/haskellwiki/Debugging#Infinite_loops
+http://stackoverflow.com/questions/2861988/haskell-defaulting-constraints-to-type
 
 
-[AWC 145]
+[AWC 194]

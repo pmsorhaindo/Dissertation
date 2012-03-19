@@ -1,20 +1,26 @@
 Design
 
-Unlike imperative languages such as Java and C++ Haskell does not use classes to create objects and then send messages between objects. Rather it uses Declarative and Data-driven methods to process data. Haskell doesn't strictly speaking do any of these; because it is the programmer that does things using Haskell. However, Haskell makes it more natural for OOP programmers totake a different approach to programming
+Desgin techniques
 
-The important thing is using the right technique for the job
+Unlike imperative languages such as Java and C++ Haskell does not use classes to create objects and then send messages between objects. Rather it uses Declarative and Data-driven methods to process data. Haskell doesn't strictly speaking do any of these; because it is the programmer that does things using Haskell. This makes it more natural for imperative or Object Oriented programmers to take a different approach when programming in Haskell. It is critically important to use the right technique or tool for the job at hand.
 
-But you wouldn't agree that Haskell makes it more natural to take a different approach to programming?
+There is no standard way to model programs in Haskell and many different methods are used to carry an idea through from concept to code. Some programmers use modelling techniques similar to the Unified Modeling Language (UML) [Which is geared heavliy towards object orientated languages whith its use of class diagrams/Commonly used in object-orientated languages such as Java] While other developers use concept maps and data flow diagrams to provide a general picture of the design before they begin programming. However, because Haskell is a strongly and statically typed language it is a common practise to start by figuring out the data types needed to complete the task. Then implement the functions for working with the newly created data types. Finally culminating in writing modules that bring together all the functions in a structured way. The approach to modelling however, differs from project to project.
 
-I disagree, depends on your definition of “different”. Different coming from what? OOP? Yes. Other pure functional languages? Perhaps not
-
-I would agree w”
- for a haskell programmer, java would be "more natural for taking a different approach to programming"
+%Modelling Programs in Haskell (Real World Haskell: JSON library chapter)
 
 
-Modelling Programs in Haskell (Real World Haskell: JSON library chapter)
 
-There is no standard way to model programs in Haskell and many methods are used to carry an idea through from concept to code. Some programmers use modelling techniques similar to the Unified Modeling Language (UML) [Commonly used in object-orientated languages such as Java] while others use concept maps and data flow diagrams to provide a general picture of the design before they begin coding. However, because Haskell is a strongly and statically typed language it is common practise to start with the data types need to complete the task. Then implement the functions for working with the newly created data types. Finally culminating in writing modules that bring together all the functions in a structured way. The approach to modelling however, differs from project to project.
+The classes used by Haskell are similar to those used in other object-oriented languages such as C++ and Java. However, there are some significant differences:
+
+Haskell separates the definition of a type from the definition of the methods associated with that type. A class in C++ or Java usually defines both a data structure (the member variables) and the functions associated with the structure (the methods). In Haskell, these definitions are separated.
+The class methods defined by a Haskell class correspond to virtual functions in a C++ class. Each instance of a class provides its own definition for each method; class defaults correspond to default definitions for a virtual function in the base class.
+Haskell classes are roughly similar to a Java interface. Like an interface declaration, a Haskell class declaration defines a protocol for using an object rather than defining an object itself.
+Haskell does not support the C++ overloading style in which functions with different types share a common name.
+The type of a Haskell object cannot be implicitly coerced; there is no universal base class such as Object which values can be projected into or out of.
+C++ and Java attach identifying information (such as a VTable) to the runtime representation of an object. In Haskell, such information is attached logically instead of physically to values, through the type system.
+There is no access control (such as public or private class constituents) built into the Haskell class system. Instead, the module system must be used to hide or reveal components of a class.
+(Gentle introduction to Haskell Version 98)
+
 
 Data types in Haskell and then quick checks [ Method::Type-> Type -> Type  - Method x y = undefined  - quickCheck]
 -- reference
@@ -42,12 +48,40 @@ On the function/method level.
 More detailed than that.
 
 
+High level parallel design (pmap) discussion.
+`par `seq` annotations and other forms of denoting parallelism.
+
 Data flow
 
 Representing Source code
 
+(
+Talk about the non parallel
+Then the parallel version
 
-Representation of the Simulation world
+Split into Epochs of design
+
+Mind map
+)
+
+
+Representation of the Simulation world - Split into Epochs of design
+
+The design of the simulation went through many iterations.
+
+The list based Worlds design free movement
+
+List based Worlds location tags
+
+Graph based World Hold all
+
+Graph based Worlds non parallel
+
+Graph based Worlds parallel
+
+
+
+
 
 The initial concept for the representation of the simulation world was list based. Several lists would be produced for everything in the world, for an example a list of Ants currently in the simulation, a list of Food currently in the simulation and a list of the surfaces in the simulation. Each element in the lists would hold a location value and 
 
@@ -105,5 +139,11 @@ In parallel
 Display
 
 
+ReQuading 
+Graph Density
+calculating densest points NP-hard?
 
-[AWC 1001]
+When graphs are split at densest points
+More serial calculations.
+
+[AWC 985]
