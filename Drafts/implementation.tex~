@@ -1,3 +1,6 @@
+\documentclass[main.tex]{subfiles} 
+\begin{document}
+%% my implementation content
 Implementation
 
 This chapter will discuss what has been done so far in terms of implementation and the problems that appeared in the process.
@@ -6,11 +9,11 @@ Started off by implementing a Graph in Haskell. Difficulties with the Graph api.
 
 The project then progressed by way of finding ways to modify the graph data structure, because data in Haskell is persistent this means creating new data of the graph type as there is no assignment. The first function to be developed was swapping nodes on a graph.
 
-{
-The progression of 
-Feature sets
+
+The progression of Feature sets
 
 Representing the Ant (From a Parametric type -> To a Record)
+
 Wrapping the Graph class (GraphsOps)
 Ant storing Ants in Graph Quadrants
 World -> Storing Quadrants
@@ -33,7 +36,6 @@ Quadrant splitting - Naievely Markov clusters - Graph averaging.
 
 GUI - wxcore fail
 Run simulation based on Settings
-}
 
 Developed to move nodes based on other values.
 
@@ -50,4 +52,7 @@ http://www.haskell.org/haskellwiki/Haskell_program_coverage
 http://www.haskell.org/haskellwiki/Debugging#Infinite_loops
 http://stackoverflow.com/questions/2861988/haskell-defaulting-constraints-to-type
 
-[AWC 194]
+%% more of my design content
+
+\end{document}
+%[AWC 194]

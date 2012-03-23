@@ -11,6 +11,8 @@ The progression of
 Feature sets
 
 Representing the Ant (From a Parametric type -> To a Record)
+
+
 Wrapping the Graph class (GraphsOps)
 Ant storing Ants in Graph Quadrants
 World -> Storing Quadrants

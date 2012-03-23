@@ -1,0 +1,13 @@
+Traditionally people are recommended to write their speciﬁcations in speciﬁcation languages like UML or Z. Our previous paper [24] deviated from this tradition by favoring in-code speciﬁcations; we believe them to be a scalable alternative for specifying and testing software. In-code speciﬁcations are speciﬁcations written directly in a programming language; in our case, we write them
+in Java.
+Despite many research efforts in speciﬁcation languages, and despite all their nice features, in a production setup writing speciﬁcations in those languages is problematical in several ways:
+
+1. We cannot automatically synchronize the speciﬁcations with the code that implements them. If they are not in-sync, the tests we generate from them will crash. Keeping them in-sync manually is not going to scale up.
+2. It introduces dependency on e.g. UML or Z tools, whose support base is typically a lot smaller than e.g. that of Java. Understandably, companies questioning the continuity of a tool, will refuse to take the risk of using them.
+3. It is hard to get programmers that know those languages.
+
+In-code speciﬁcations do not have all the problems mentioned above. The fact that we write our speciﬁcations in Java does not make them second class. They are still declarative (i.e. they specify ’what’ a program should do rather than ’how’ it does it). They are formal, and they are very powerful (we have the entire Java’s expressivity at
+our disposal). However, they are less abstract than e.g. their Z counterparts. To some extent this shortcoming is still acceptable, but there exist a real danger that we will end up with speciﬁcations that are heavily cluttered with low level details so that it becomes diﬃcult to make judgement as to whether they still reﬂect our intentions. Fortunately, there is still a solution for this:
+use algebraic speciﬁcations.
+
+An algebraic speciﬁcation is a speciﬁcation of a program in the form of an algebra. They have been around for sometime [14, 25, 6, 11]. Algebraic speciﬁcations are typically abstract, clean and ideal to be implemented as in-code. Several tools that support systematic or automatic testing of algebraic speciﬁcations are DAIST [12], Daistish [15], and the quite recent CASCAT [16]. In this paper we will describe an in-code approach for automated testing based on algebraic speciﬁcations.

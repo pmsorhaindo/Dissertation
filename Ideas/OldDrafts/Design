@@ -1,0 +1,149 @@
+Design
+
+Desgin techniques
+
+Unlike imperative languages such as Java and C++ Haskell does not use classes to create objects and then send messages between objects. Rather it uses Declarative and Data-driven methods to process data. Haskell doesn't strictly speaking do any of these; because it is the programmer that does things using Haskell. This makes it more natural for imperative or Object Oriented programmers to take a different approach when programming in Haskell. It is critically important to use the right technique or tool for the job at hand.
+
+There is no standard way to model programs in Haskell and many different methods are used to carry an idea through from concept to code. Some programmers use modelling techniques similar to the Unified Modeling Language (UML) [Which is geared heavliy towards object orientated languages whith its use of class diagrams/Commonly used in object-orientated languages such as Java] While other developers use concept maps and data flow diagrams to provide a general picture of the design before they begin programming. However, because Haskell is a strongly and statically typed language it is a common practise to start by figuring out the data types needed to complete the task. Then implement the functions for working with the newly created data types. Finally culminating in writing modules that bring together all the functions in a structured way. The approach to modelling however, differs from project to project.
+
+%Modelling Programs in Haskell (Real World Haskell: JSON library chapter)
+
+
+
+The classes used by Haskell are similar to those used in other object-oriented languages such as C++ and Java. However, there are some significant differences:
+
+Haskell separates the definition of a type from the definition of the methods associated with that type. A class in C++ or Java usually defines both a data structure (the member variables) and the functions associated with the structure (the methods). In Haskell, these definitions are separated.
+The class methods defined by a Haskell class correspond to virtual functions in a C++ class. Each instance of a class provides its own definition for each method; class defaults correspond to default definitions for a virtual function in the base class.
+Haskell classes are roughly similar to a Java interface. Like an interface declaration, a Haskell class declaration defines a protocol for using an object rather than defining an object itself.
+Haskell does not support the C++ overloading style in which functions with different types share a common name.
+The type of a Haskell object cannot be implicitly coerced; there is no universal base class such as Object which values can be projected into or out of.
+C++ and Java attach identifying information (such as a VTable) to the runtime representation of an object. In Haskell, such information is attached logically instead of physically to values, through the type system.
+There is no access control (such as public or private class constituents) built into the Haskell class system. Instead, the module system must be used to hide or reveal components of a class.
+(Gentle introduction to Haskell Version 98)
+
+
+Data types in Haskell and then quick checks [ Method::Type-> Type -> Type  - Method x y = undefined  - quickCheck]
+-- reference
+
+QuickCheck is a combinator library written in Haskell, designed to assist in software testing by generating test cases for test suites. It is compatible with the GHC compiler and the Hugs interpreter.
+In QuickCheck the programmer writes assertions about logical properties that a function should fulfill; these tests are specifically generated to test and attempt to falsify these assertions. The project was started in 2000. Besides being used to test regular programs, QuickCheck is also useful for building up a functional specification, for documenting what functions should be doing, and for testing compiler implementations.[1]
+Re-implementations of QuickCheck exist for C,[2] C++,[3] Chicken Scheme,[4] Clojure,[5] Common Lisp,[6] D,[7] Erlang,[8] F#,[9] Factor,[10] Io,[11] Java[12][13] JavaScript,[14] Node.js,[15] ObjC,[16] OCaml,[17] Perl,[18] Python,[19] Ruby,[20] Scala,[21] Scheme,[22] Smalltalk[23] and Standard ML.[24]
+
+It is generally agreed that formulating careful specifications of software is a good idea, whether before or after the software is written. Specifications improve software design, by revealing unclear behaviour or complicated cases. Specifications guide programming, by offering an objective criterion for whether a program is right or wrong. Specifications assist reuse, by documenting exactly what software is supposed to do.
+However, specifications are used much less in practice than one might expect. Our goal in developing QuickCheck is to add value to specifications, by offering a short-term payoff for their use.
+
+QuickCheck encourages you to formulate precise, formal specifications, in Haskell, a language you already know. Like other formal specifications, QuickCheck properties have an unambiguous and clear meaning.
+QuickCheck checks your program against the specification, by testing. Although this cannot guarantee that the program and specification are consistent, it greatly reduces the risk that they are not. It is easy to recheck consistency after every change to a module.
+QuickCheck specifications document how you tested your program; other programmers using your code can see which properties have been tested, and which have not.
+QuickCheck reduces the time spent on testing, by generating many test cases automatically. This saving can be set against the time spent on formulating the specification in the first place.
+
+
+
+UML is not limited to OOP. Even though it's founded in OOA/D it can be adapted a long way.Your data structures are typically determined by the operations you want to do on them, so it depends on the kind of UML model do you wish to make
+
+Parametric polymorphism's also remarkably effective at helping strip out the irrelevant
+
+Predicted code flow of the application
+On the function/method level.
+More detailed than that.
+
+
+High level parallel design (pmap) discussion.
+`par `seq` annotations and other forms of denoting parallelism.
+
+Data flow
+
+Representing Source code
+
+(
+Talk about the non parallel
+Then the parallel version
+
+Split into Epochs of design
+
+Mind map
+)
+
+
+Representation of the Simulation world - Split into Epochs of design
+
+The design of the simulation went through many iterations.
+
+The list based Worlds design free movement
+
+List based Worlds location tags
+
+Graph based World Hold all
+
+Graph based Worlds non parallel
+
+Graph based Worlds parallel
+
+
+
+
+
+The initial concept for the representation of the simulation world was list based. Several lists would be produced for everything in the world, for an example a list of Ants currently in the simulation, a list of Food currently in the simulation and a list of the surfaces in the simulation. Each element in the lists would hold a location value and 
+
+
+
+Types
+The types that will be involved in modeling the simulation of an Ant colony are as follows.
+
+Ant          :: Ant
+Pheremone    :: Double
+Food         :: Double
+Nest         :: Bool
+AntQuadrant  :: Graph -> Holds- Possible Ant
+PherQuadrant :: Graph -> Holds- Pheremone Level
+FoodQuadrant :: Graph -> Holds- Possible Food
+NestQuadrant :: Graph -> Holds- Possible NestArea
+AntWorld     :: Graph -> Holds- Many Ant Quadrants
+PherWorld    :: Graph -> Holds- Many PherQuadrants
+FoodWorld    :: Graph -> Holds- Many FoodQuadrants
+NestWorld    :: Graph -> Holds- Many NestQuadrants
+
+Key Functions
+The functions responsible for the flow of the program are
+
+stitchUpAntQuads - Sequentially processes pairs of edge-nodes on a Graph (to possibly move Ants between AntQuadrants).
+stitchUpPherQuads - Sequentially processes pairs of edge-nodes on a Graph (to manage the spread of Phermone between PherQuadrants).
+
+processAntQuadrant - Moves each Ant within a quadrant.
+processPherQuadrant - Evaporates the Pheremone 
+
+
+Main
+Given Starting parameters create a World.
+-Parameters
+Size of Quadrant :: Int
+Size of World :: Int
+Amount of Ants :: Int
+Amount of Food :: Int
+
+-Initialize random nest area proportional to the amount of Ants.
+-Randomly position Ants around the Nest Area
+-Randomly position Food (not In Food Area)
+-Initialize all PherQuadrants as 0 except for Food Quadrants which maintain 10.0
+
+Loop
+
+In parallel
+-stitchAntQuads
+-stitchPherQuads
+
+In parallel
+- processAntQuads
+- processPherQuads
+
+Display
+
+
+ReQuading 
+Graph Density
+calculating densest points NP-hard?
+
+When graphs are split at densest points
+More serial calculations.
+
+[AWC 985]

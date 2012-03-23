@@ -1,5 +1,9 @@
 Questions
 Always talk about the project in past tense?
+Design section contain, intended design and final design?
+ie should I talk about modifications to the design during implementation?
+
+
 
 
 Intro
@@ -26,6 +30,19 @@ Conclusion
 
 
 Intro Notes
+
+
+QuickCheck is a combinator library written in Haskell, designed to assist in software testing by generating test cases for test suites. It is compatible with the GHC compiler and the Hugs interpreter.
+In QuickCheck the programmer writes assertions about logical properties that a function should fulfill; these tests are specifically generated to test and attempt to falsify these assertions. The project was started in 2000. Besides being used to test regular programs, QuickCheck is also useful for building up a functional specification, for documenting what functions should be doing, and for testing compiler implementations.[1]
+Re-implementations of QuickCheck exist for C,[2] C++,[3] Chicken Scheme,[4] Clojure,[5] Common Lisp,[6] D,[7] Erlang,[8] F#,[9] Factor,[10] Io,[11] Java[12][13] JavaScript,[14] Node.js,[15] ObjC,[16] OCaml,[17] Perl,[18] Python,[19] Ruby,[20] Scala,[21] Scheme,[22] Smalltalk[23] and Standard ML.[24]
+
+It is generally agreed that formulating careful specifications of software is a good idea, whether before or after the software is written. Specifications improve software design, by revealing unclear behaviour or complicated cases. Specifications guide programming, by offering an objective criterion for whether a program is right or wrong. Specifications assist reuse, by documenting exactly what software is supposed to do.
+However, specifications are used much less in practice than one might expect. Our goal in developing QuickCheck is to add value to specifications, by offering a short-term payoff for their use.
+
+QuickCheck encourages you to formulate precise, formal specifications, in Haskell, a language you already know. Like other formal specifications, QuickCheck properties have an unambiguous and clear meaning.
+QuickCheck checks your program against the specification, by testing. Although this cannot guarantee that the program and specification are consistent, it greatly reduces the risk that they are not. It is easy to recheck consistency after every change to a module.
+QuickCheck specifications document how you tested your program; other programmers using your code can see which properties have been tested, and which have not.
+QuickCheck reduces the time spent on testing, by generating many test cases automatically. This saving can be set against the time spent on formulating the specification in the first place.
 
 Strategic parallelism
 There are two basic strategies for deciding how to partition a program. With implicit partitioning, the compilation system decides which tasks should be created; with explicit partitioning, however, the programmer is left with the problem of determining which expressions should be created as tasks. In either case, the partition could be static, in which case the number of tasks which will be created at runtime is predetermined, or dynamic, in which case tasks are created depending on factors such as the overall runtime load, or load control annotations. Tasks may be placed on the processor creating the task, on the processor owning the data which the task requires, or on some other processor. Task placement may also be explicit or implicit, static or dynamic.

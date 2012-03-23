@@ -1,0 +1,200 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.9)  20 MAR 2012 08:49
+entering extended mode
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/bk10.clo
+File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./subfiles.sty
+Package: subfiles 2002/06/08 Federico Garcia
+
+(/usr/share/texmf-texlive/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks14
+\verbatim@line=\toks15
+\verbatim@in@stream=\read1
+)) (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+
+(./introduction.tex
+! Missing $ inserted.
+<inserted text> 
+                $
+l.12 ...tion http://en.wikipedia.org/wiki/Climate_
+                                                  model
+? 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 12.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 12.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.13 
+     
+? 
+
+Overfull \hbox (35.04703pt too wide) in paragraph at lines 12--13
+\OT1/cmr/m/n/10 lems. for ex-am-ple the Blue Brain Project http://www.newscient
+ist.com/article/dn7470--
+ []
+
+
+Overfull \hbox (152.48605pt too wide) in paragraph at lines 12--13
+\OT1/cmr/m/n/10 mission-to-build-a-simulated-brain-begins.html and weather pre-
+dic-tion http://en.wikipedia.org/wiki/Climate$[]\OML/cmm/m/it/10 odel$ 
+ []
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+
+Overfull \hbox (23.63974pt too wide) in paragraph at lines 44--45
+\OT1/cmr/m/n/10 Kevin Ham-mond] http://www-fp.dcs.st-and.ac.uk/ kh/papers/pasco
+94/pasco94.html 
+ []
+
+[2]) (./requirements.tex) (./design.tex [3]
+! You can't use `macro parameter character #' in horizontal mode.
+l.34 ...re,[5] Common Lisp,[6] D,[7] Erlang,[8] F#
+                                                  ,[9] Factor,[10] Io,[11] J...
+
+? 
+[4]
+Overfull \hbox (12.13034pt too wide) in paragraph at lines 39--43
+\OT1/cmr/m/n/10 Haskell, a lan-guage you al-ready know. Like other for-mal spec
+-i-fi-ca-tions, QuickCheck
+ []
+
+[5]
+Overfull \hbox (0.7413pt too wide) in paragraph at lines 116--118
+[]\OT1/cmr/m/n/10 processAntQuadrant - Moves each Ant within a quad-rant. pro-c
+es-sPherQuad-
+ []
+
+) (./implementation.tex [6]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23 Printing Ant Quadrants for testing -^
+                                           Serial Mode
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.32 
+     
+? 
+
+Overfull \hbox (519.74164pt too wide) in paragraph at lines 19--32
+\OT1/cmr/m/n/10 for test-ing -$[]\OML/cmm/m/it/10 erialModeProcessingstepsandpa
+rallelismThreadscopedebuggingPheremoneQuadrantPrintingantWorldsfortestingTheint
+roductionofAntBehaviour\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 followthehighestPherem
+one \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (261.0726pt too wide) in paragraph at lines 19--32
+\OML/cmm/m/it/10 Getsstuckincorners\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 Introducti
+onofFoodQuadrantsfortestingExpandingAntBehaviour\OT1/cmr/m/n/10 (\OML/cmm/m/it/
+10 Exploration\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Random\OT1/cmr/m/n/10 ))\OML/cm
+m/m/it/10 IntroducingtheNest \OMS/cmsy/m/n/10 ^^@[]
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.54 http://www.haskell.org/haskellwiki/Haskell_
+                                                program_coverage
+? 
+! You can't use `macro parameter character #' in math mode.
+l.55 http://www.haskell.org/haskellwiki/Debugging#
+                                                  Infinite_loops
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.57 
+     
+? 
+
+Overfull \hbox (10.2349pt too wide) in paragraph at lines 53--57
+[]\OT1/cmr/m/n/10 Debugging http://www.haskell.org/haskellwiki/Haskell$[]\OML/c
+mm/m/it/10 rogram[]overagehttp \OT1/cmr/m/n/10 :
+ []
+
+
+Overfull \hbox (164.82823pt too wide) in paragraph at lines 53--57
+\OML/cmm/m/it/10 ==www:haskell:org=haskellwiki=DebuggingInfinite[]oopshttp \OT1
+/cmr/m/n/10 : \OML/cmm/m/it/10 ==stackoverflow:com=questions=\OT1/cmr/m/n/10 28
+61988\OML/cmm/m/it/10 =haskell \OMS/cmsy/m/n/10 ^^@
+ []
+
+) (./conclusion.tex) [7] (./main.aux) ) 
+Here is how much of TeX's memory you used:
+ 282 strings out of 495061
+ 3226 string characters out of 1182622
+ 53849 words of memory out of 3000000
+ 3522 multiletter control sequences out of 15000+50000
+ 3993 words of font info for 15 fonts, out of 3000000 for 9000
+ 28 hyphenation exceptions out of 8191
+ 23i,5n,17p,946b,170s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/pu
+blic/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
+ts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.
+pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (7 pages, 80359 bytes).
+PDF statistics:
+ 42 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
