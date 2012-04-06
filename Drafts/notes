@@ -3,22 +3,31 @@ Always talk about the project in past tense?
 Design section contain, intended design and final design?
 ie should I talk about modifications to the design during implementation?
 
-
-
-
 Intro
-Choice
-Modules used
-Why
+The project
+Choice of project -why it is suitable
+The modules - used in connection to the project
+What is a simulation
+Why simulations need Multicore programming
+Multicore programming - Parallel vs Concurrency
+Functional languages exploiting parallelism
 
+Summary - One page on everything.
+
+Requirements
+Overview - a parallel simulation exploiting the parallel benefits of the programming language Haskell
+Aims - Technical Aesthetic and Learning.
+
+Research
+Languages considered
+
+Design
 Initial ideas and decisions
 
-Methodology
-How I plan to do it
-How to research
-How to code
 
-Background research and the way its influenced the project
+Methodology - Implementation
+How I plan to do it
+How to code
 
 Coding section
 Problems

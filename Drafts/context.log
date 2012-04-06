@@ -1,0 +1,308 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.9)  6 APR 2012 16:48
+entering extended mode
+ %&-line parsing enabled.
+**context.tex
+(./context.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(./subfiles.cls
+Document Class: subfiles 2002/06/08 Federico Garcia
+(/usr/share/texmf-texlive/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks14
+\verbatim@line=\toks15
+\verbatim@in@stream=\read1
+)
+Preamble taken from file `main.tex'
+(./main.tex (/usr/share/texmf-texlive/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/bk10.clo
+File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./subfiles.sty
+Package: subfiles 2002/06/08 Federico Garcia
+)))
+(./context.aux)
+\openout1 = `context.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 2.
+LaTeX Font Info:    ... okay on input line 2.
+
+
+LaTeX Warning: Citation `OSullivan2008' on page 1 undefined on input line 18.
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+] [2]
+Chapter 1.
+
+LaTeX Warning: Citation `Curriculum2008' on page 3 undefined on input line 22.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 26.
+(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
+
+Overfull \hbox (3.50063pt too wide) in paragraph at lines 27--28
+[]\OT1/cmr/m/n/10 Compare lan-guages that could be used in the im-ple-men-ta-ti
+on of the project. 
+ []
+
+
+LaTeX Warning: Citation `Vujosevic2008' on page 3 undefined on input line 38.
+
+[3
+
+]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+
+
+LaTeX Warning: Citation `Vujosevic2008' on page 4 undefined on input line 41.
+
+
+LaTeX Warning: Citation `Backus1978' on page 4 undefined on input line 41.
+
+
+LaTeX Warning: Citation `Aaby1996' on page 4 undefined on input line 41.
+
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+
+LaTeX Warning: Citation `Aaby1996' on page 4 undefined on input line 53.
+
+[4]
+
+LaTeX Warning: Citation `DavidJ.Barnes2008' on page 5 undefined on input line 5
+5.
+
+
+LaTeX Warning: Citation `Taivalsaari1993' on page 5 undefined on input line 61.
+
+
+
+LaTeX Warning: Citation `Hughes1984' on page 5 undefined on input line 61.
+
+
+LaTeX Warning: Citation `Duame2002' on page 5 undefined on input line 63.
+
+
+Overfull \hbox (75.66748pt too wide) in paragraph at lines 68--71
+[]\OT1/cmr/m/n/10 Hightlighting the dif-fer-ences be-tween the Func-tional para
+digm http://msdn.microsoft.com/en-
+ []
+
+
+LaTeX Warning: Citation `Aaby1996' on page 5 undefined on input line 73.
+
+
+LaTeX Warning: Citation `Apt2001' on page 5 undefined on input line 73.
+
+
+LaTeX Warning: Citation `Apt2001' on page 5 undefined on input line 73.
+
+[5]
+
+LaTeX Warning: Citation `Armstrong2009' on page 6 undefined on input line 84.
+
+
+LaTeX Warning: Citation `Trottier-Hebert2011' on page 6 undefined on input line
+ 84.
+
+
+LaTeX Warning: Citation `Armstrong1995' on page 6 undefined on input line 84.
+
+
+LaTeX Warning: Citation `Armstrong1995' on page 6 undefined on input line 86.
+
+
+LaTeX Warning: Citation `Armstrong2009' on page 6 undefined on input line 86.
+
+
+LaTeX Warning: Citation `Armstrong1995' on page 6 undefined on input line 88.
+
+[6]
+Runaway argument?
+{Armstrong{1995} so all interaction between processes is done through\ETC.
+! Paragraph ended before \@citex was complete.
+<to be read again> 
+                   \par 
+l.91 
+     
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.98 ...//www.artima.com/scalazine/articles/goals_
+                                                  of_scala.html]
+? 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 98.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 98.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.99 
+     
+? 
+[7]
+
+LaTeX Warning: Citation `Amdahl1967' on page 8 undefined on input line 121.
+
+
+LaTeX Warning: Citation `Amdahl1967' on page 8 undefined on input line 124.
+
+[8]
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no à in font cmr10!
+Missing character: There is no û in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no • in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no • in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no à in font cmr10!
+Missing character: There is no û in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no Œ in font cmr10!
+Missing character: There is no ò in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no à in font cmr10!
+Missing character: There is no û in font cmr10!
+
+Overfull \hbox (20.66635pt too wide) in paragraph at lines 145--147
+[]\OT1/cmr/m/n/10 Scheduling MIT http://www.catonmat.net/blog/mit-introduction-
+to-algorithms-
+ []
+
+
+Overfull \hbox (30.88037pt too wide) in paragraph at lines 150--152
+\OT1/cmr/m/n/10 com-mu-ni-cate through asyn-chronous mes-sage pass-ing.'' [http
+://lampwww.epfl.ch/ oder-
+ []
+
+
+Underfull \vbox (badness 2932) has occurred while \output is active []
+
+ [9]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.175 ...uploads/cels/papers/scidac11/final/jiang_
+                                                  wei.pdf
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.176 
+      
+? 
+
+Overfull \hbox (156.56197pt too wide) in paragraph at lines 174--176
+[]\OT1/cmr/m/n/10 Molecular dy-nam-ics Mil-lions of atoms http://www.mcs.anl.go
+v/uploads/cels/papers/scidac11/final/jiang$[]\OML/cmm/m/it/10 ei:pdf$ 
+ []
+
+
+Overfull \hbox (8.69513pt too wide) in paragraph at lines 178--182
+\OT1/cmr/m/n/10 ear speed up http://bluebrain.epfl.ch/files/content/sites/blueb
+rain/files/Scientific 
+ []
+
+
+Overfull \hbox (100.16635pt too wide) in paragraph at lines 183--186
+[]\OT1/cmr/m/n/10 Colony In-tel Em-ploys SIMD to also in-sure in-struc-tion lev
+el par-al-lelism http://software.intel.com/en-
+ []
+
+Missing character: There is no √ in font cmr10!
+Missing character: There is no ∂ in font cmr10!
+
+Overfull \hbox (11.16742pt too wide) in paragraph at lines 200--206
+\OT1/cmr/m/n/10 [Schmer00], spher-i-cal shells [Kr-ish-nan98], el-lip-soids [Ri
+-mon92], [Wang01], [Choi02],
+ []
+
+[10]
+
+LaTeX Warning: Citation `Larman2003' on page 11 undefined on input line 232.
+
+
+LaTeX Warning: Citation `Larman2003' on page 11 undefined on input line 232.
+
+[11] [12] [13] (./context.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 327 strings out of 495061
+ 3891 string characters out of 1182622
+ 56091 words of memory out of 3000000
+ 3570 multiletter control sequences out of 15000+50000
+ 6424 words of font info for 23 fonts, out of 3000000 for 9000
+ 28 hyphenation exceptions out of 8191
+ 31i,4n,21p,1324b,160s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmsl10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b>
+Output written on context.pdf (13 pages, 131437 bytes).
+PDF statistics:
+ 73 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -3,21 +3,83 @@
 %% my implementation content
 Implementation
 
-This chapter will discuss what has been done so far in terms of implementation and the problems that appeared in the process.
+(Methodology and Planning)     
+
+This chapter will discuss what has been done so far in terms of implementation and the problems that appeared during the process. The project emerged from the explorations into the programming language Haskell which began during the research stages of the project. Progress was initially made by laying out the list structures for representing the simulation world, the first designs elaborated in the design section. During this phase concepts like pattern matching and recursion were introduced which became essential later on in the project. A module was created holding all the data for an Ant so methods could be called on it trigger an ant's behaviour. At this point the project had the ability to map one of these functions across the list of Ants, to move each one. Here came the first major problem, the ant module contained four functions for Ant movement, moveNorth, moveEast, ect. and mapping one of these function across the list of Ants would cause all of the ants to move in that particular direction. There were two solutions to counter this problem; firstly, a general move function could have been written which took a random value and used it to make a selection between the four subordinate functions which moved an Ant in a specific direction. 
+
+[small diagram] 
+
+Secondly to apply a function which split into lists a list of four lists, with each element within that list containing ants which all wanted to move in the same direction. In this case the four directional movement functions could each map over a smaller subset of the list which where all of which wanted to move in the same direction. 
+
+[small diagram] 
+
+The former solution was pushed back due to a lack of understanding Monads, the Random Monad would have been required to develop this solution making use of the Prelude module, System.Random (The Prelude is the name given to Haskell's standard library). So things pressed on with the second approach to the problem. While writing this decision making function to split the list of Ants into a list of lists it became clear that this was not the right approach to take as parallelism would be limited and especially calculating the concentration of a pheromone at a specific location would require a lot of processing which would  introduce a lot of dependence. 
+
+Use of a non-grid based system is the main issue when looking at the complexity of calculating pheromone concentration at a specific location. This stems from the fact that an instance of pheromone may have a location which does not necessarily correspond exactly to an ants location but is close enough to affect it. An algorithm to calculate the exact concentration of pheromone at a specific location would need to check every pheromone instance in the pheromone list and to see if the location of the ant falls within the radius of the pheremone's effective area. This would involve excessive and unnecessary checks which would fail as every Ant would have to be checked against every instance of element in the list of pheremones.
+(Give formula for calculating whether a point falls within a circle)
+The problem is not within the scope of this project, however would make a great consideration for future work as this would lead to a more liberated and naturalistic simulation. (Simplifying collision detection by limiting every element in the simulation to occupy on grid cell)
+
+To resolve this problem the decision was taken to limit movement of ants and locations of pheromone instances to a grid based structure, this provided a way for checks to be performed on the pheromone list  in order to determine whether or not a certain amount of pheromone was at specific location. In order to reduce the amount of checks multiple lists were employed to represent each row within a grid for both ants and pheromones. With every row containing the the number of elements as columns within the world there was a requirement to store the absence or presence of data at a specific location within the grid. This was done through the use of Haskell's parametric data type Maybe which can either hold a Just value or Nothing. This enables functions to be written which would accept the absence of an ant as a valid type as well as valid ant information so long as they were wrapped in the algebraic type Maybe. Thus, abilities such as mapping a function over the data representation of the simulation world could be be preserved.
+
+Until this point in the project Ants had been stored as a parametric data type which accepted (The parameters for an ant and their types) in order to retrieve values from them, functions needed to be programmed to retrieve specific values from data of an ant type. To retrieve values from a parametric data type Haskell's process of pattern matching is employed by using it to bind the values of the parametrised type to variables and  then by providing the variable as the result of the function it is possible to retrieve the desired value from the data type. This is also known as deconstruction (!cite)
+
+[example code displaying pattern matching in the early ant]
+
+%Representing the Ant (From a Parametric type -> To a Record)
+This would soon become cumbersome as the parameters of the ant data type would change to conform to changes within the design. As a result the Ant data type was transformed a record data structure, in Haskell this gives the advantage of providing functions which extract data from each field of the record. This resulted in the code being cleaner and easier to read. With the arrival of a data structure which held values for all the possible locations within the simulation world it was no longer necessary for ants to hold the value of their current location as the simulation world data structure could be queried in order to acquire the values in the surrounding cells. By removing this redundant data not only was the ant parametric data type simplified but also the information held within the data type representing a pheromone could be reduced to a base type.
+
+At this point in the project it became increasingly important to retrieve the surrounding elements of a cell in order to provide an ant the information with which to make its next move. This involved the generation of a few utility functions. These functions when provided the size of the grid world's width or height and the cell of interest made use of the modulus in order to deduce the surrounding cells. From this position it was noticeable that these functions would be called heavily just to access information that would never change. A data structure which encapsulated the information of the connecting cells was needed.
+
+%Wrapping the Graph class GraphsOps TODO (Explain how parallelism within lists is limited)
+%What is a node
+%What is a vertice
+The solution to this came in the form of  a graph representation of the simulation world. A graph can be represented in memory as an adjacency list, where each node is coupled with a list of the nodes it is adjacent to. In order to represent a graph in Haskell the Data.Graph library was used which was produced  by The University of Glasgow and is licensed in a manner similar to the BSD License. It provides functions for the creation of custom Graph types when provided an adjacency list and a list of vertices. It also provides a few utility functions such as indegree and outdegree  which povide the edges going into and out of each node.
+%(in out degree customise the in degree for quad splitting discussion later)
+
+%Ant storing Ants in Graph Quadrants 
+
+%Identifying Further Parallelism
+Although the state of the project would now allow operations which provide an update to one of the simulation world's data structures to run in parallel with an operation providing an update to a different structure; the project could still achieve greater amounts of parallel speed up. Currently to to produce a an updated graph representation where all the ants in the graph have been processed, giving them the opportunity to move in their desired direction (if possible). Requiring all the ants to wait for their turn to be processed in exactly the same manner as ants whose actions have no affect on them is another remote area of the grid is a senario which adapts well to the divide and conquer method of parallelism discussed in the ``Context and Background Research'' section. In order to take this approach it necessary to be able to split the computation up into sections. To do this the same graph which represented an Ant world was now renamed a Quadrant, so that several quadrants could comprise a world. These quadrants were then stored in nodes of a graph this would allow for simple tracking of the edge relationships of each quadrant.
+
+%World -> Storing Quadrants
+With the partitioning of the simulation world into quadrants now in place a function which updated a quadrant could be applied to each quadrant there by achieving parallelism within the simulation's world graphs. When working with the world graph it was neccessary to keep in mind that what was stored in each node was actually a tuple containing the graph and two additional functions which performed operations on the graph. For this reason the world graph's contents could not be printed to the terminal directly using my existing function to print graph vertices, a function to print a quadrant from a world now has to extract the quadrant from the world before printing it.
+
+[code snippet] making use of function coposition
+
+%Stitching Up Graphs
+Now that the simulation world is divided up into quadrants, provisions must be made to allow ants to move between them. Several approaches to this problem were looked at and have been previously discussed in the design section. The only design which was implemented was the table of no processing lists. This began by developing functions to extract all the nodes along the edge of a quadrant when given the size of the quadrant and the direction in which the edge lies. When applying this to both a pheremone quadrant and an ant quadrant provided two lists nodes from the quadrant edge. The same could then be done to another quadrant edge to produce a similar pair of lists for an edge opposite to the previous edge.%% TODO Possible diagram.
+These four lists of nodes were then zipped together with the vertices on the graph to which they correspond. Each graphs lists was then coupled to produce a final edge pair, this edge pair could then be mapped over and would contain the information of what was at a particular vertex what was on at the vertex on the opposite quadrant, and other useful information to aid in (?the stitching up of quadrants). These edge pairs alone would not be sufficient calculate the new state of the quadrants after the edge ants had been processed. The current ant graphs and pheremone graphs were paired as well as a pair holding two Direction types. This served to indicate the relationship between each of the pairings being made.
+%% Possible diagram.
+
+This was all stored within a datatype called StitchableQuads which allowed this group of data to be passed around easily from function to function. Prior iterations saw functions with an increasingly longer list of arguments, which made code difficult to follow encapuslating these different values within a data type remedied this problem. Now the data that needed to be manipulated was all together and easily reachable within the StitchableQuads type the next step was the processesing of this value. The ant Edge pairs would be processed sequentially running function over its lists which processed the ants in a similar way to the ants within a quadrant however allowing them to sense outside of the quadrant.
+
+
+
+%Use of lazy evaluation in the fst snd selector of which stitch up effect.
+
+%Conclusion
+%If the graph had been an instance of Functor one could have mapped over its nodes with a function that checked the node was on the desired edge before processing it. However this may have been more difficult to read.
+
+
+using pattern matching to break types down into parts Lists and recursion.
+
+(Intro Quadrants)The list based world holds all the Ants in the simulation in one list, 
+in one array
+
+(Explain how the the complexity of the pheremone calculations would be out of the scope of this project)
+The problem is not within the scale of this project, however would make a fascinating consideration for future work
+
+Restriction fixed size ant everything is that size.
+
+
+(The progress you made, problems encountered,
+their solutions and the lessons learned;)
 
 Started off by implementing a Graph in Haskell. Difficulties with the Graph api. As this was the first time being exposed to real functional code outside the protection of tutorials it took time to grasp the concepts behind how the Graph API worked and how it was used. Discussed further in the conclusion, (Looking back I may have chosen a different API to implement my graph Data structure as Data.Graph isn't a functor there for it doesn't export a function to allow the user to map over it, this would have produced tidier code.)
 
-The project then progressed by way of finding ways to modify the graph data structure, because data in Haskell is persistent this means creating new data of the graph type as there is no assignment. The first function to be developed was swapping nodes on a graph.
 
 
-The progression of Feature sets
-
-Representing the Ant (From a Parametric type -> To a Record)
-
-Wrapping the Graph class (GraphsOps)
-Ant storing Ants in Graph Quadrants
-World -> Storing Quadrants
-Stitching Up Graphs
+%The progression of Feature sets
 Printing Ant Quadrants for testing -^ Serial Mode
 Processing steps and parallelism
 Thread scope debugging
@@ -29,10 +91,7 @@ Expanding Ant Behaviour (Exploration(Random))
 Introducing the Nest -^ Parallel mode
 
 Implementing Client Server (Remote. Cloud Haskell) 
-Haddock
-GPU acceleration
-Quadrant splitting - Naievely - Markov clusters - Graph averaging.
--Distrubuted mode
+Haddock and documenting?
 
 GUI - wxcore fail
 Run simulation based on Settings
@@ -48,11 +107,29 @@ Positioning new Ants in the world.
 Positioning food locations.
 
 Debugging
-http://www.haskell.org/haskellwiki/Haskell_program_coverage
-http://www.haskell.org/haskellwiki/Debugging#Infinite_loops
-http://stackoverflow.com/questions/2861988/haskell-defaulting-constraints-to-type
+%http://www.haskell.org/haskellwiki/Haskell_program_coverage
+The use of HPC
+%http://www.haskell.org/haskellwiki/Debugging#Infinite_loops
+The infinite Loop issue (Project Log)
+%http://stackoverflow.com/questions/2861988/haskell-defaulting-constraints-to-type
+-Wall and reducing Warnings.
 
-%% more of my design content
+Other problems encountered
+
+Persistance
+
+The project then progressed by way of finding ways to modify the graph data structure, because data in Haskell is persistent this means creating new data of the graph type as there is no assignment. The first function to be developed was swapping nodes on a graph. 
+
+Type Ambiguity.
+
+Optimisation
+Memoisation
+
+Extentions
+-GPU acceleration
+-Quadrant splitting - Naievely - Markov clusters - Graph averaging.
+-Distrubuted mode
+
 
 \end{document}
-%[AWC 194]
+%[AWC 302]

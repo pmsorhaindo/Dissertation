@@ -1,0 +1,443 @@
+% This file was created with JabRef 2.7b.
+% Encoding: UTF8
+
+@BOOK{Aaby1996,
+  title = {Introduction to Programming Languages},
+  year = {1996},
+  author = {Anthony A. Aaby},
+  owner = {mikey},
+  timestamp = {2012.04.05}
+}
+
+@BOOK{Almasi1989,
+  title = {Highly parallel computing},
+  publisher = {Benjamin-Cummings Publishing Co., Inc.},
+  year = {1989},
+  author = {Almasi, G. S. and Gottlieb, A.},
+  address = {Redwood City, CA, USA},
+  isbn = {0-8053-0177-1},
+  owner = {Mikey},
+  timestamp = {2011.10.24}
+}
+
+@ARTICLE{Amdahl1967,
+  author = {Gene M. Amdahl},
+  title = {Validity of the single processor approach to achieving large scale
+	computing capabilities},
+  journal = {AFIPS Spring joint Computer Conference},
+  year = {1967},
+  owner = {Mikey},
+  review = {technically proceedings as this was a dictation of what he said but
+	usually cited as an article so confused!},
+  timestamp = {2011.11.01}
+}
+
+@ARTICLE{Apt2001,
+  author = {Krzysztof R. Apt},
+  title = {The Logic Programming Paradigm and Prolog},
+  journal = {CoRR},
+  year = {2001},
+  volume = {cs.PL/0107013},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://arxiv.org/abs/cs.PL/0107013},
+  owner = {mikey},
+  timestamp = {2012.04.05}
+}
+
+@MISC{Armstrong2009,
+  author = {Armstrong, Joe  and Jones, Simon Peyton and Drobi, Sadek},
+  title = {Interview: Joe Armstrong and Simon Peyton Jones discuss Erlang and
+	Haskell},
+  month = {September},
+  year = {2009},
+  owner = {mikey},
+  timestamp = {2012.04.06},
+  url = {http://www.infoq.com/interviews/armstrong-peyton-jones-erlang-haskell}
+}
+
+@BOOK{Armstrong1995,
+  title = {Concurrent Programming in ERLANG},
+  publisher = {Prentice Hall},
+  year = {1995},
+  author = {Armstrong, Joe and Virding, Robert and Wikstr¨om, Claes and Williams,
+	Mike},
+  owner = {mikey},
+  timestamp = {2012.04.06}
+}
+
+@ARTICLE{Backus1978,
+  author = {Backus, John},
+  title = {Can programming be liberated from the von Neumann style?: a functional
+	style and its algebra of programs},
+  journal = {Commun. ACM},
+  year = {1978},
+  volume = {21},
+  pages = {613--641},
+  month = {August},
+  acmid = {359579},
+  address = {New York, NY, USA},
+  doi = {http://doi.acm.org/10.1145/359576.359579},
+  issn = {0001-0782},
+  issue = {8},
+  keywords = {algebra of programs, applicative computing systems, applicative state
+	transition systems, combining forms, functional forms, functional
+	programming, metacomposition, models of computing systems, program
+	correctness, program termination, program transformation, programming
+	languages, von Neumann computers, von Neumann languages},
+  numpages = {29},
+  owner = {Mikey},
+  publisher = {ACM},
+  timestamp = {2011.10.30},
+  url = {http://doi.acm.org/10.1145/359576.359579}
+}
+
+@BOOK{Barendregt1984,
+  title = {The Lambda Calculus: Its Syntax and Semantics},
+  publisher = {North Holland, Amsterdam},
+  year = {1984},
+  author = {Barendregt, H. P.},
+  owner = {Mikey},
+  timestamp = {2012.04.05},
+  url = {http://mathgate.info/cebrown/notes/barendregt.php}
+}
+
+@INCOLLECTION{Beni1993,
+  author = {Beni, Gerardo and Wang, Jing},
+  title = {Swarm Intelligence in Cellular Robotic Systems},
+  booktitle = {Robots and Biological Systems: Towards a New Bionics?},
+  publisher = {Springer Berlin Heidelberg},
+  year = {1993},
+  editor = {Dario, Paolo and Sandini, Giulio and Aebischer, Patrick},
+  volume = {102},
+  series = {NATO ASI Series},
+  pages = {703-712},
+  note = {10.1007/978-3-642-58069-7_38},
+  abstract = {Cellular Robotic Systems are capable of ’intelligent* behavior. The
+	meaning of this intelligence is analyzed in the paper. We define
+	robot intelligence and robot system intelligence in terms of unpredictability
+	of improbable behavior. The concept of unpredictability is analyzed
+	in relation to (1) statistical unpredictability, (2) inaccessibility,
+	(3) undecidability, (4) intractability, and (5) non-representability.
+	We argue that the latter two type of unpredictability, when exhibited
+	by systems capable of producing order, can result in a non-trivial,
+	different form of intelligent behavior (Swarm Intelligence). Engineering
+	problems related to Swarm Intelligence are mentioned in relation
+	to Cellular Robotic Systems which consist of collections of autonomous,
+	non-synchronized, non-intelligent robots cooperating to achieve global
+	tasks.},
+  affiliation = {College of Engineering, University of California, Riverside, 92521
+	Riverside, California, USA},
+  isbn = {978-3-642-58069-7},
+  keyword = {Computer Science},
+  owner = {Mikey},
+  timestamp = {2011.10.23},
+  url = {http://dx.doi.org/10.1007/978-3-642-58069-7_38}
+}
+
+@BOOK{DavidJ.Barnes2008,
+  title = {Objects First with Java A Practical Introduction using BlueJ},
+  publisher = {Prentice Hall / Pearson Education},
+  year = {2008},
+  author = {David J. Barnes, Michael Kölling},
+  edition = {4th},
+  owner = {mikey},
+  timestamp = {2012.04.05}
+}
+
+@BOOK{Duame2002,
+  title = {Yet Another Haskell Tutorial},
+  year = {2002},
+  author = {Hal Duame},
+  owner = {mikey},
+  timestamp = {2012.04.05}
+}
+
+@BOOK{Foster1995,
+  title = {Designing and Building Parallel Programs: Concepts and Tools for
+	Parallel Software Engineering},
+  publisher = {Addison-Wesley Longman Publishing Co., Inc.},
+  year = {1995},
+  author = {Foster, Ian},
+  address = {Boston, MA, USA},
+  isbn = {0201575949},
+  owner = {Mikey},
+  timestamp = {2012.03.24}
+}
+
+@INPROCEEDINGS{Fung2007,
+  author = {Fung, Wilson W. L. and Sham, Ivan and Yuan, George L. and Aamodt,
+	Tor M.},
+  title = {Dynamic Warp Formation and Scheduling for Efficient GPU Control Flow.},
+  booktitle = {MICRO},
+  year = {2007},
+  pages = {407-420},
+  publisher = {IEEE Computer Society},
+  added-at = {2009-05-24T00:00:00.000+0200},
+  biburl = {http://www.bibsonomy.org/bibtex/2c004c1a50f7ba294cf490b5eacc35081/dblp},
+  date = {2009-05-24},
+  description = {dblp},
+  ee = {http://doi.ieeecomputersociety.org/10.1109/MICRO.2007.12},
+  interhash = {ad3b641d40c5f20c4af12edba78963de},
+  intrahash = {c004c1a50f7ba294cf490b5eacc35081},
+  keywords = {dblp},
+  owner = {Mikey},
+  timestamp = {2012.03.11},
+  url = {http://dblp.uni-trier.de/db/conf/micro/micro2007.html#FungSYA07}
+}
+
+@INPROCEEDINGS{Grinberg2007,
+  author = {Grinberg, Ilan and Wiseman, Yair},
+  title = {Scalable Parallel Collision Detection Simulation},
+  booktitle = {Signal and Image Processing},
+  year = {2007},
+  pages = {380--385},
+  journal = {Proceedings of Signal and Imaging Processing},
+  owner = {Mikey},
+  timestamp = {2011.10.25},
+  url = {http://scholar.google.com/scholar?hl=en&btnG=Search&q=intitle:Scalable+parallel+collision+detection+simulation#3}
+}
+
+@BOOK{Hopcroft2006,
+  title = {Introduction to Automata Theory, Languages, and Computation (3rd
+	Edition)},
+  publisher = {Addison Wesley},
+  year = {2006},
+  author = {Hopcroft, John E. and Motwani, Rajeev and Ullman, Jeffrey D.},
+  edition = {3},
+  month = jul,
+  __markedentry = {[Mikey:6]},
+  abstract = {{This book is a rigorous exposition of formal languages and models
+	of computation, with an introduction to computational complexity.
+	The authors present the theory in a concise and straightforward manner,
+	with an eye out for the practical applications. Exercises at the
+	end of each chapter, including some that have been solved, help readers
+	confirm and enhance their understanding of the material. This book
+	is appropriate for upper-level computer science undergraduates who
+	are comfortable with mathematical arguments.}},
+  citeulike-article-id = {7013081},
+  citeulike-linkout-0 = {http://www.worldcat.org/isbn/0321462254},
+  day = {15},
+  howpublished = {Hardcover},
+  keywords = {2006, 9142c, languages-theory, model-theory-group},
+  owner = {Mikey},
+  posted-at = {2010-04-13 07:46:37},
+  priority = {2},
+  timestamp = {2011.10.25},
+  url = {http://www.worldcat.org/isbn/0321462254}
+}
+
+@BOOK{Hudak1999,
+  title = {A Gentle Introduction to Haskell 98},
+  year = {1999},
+  author = {Paul Hudak and John Peterson and Joseph Fasel},
+  owner = {Mikey}
+}
+
+@ARTICLE{Hughes1984,
+  author = {John Hughes},
+  title = {Why Functional Programming Matters},
+  journal = {The Computer Journal},
+  year = {1984},
+  volume = {32},
+  pages = {98--107},
+  owner = {Mikey},
+  timestamp = {2011.11.08}
+}
+
+@ARTICLE{Larman2003,
+  author = {Larman, Craig and Basili, Victor R.},
+  title = {Iterative and Incremental Development: A Brief History},
+  journal = {Computer},
+  year = {2003},
+  volume = {36},
+  pages = {47--56},
+  number = {6},
+  month = jun,
+  acmid = {972226},
+  address = {Los Alamitos, CA, USA},
+  doi = {10.1109/MC.2003.1204375},
+  issn = {0018-9162},
+  issue_date = {June 2003},
+  numpages = {10},
+  owner = {Mikey},
+  publisher = {IEEE Computer Society Press},
+  timestamp = {2012.04.02},
+  url = {http://dx.doi.org/10.1109/MC.2003.1204375}
+}
+
+@BOOK{OSullivan2008,
+  title = {Real World Haskell},
+  publisher = {O'Reilly Media, Inc.},
+  year = {2008},
+  author = {O'Sullivan, Bryan and Goerzen, John and Stewart, Don},
+  edition = {1},
+  month = December,
+  abstract = {This easy-to-use, fast-moving tutorial introduces you to functional
+	programming with Haskell. You'll learn how to use Haskell in a variety
+	of practical ways, from short scripts to large and demanding applications.
+	Real World Haskell takes you through the basics of functional programming
+	at a brisk pace, and then helps you increase your understanding of
+	Haskell in real- world issues like I/O, performance, dealing with
+	data, concurrency, and more as you move through each chapter.},
+  isbn = {0596514980},
+  keywords = {functional, haskell, lib-musil, programming, tutorial},
+  owner = {Mikey},
+  posted-at = {2009-02-07 16:44:09},
+  priority = {2},
+  timestamp = {2011.10.24}
+}
+
+@STANDARD{Curriculum2008,
+  title = {Computer Science Curriculum 2008: An Interim Revision of CS 2001Report
+	from the Interim Review Task Force},
+  organization = {CS2008 Review Taskforce},
+  institution = {Association for Computing Machinery, IEEE Computer Society},
+  author = {Renée McCauley, Andrew McGettrick},
+  year = {2008},
+  owner = {Mikey},
+  timestamp = {2011.10.29}
+}
+
+@BOOK{Skiena2010,
+  title = {The Algorithm Design Manual},
+  publisher = {Springer},
+  year = {2010},
+  author = {Steven S. Skiena},
+  edition = {Second Edition},
+  owner = {Mikey},
+  timestamp = {2011.11.02}
+}
+
+@ARTICLE{Taivalsaari1993,
+  author = {Taivalsaari, Antero},
+  title = {On the notion of object},
+  journal = {Journal of Systems and Software},
+  year = {1993},
+  volume = {21},
+  pages = {3--16},
+  number = {1},
+  owner = {Mikey},
+  timestamp = {2011.10.31},
+  url = {http://portal.acm.org/citation.cfm?id=153666}
+}
+
+@ARTICLE{Trinder1998,
+  author = {Philip W. Trinder and Kevin Hammond and Hans-Wolfgang Loidl and Simon
+	L. {Peyton Jones}},
+  title = {Algorithm + Strategy = Parallelism},
+  journal = {Journal of Functional Programming},
+  year = {1998},
+  volume = {8},
+  pages = {23-60},
+  number = {1},
+  month = {jan},
+  abstract = {Philip W. Trinder, Kevin Hammond, Hans-Wolfgang Loidl, and Simon L.
+	Peyton Jones. Journal of Functional Programming, 8(1), Jan 1998.
+	
+	The process of writing large parallel programs is complicated by the
+	need to specify both the parallel behaviour of the program and the
+	algorithm that is to be used to compute its result. This paper introduces
+	evaluation strategies, lazy higher-order functions that control the
+	parallel evaluation of non-strict functional languages. Using evaluation
+	strategies, it is possible to achieve a clean separation between
+	algorithmic and behavioural code. The result is enhanced clarity
+	and shorter parallel programs.
+	
+	
+	Evaluation strategies are a very general concept: this paper shows
+	how they can be used to model a wide range of commonly used programming
+	paradigms, including divide-and-conquer, pipeline parallelism, producer/consumer
+	parallelism, and data-oriented parallelism. Because they are based
+	on unrestricted higher-order functions, they can also capture irregular
+	parallel structures. Evaluation strategies are not just of theoretical
+	interest: they have evolved out of our experience in parallelising
+	several large-scale parallel applications, where they have proved
+	invaluable in helping to manage the complexities of parallel behaviour.
+	Some of these applications are described in detail here. The largest
+	application we have studied to date, Lolita, is a 60,000 line natural
+	language engineering system. Initial results show that for these
+	programs we can achieve acceptable parallel performance, for relatively
+	little programming effort.},
+  owner = {Mikey},
+  timestamp = {2011.10.23}
+}
+
+@MISC{Trottier-Hebert2011,
+  author = {Trottier-Hebert,Frederic},
+  title = {Learn You Some Erlang},
+  year = {2011},
+  owner = {mikey},
+  timestamp = {2012.04.06},
+  url = {http://learnyousomeerlang.com/}
+}
+
+@ARTICLE{Vujosevic2008,
+  author = {Vujošević-Janičić, M and Tošić, D},
+  title = {The role of programming paradigms in the first programming courses},
+  journal = {The Teaching of Mathematics},
+  year = {2008},
+  volume = {XI},
+  pages = {63–83},
+  number = {2},
+  owner = {Mikey},
+  publisher = {CEON/ CEES},
+  timestamp = {2011.10.29},
+  url = {http://scindeks.nb.rs/article.aspx?artid=1451-49660802063V}
+}
+
+@INPROCEEDINGS{Yisheng2009,
+  author = {Zou Yisheng and Zhou Xiaoli and Ding Guofu and He Yong and Jia Meiwei},
+  title = {A GPGPU-Based Collision Detection Algorithm},
+  booktitle = {Image and Graphics, 2009. ICIG '09. Fifth International Conference
+	on},
+  year = {2009},
+  pages = {938 -942},
+  month = {sept.},
+  doi = {10.1109/ICIG.2009.127},
+  keywords = {CPU;FBO technology;GPGPU;OBB hierarchy tree;bounding box size texture;collision
+	detection algorithm;data preparation;data transmission;tree node
+	relationship texture;triangle vertex textures;computer graphics;coprocessors;},
+  owner = {Mikey}
+}
+
+@INCOLLECTION{Zhao2010,
+  author = {Zhao, Wei and Chen, Cheng-Shou and Li, Li-Jun},
+  title = {Parallel Collision Detection Algorithm Based on OBB Tree and MapReduce},
+  booktitle = {Entertainment for Education. Digital Techniques and Systems},
+  publisher = {Springer Berlin / Heidelberg},
+  year = {2010},
+  editor = {Zhang, Xiaopeng and Zhong, Shaochun and Pan, Zhigeng and Wong, Kevin
+	and Yun, Ruwei},
+  volume = {6249},
+  series = {Lecture Notes in Computer Science},
+  pages = {610-620},
+  note = {10.1007/978-3-642-14533-9_62},
+  __markedentry = {[Mikey:]},
+  abstract = {Collision detection is the key technology of virtual reality, which
+	is an important factor to improve the sense of a virtual reality
+	system. For Real-Time and accuracy requirements in complex interactive
+	virtual environment, MapReduce parallel collision detection algorithm
+	is presented based on the cloud computing model. It builds a Bounding
+	Box Tree with divide and conquers technologies and the tightness
+	of oriented bounding box. In order to improve the speed of collision
+	detection, MapReduce cloud computing programming model is used for
+	traverse hierarchical tree Multi-threaded.},
+  affiliation = {School of Information Technology, Jilin Agricultural University, Changchun,
+	130118 China},
+  isbn = {978-3-642-14532-2},
+  keyword = {Computer Science},
+  owner = {Mikey},
+  timestamp = {2011.10.25},
+  url = {http://dx.doi.org/10.1007/978-3-642-14533-9_62}
+}
+
+@comment{jabref-meta: selector_review:}
+
+@comment{jabref-meta: selector_publisher:}
+
+@comment{jabref-meta: selector_author:}
+
+@comment{jabref-meta: selector_journal:}
+
+@comment{jabref-meta: selector_keywords:}
+

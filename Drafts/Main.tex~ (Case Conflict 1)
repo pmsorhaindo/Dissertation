@@ -5,7 +5,6 @@
 %% my document content
 %%\subfile{researchAndPlanning}
 \subfile{introduction}
-\subfile{context}
 \subfile{requirements}
 \subfile{design}
 \subfile{implementation}

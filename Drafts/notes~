@@ -3,22 +3,54 @@ Always talk about the project in past tense?
 Design section contain, intended design and final design?
 ie should I talk about modifications to the design during implementation?
 
-
-
-
 Intro
-Choice
-Modules used
-Why
+The project
+Choice of project -why it is suitable
+The modules - used in connection to the project
+What is a simulation
+Why simulations need Multicore programming
+Multicore programming - Parallel vs Concurrency
+Functional languages exploiting parallelism
 
+Summary - One page on everything.
+
+Requirements
+Overview - a parallel simulation exploiting the parallel benefits of the programming language Haskell
+\subsection{Technical Aims}
+\begin{itemize}
+	\item To explore paralellism and implement parallel and sequential algorithms.
+	\item To produce functional code that addresses the problem.
+	\item To implement accurate collision detection.
+	\item To implement a data structure that holds the information in the simulation.
+	\item To develop custom algorithms suitable for this project.
+\end{itemize}
+
+\subsection{Qualititive Aims}
+\begin{itemize}
+	\item To produce ants which have a sense of  position and can navigate their environment
+	\item To produce ants which appear to interact through the use of phermones
+	\item To produce an environment that provides obstacles that tests the ants behaviour
+	\item To produce clear concise and understandable code.
+\end{itemize}
+
+\subsection{Learning Outcomes}
+\begin{itemize}
+	\item To be able to program functionally
+	\item To have a better understanding of parallelism
+	\item To have a good understanding of the programming language(s) that I use to implement my solution.
+	\item To be able to analyze and critque algorithms effectively.
+\end{itemize}
+
+Research
+Languages considered
+
+Design
 Initial ideas and decisions
 
-Methodology
-How I plan to do it
-How to research
-How to code
 
-Background research and the way its influenced the project
+Methodology - Implementation
+How I plan to do it
+How to code
 
 Coding section
 Problems
@@ -30,6 +62,9 @@ Conclusion
 
 
 Intro Notes
+
+Haskell classes are roughly similar to a Java interface. Like an interface declaration, a Haskell class declaration defines a protocol for using an object rather than defining an object itself.
+
 
 
 QuickCheck is a combinator library written in Haskell, designed to assist in software testing by generating test cases for test suites. It is compatible with the GHC compiler and the Hugs interpreter.
