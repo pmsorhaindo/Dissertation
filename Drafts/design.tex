@@ -2,9 +2,6 @@
 \usepackage{listings}
 \lstset{language=Haskell}
 \begin{document}
-%% my design content
-
-Design
 
 Desgin techniques
 There is no standard way to model programs in Haskell and many different methods are used to carry an idea through from concept to code. Some programmers use modelling techniques similar to the Unified Modeling Language (UML) [Which is geared heavliy towards object orientated languages with its use of class diagrams/Commonly used in object-orientated languages such as Java] While other developers use concept maps and data flow diagrams to provide a general picture of the design before they begin programming. However, because Haskell is both a strongly and statically typed language it is a common practise to start constructing a program by working out the data types needed to complete the task. Then implement the functions for working with the newly created data types. Finally culminating in writing modules that bring together all the functions in a structured way. The approach to modelling however, differs from project to project.
@@ -184,7 +181,41 @@ QUICK CHECK NOTES
 How the design choices have been influenced by research.
 
 %% more of my design content
+\section{Planning}
 
+\section{Software Development Model}
+This project will take an iterative and modular approach to development. This approach can also be seen as ``a way to manage the complexity and risks of large-scale development''\cite{Larman2003}.  It is a useful coding practise to develop small modules which are capable of functioning independantly from the code as these modules can then be reused, in developing other programs. There is also another advantage to be drawn from modular development, each module would be able to be tested sperately which would in turn ensure less bugs when assembling the final product. Another advantage of the iterative incremental approach is that the developer is able to take advantage of what is learned during the development of earlier, increments of the system. As learning comes from both the development and use of the system \cite{Larman2003}.
+
+\section{Important Tasks}
+The following is a break down of the project into smaller iterations this can then be used alongside the various project deadlines the project entails, to produce a Gantt chart of how the project's workflow will be carried out.
+\begin{itemize}
+	\item Representing an Ant
+	\item Representing the World
+	\item Representing the Pheremone Levels
+	\item Individual Ant Intelligence
+	\item Collision Detection
+	\item Parallelize Algorithms further
+	\item Distributing Problem
+\end{itemize}
+
+\section{A Schedule of Activities}
+The produced Gantt chart attached to this report visualizes the following information. Throughout the following paragraphs a description of the plan for the project will be detailed in the form of a schedule. 
+
+\paragraph{October-November}
+Throughout the course of October and November the project will focus mainly on gathering resources  and research. Much of the research will be conducted in the functional language Haskell and small experiments will be made to demonstrate any concepts that have been learnt. Further research will be carried out in areas of the project that will pose potential problems that need to be dealt with later on in the implementation stage of the project. Even at this point in the project the implementation process will begin. As development will be iterative small aims will be set such as representing a single ant and then these aims will be expanded upon.
+
+\paragraph{December-Janurary}
+In the months of December and Janurary the code produced in the first section will be expanded upon to produce a working base system. At the end of this this period a simulation of the ant colony should be able to be run. The simulation should include the all the basic functionality of the final system. Ants will be able to move and collide. Each ant will respond to its surroundings by referencing its own basic behaviour tree.
+
+\paragraph{February-March}
+In Feburary and March the focus will be on improving the algorithms which have been used within the system. Making them more efficient and looking at structuring more of them to work in parallel. At the end of this period the project's delieverable, the simulation, will be in a state that is presentable with as few bugs as possible. Towards the end of this period if things are on schedule the project's focus will shift from improving the base simulation to adding extentions and making it more usable.
+
+\paragraph{April}
+During the final few weeks of the project there will be the fixing of any bugs in the simulation and finishing up any extentions that may be added to the project. During this time the projects focus will be on documentation and producing an informative and evaluative technical report.
+
+\section{Risk Analysis} % Good maybe expand
+Throughout this project there are several things that could go wrong, such as  loss of work, hardware failure and the inability to surpass certain bugs which may be encountered throughout the project. To minimize the chances of loss of work source control tools will be utilized in the form of git. This will not only backup the project but keep a track of changes and monitor its evolution. In the event of hardware failiure all the software required for the project is freely available and it would be possible to set up for work either in the University or on a replacement system with minimal effort. There is also a chance that bugs may be encountered which appear impossible to overcome this is a risk that can only be managed through planning and research. Should difficulties be encountered there is a vast range of resources for functional programming online and a Brighton functional programming user group, this would provide a great opportunity to increase my knowledge but should it not be possible to find a solution the only course of action would be to alter the future plans of the project.
+%(!TODO) A risk analysis of potential problems.
 \end{document}
 
 %[AWC 1073]

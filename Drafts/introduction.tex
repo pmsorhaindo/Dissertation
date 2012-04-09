@@ -1,78 +1,154 @@
 \documentclass[main.tex]{subfiles} 
+
 \begin{document}
+
 %% my intro content
 
+
+
 Acknowledgements
+
 Background and Research and Context
 
-- Simulations
-A simulation is a genre of game, a life simulation game could revolve around a particular character and its relationships with other things within the simulation, or it could be a simulation of an ecosystem (Spore). Biological simulations may allow the player to experiment with genetics, survival or ecosystems, this can often be for educational purposes. Unlike other genres of games, simulation games do not usually have a set goals that allow a player to win the game. Rather they focus on the experience of control, wheter it be the lives of people, when micromanaging a family (The most notable example of this is Will Wright's The Sims.) to overseeing the rise of a civilization or success of a business. 
 
-Outside of games, biological simulations can be used for more than educational purposes, and are utilized by researchers, to test theories, which in practise would be impossible to carry out because of technological or financial constraints, and show their findings visually. These are often large scale simulations which demand large anounts of processing power due to the nature of the problems. for example the Blue Brain Project http://www.newscientist.com/article/dn7470--mission-to-build-a-simulated-brain-begins.html and weather prediction http://en.wikipedia.org/wiki/Climate_model
+
+- Simulations
+
+A simulation is a genre of game, a life simulation game could revolve around a particular character and its relationships with other things within the simulation, or it could be a simulation of an ecosystem (Spore). Biological simulations may allow the player to experiment with genetics, survival or ecosystems, this can often be for educational purposes. Unlike other genres of games, simulation games do not usually have a set goals that allow a player to win the game. Rather they focus on the experience of control, whether it be the lives of people, when micromanaging a family (The most notable example of this is Will Wright's The Sims.) to overseeing the rise of a civilization or success of a business. 
+
+
+
+Outside of games, biological simulations can be used for more than educational purposes, and are utilized by researchers, to test theories, which in practise would be impossible to carry out because of technological or financial constraints, and show their findings visually. These are often large scale simulations which demand large amounts of processing power due to the nature of the problems. for example the Blue Brain Project http://www.newscientist.com/article/dn7470--mission-to-build-a-simulated-brain-begins.html and weather prediction http://en.wikipedia.org/wiki/Climate_model
+
+
 
 Linking paragraph on why simulations need Multicore programming
 
+
+
 -Multicore Programming
+
 Processor clockspeeds aren't increasing at the rate they used to, with the [GPGPU cite!]. However Moore's law is still in tact as the processors are consisting of more cores. In order to harness the full potential of these multicore processors it is necessary to run computations on all the processors available cores. While the splitting up of work between a processor's cores might be a trivial process in theory. In practice it opens up several new issues which a programmer must address; into how many pieces should the computation be split, will the smaller computations need to communicate their results to other computations, is it necessary for some computations to finish executing before others begin? These are all questions which face a programmer when designing an application to make use of a multicore processor. 
+
+
 
 There are two words which occur often in discussions about multicore programming and these are Parallelism and Concurrency. It is important to clarify these terms:
 
+
+
 Parallelism: It’s a property of the machine where software is to be run. The application runs on multiple processors/cores, with the hope for faster speed than on a single processor machine.
 
-Concurrency: Software is composed of, possibly unrelated, computations and multiple threads of control making effects to the world, via arbitrary interleaving. The expected results are therefore, non-deterministic because the total effect of the program may depend on the particular order of interleaving at runtime. Computation is based on this nondeterminism. [Nino and RWH]
+
+
+Concurrency: Software is composed of, possibly unrelated, computations and multiple threads of control making effects to the world, via arbitrary interleaving. The expected results are therefore, non-deterministic because the total effect of the program may depend on the particular order of interleaving at runtime. Computation is based on this non-determinism. [Nino and RWH]
+
+
 
 Where concurrency is utilized the programmer has the responsibility of controlling the non-determinism using synchronisation, to make sure that the program runs as it is supposed to regardless of the order of execution. This is not an easy task because there’s no reasonable way to test that you have covered all the cases. <testing threaded programs cite!>
 
-In order to make programs run faster on parallel hardware, it is not neccessary to have concurrency.
+
+
+In order to make programs run faster on parallel hardware, it is not necessary to have concurrency.
+
 It’s important that this issue is well understood if we’re to find a way to enable everyday programmers to use multicore CPUs.
+
+
+
 
 
 -Functional programming as opposed to other paradigms
 
+
+
 A functional language is language  in  which  computation  is  carried  out  entirely  through  the evaluation  of  expressions. [Evolution of Functional hudak] Burge back in 1975 suggested the approach of evaluating function arguments in parallel, with the possibility of functions absorbing unevaluated arguments and perhaps also exploiting speculative evaluation [W. H. Burge. Recursive Programming Techniques. Addison-Wesley, 1975.]. <??Berkling also considered the application of functional languages to parallel processing??> [K. J. Berkling. Reduction Languages for Reduction Machines. In 2nd. Annual ACM Symp. on Comp. Arch., pages 133-140. ACM/IEEE 75CH0916-7C, 1975.].
 
+
+
 <!Definition of purity!>
+
 To be functionally pure, a method must satisfy two critical properties
+
 First, it must have no side effects. For a computational method to be free of side effects, its execution must not have any visible effect other than to generate a result. A method that modiﬁes its arguments or global variables, or that causes an external effect like writing to disk or printing to the console, is not side-effect free.
 
-The second property is functional determinism: the method’s behavior must depend only on the arguments provided to the method. The method must return the same answer every time it is invoked
+
+
+The second property is functional determinism: the method’s behaviour must depend only on the arguments provided to the method. The method must return the same answer every time it is invoked
+
 on equivalent arguments, even across different executions of the program
-[Verifiable functional purity in java Matthew Finifter Adrian Mettler Naveen Sastry David Wagner 2008]
+
+[Verifiable functional purity in Java Matthew Finifter Adrian Mettler Naveen Sastry David Wagner 2008]
+
+
 
 Due to the absence of side-effects in a purely functional program, it is relatively easy to partition programs into sub-programs which can be executed in parallel: any computation which is needed to produce the result of the program may be run as a separate task. There may, however, be implicit control- and data- dependencies between parallel tasks, which will limit parallelism to a greater or lesser extent. [Parallel Functional programming an introduction Kevin Hammond] http://www-fp.dcs.st-and.ac.uk/~kh/papers/pasco94/pasco94.html
 
+
+
 <!!needed? Higher-order functions (functions which act on functions) can also introduce program-specific control structures, which may be exploited by suitable parallel implementations, such as those for algorithmic skeletons (Section 3.2).!!>
 
+
+
 Here is a classic divide-and-conquer program, a variant on the naive Fibonacci program. Since the two recursive calls to nfib are independent, they can each be executed in parallel. If this is done naively, then the number of tasks created is the same as the result of the program. This is an exponentially large number ().
+
+
+
 
 
 There are many ways to exploit the possible parallelism present in a functional program. <<<Most systems have selected a set of these, and it is therefore difficult to isolate the effect of a single technique on overall performance, even when concrete performance results are available.>>>
 
 
 
--Haskell's Benifits
+
+
+
+
+-Haskell's Benefits
+
 -The problem
 
 
+
+
+
 <<<
+
 In Chapter 2 important concepts in parallelism in the last decade and relevant publications are reviewed. Studying them provided insights about the inherent problems in the development of large scale simulations and their possible solutions.
+
+
 
 Chapter 3 is focused on specifying the goals of this project and on analysis of the algorithms that are going to be used as a basis of the application.
 
+
+
 Chapter 4 explains and justifies the architectural and simulation design choices that were made.
+
+
 
 Chapter 5 describes the progress made up to the current stage of the development process. Specific problems that appeared during implementation and testing and suggestions for their resolution are examined.
 
+
+
 Chapter 6 shows and discusses the findings made and the level up to which the project goals were achieved. It also mentions possible improvements for the simulation and suggests new areas of investigation prompted by the lessons learned and the inevitable evolution of hardware.
+
+
 
 Chapter 7 gives a brief summary of the points made in the previous chapters.>>>
 
 
 
+
+
+
+
 SUMMARY
+
 Although several of the Qualitative objectives have not been achieved in their entirety the project has proven an academic success, as the extent of further work possible makes it the perfect candidate for continued research, that has the potential to yield important results in the field of parallel processing.
+
+
 
 %% more of my intro content
 
+
+
 \end{document}
-%[AWC 1209]
+

@@ -130,7 +130,7 @@ Key Functions
 The functions responsible for the flow of the program are
 
 
-(MENTIONED-IN-IMPLEMENTATION) (Need to discuss hyper jumping (ants holding the state if they had been moved or not))
+(MENTIONED-IN-IMPLEMENTATION) (Need to discuss hyper jumping (ants holding the state if they had been moved or not(is that more processing), message systems quadrants telling other quadrants that they which to pass ants. STM edge cells being locable concurrency style)).
 stitchUpAntQuads - Sequentially processes pairs of edge-nodes on a Graph (to possibly move Ants between AntQuadrants).
 The could be parallelised to a degree - Enter processing batches!
 stitchUpPherQuads - Sequentially processes pairs of edge-nodes on a Graph (to manage the spread of Phermone between PherQuadrants).

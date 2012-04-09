@@ -304,6 +304,20 @@
   url = {http://scindeks.nb.rs/article.aspx?artid=1451-49660802063V}
 }
 
+@INPROCEEDINGS{Yisheng2009,
+  author = {Zou Yisheng and Zhou Xiaoli and Ding Guofu and He Yong and Jia Meiwei},
+  title = {A GPGPU-Based Collision Detection Algorithm},
+  booktitle = {Image and Graphics, 2009. ICIG '09. Fifth International Conference
+	on},
+  year = {2009},
+  pages = {938 -942},
+  month = {sept.},
+  doi = {10.1109/ICIG.2009.127},
+  keywords = {CPU;FBO technology;GPGPU;OBB hierarchy tree;bounding box size texture;collision
+	detection algorithm;data preparation;data transmission;tree node
+	relationship texture;triangle vertex textures;computer graphics;coprocessors;}
+}
+
 @INCOLLECTION{Zhao2010,
   author = {Zhao, Wei and Chen, Cheng-Shou and Li, Li-Jun},
   title = {Parallel Collision Detection Algorithm Based on OBB Tree and MapReduce},

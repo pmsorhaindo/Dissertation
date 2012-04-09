@@ -51,9 +51,17 @@ Now that the simulation world is divided up into quadrants, provisions must be m
 These four lists of nodes were then zipped together with the vertices on the graph to which they correspond. Each graphs lists was then coupled to produce a final edge pair, this edge pair could then be mapped over and would contain the information of what was at a particular vertex what was on at the vertex on the opposite quadrant, and other useful information to aid in (?the stitching up of quadrants). These edge pairs alone would not be sufficient calculate the new state of the quadrants after the edge ants had been processed. The current ant graphs and pheremone graphs were paired as well as a pair holding two Direction types. This served to indicate the relationship between each of the pairings being made.
 %% Possible diagram.
 
-This was all stored within a datatype called StitchableQuads which allowed this group of data to be passed around easily from function to function. Prior iterations saw functions with an increasingly longer list of arguments, which made code difficult to follow encapuslating these different values within a data type remedied this problem. Now the data that needed to be manipulated was all together and easily reachable within the StitchableQuads type the next step was the processesing of this value. The ant Edge pairs would be processed sequentially running function over its lists which processed the ants in a similar way to the ants within a quadrant however allowing them to sense outside of the quadrant.
+This was all stored within a datatype called StitchableQuads which allowed this group of data to be passed around easily from function to function. Prior iterations saw functions with an increasingly longer list of arguments, which made code difficult to follow. Encapuslating these different values within a data type remedied this problem. Now the data that needed to be manipulated was all together and easily reachable within the StitchableQuads type the next step was the processesing of this value. The ant Edge pairs would be processed sequentially by running a function over its lists which processed the ants in a similar way to the ants within a quadrant however allowing them to sense outside of the quadrant. With each pair of opposing edge nodes there was three scenarios that could occur and each needed to be handled in a seperate way.
 
+Neither node holds ants
+One node holds an ant
+Both nodes holds ants
 
+If the opposing edge nodes both held no ant the function recursed onto the next pair of opposing nodes. Should one node hold an ant while the opposite edge node held no ant, the ant could be processed as usual having the information of the cell which is not in its current quadrant provided to it in an additional processing step.
+
+% Talk about hanging and the misuse of symbol names bug. Found via HPC and -Wall
+
+%%useTheWordExtrapolateExtendtheapplication 
 
 %Use of lazy evaluation in the fst snd selector of which stitch up effect.
 

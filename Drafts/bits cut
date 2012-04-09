@@ -1,0 +1,21 @@
+To exploit a parallel processor, it must be possible to decompose a program into components that can be executed in parallel, assign these components to processors, coordinate their execution by communicating data as needed among the processors, and reassemble the results of the computation. Compared to traditional imperative programming languages, it is quite easy to execute components of a functional program in parallel \cite{Kelly1989}. Due to the property of referential transparencyand the lack of sequencing, there are no time dependencies in the evaluation of expressions; the ﬁnal value is the same regardless of which expression is evaluated ﬁrst. The nesting of expressions within other expressions deﬁnes the data communication that must occur during execution. \cite{Cunningham2010}
+
+Thus executing a functional program in parallel does not require the availability of a highly sophisticated compiler for the language. However, a more sophisticated compiler can take advantage of the algebraic laws of the language to transform a program to an equivalent program that can
+more efficiently be executed in parallel.\cite{Cunningham2010}
+
+In addition, frequently used operations in the functional programming library can be be optimized for highly efficient parallel execution. Of course, compilers can also be used to decompose traditional imperative languages for parallel execution. But it is not easy to ﬁnd all the potential parallelism. A “smart” compiler must be used to identify unnecessary sequencing and ﬁnd a safe way to remove it.\cite{Cunningham2010}
+
+
+
+
+
+
+First, we wanted to be a pure object-oriented language, where every value is an object, every operation is a method call, and every variable is a member of some object. So we didn't want statics, but we needed something to replace them, so we created the construct of singleton objects. But even singleton objects are still global structures. So the challenge was to use them as little as possible, because when you have a global structure you can't change it anymore. You can't instantiate it. It's very hard to test. It's very hard to modify it in any way\cite{Venners2009}.
+
+Scala is equipped with an expressive type system which enforces statically that abstractions are used in a safe and coherent manner.
+Actors With the advent of multi-core processors concurrent programming is becoming indispensable. Scala's primary concurrency construct is actors. Actors are basically concurrent processes that communicate by exchanging messages. Actors can also be seen as a form of active objects where invoking a method corresponds to sending a message. 
+The Scala Actors library provides both asynchronous and synchronous message sends (the latter are implemented by exchanging several asynchronous messages). Moreover, actors may communicate using futures where requests are handled asynchronously, but return a representation (the future) that allows to await the reply. [http://www.scala-lang.org/node/242]
+
+Of the challenges we were facing is we wanted to be both functional and object-oriented. We had very early on the notion that immutable objects would become very, very important. Nowadays everybody talks about immutable objects, because people think they are a key part of the solution to the concurrency problems caused by multi-core computers. Everybody says, no matter what you do, you need to try to have as much of your code using immutable objects as possible. In Scala, we did that very early on. 
+
+It actually turns out that a lot of the object-oriented field up to then identified objects with mutability. For them, mutable state and objects were one and the same: mutable state was an essential ingredient of objects. We had to, in essence, ween objects off of that notion, and there were some things we had to do to make that happen.
