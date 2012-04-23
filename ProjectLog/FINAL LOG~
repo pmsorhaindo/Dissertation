@@ -1,0 +1,593 @@
+Posted 4th October 2011 by Michael
+
+Welcome 
+This is my Computer Science (Games). Final year project blog. I seem to get writer's block every time I look at a blank screen so this introduction won't be very long seeing as I don't want to waste time.
+
+In this blog I plan to include all the thoughts (or as many of them as I remember) I have about my final year project. I also plan to document the journey of the project and if I find any useful information to share it with anyone who might happen to stumble upon this blog.
+
+Currently I have three ideas for my final year project, explaining them will be another post.
+
+Thanks for reading,
+
+-Mikey.
+
+
+
+
+
+Posted 4th October 2011 by Michael
+
+The Three Ideas 
+So my three project ideas were:
+
+-a Natural Language Processor running as an interface to a Murder Mystery Game.
+-a Racing Physics Simulation with a Reinforced Learning Based Intelligent Agent.
+-an Ant Swarm simulation using different AI algorithms for an colony adaptable.
+
+I made three short project proposals before meeting with various project supervisors at my University who I though might be interested.
+
+Natural Language Processor (Game)
+To produce a small adventure/detective mystery style game, in which a player is confined to a small area. For example in this area a murder has taken place and it is the job of the player as the detective to work out who the murderer is.
+
+To do this the player will interact with Non player characters inside the world via a keyboard they in turn will respond “intelligently”, not to fixed commands, but to the player's natural language. I plan to use a high level language such as Prolog, a language used frequently in the Natural Language Processing field, or Python, a fast scripting language, possibly alongside a language such as Java or C++ to produce a front end on which goals/tasks can be presented to the player/user in a more visual way instead of just interacting with the system through a command line. In terms of expansion the system could be connected to a database which it would either log "conversations" or update meanings of words and could "learn" from its interactions by asking questions of the user.
+
+I will be implementing NLP tasks. Each NPC will have a corpus of important words which they respond to when the NPC will be able to try and pull the conversation towards these words if the player isn’t on track by detecting hypernyms within a submitted sentence. I will probably make use of Pythons natural language toolkit and use it to interface with large corpuses such as WordNet so I would be able to see if players are referring to meronyms within my NPC’s corpus.
+
+Technologies to look into:
+NLTK – Python library full of Natural Language tools.
+
+Racing physics Simulation (AI Learning Driver)
+
+An intelligent agent navigates a race track and using a Reinforcement learning algorithm with shorter lap times as a goal/reward. It finds the fastest lap time over the course of several laps.
+
+My aim: To display a racetrack and car and have an AI object with limited knowledge of the racetrack call functions exposed by the car object with the aim of getting the car around the track in the shortest amount of time.
+
+What I’m trying to do: Using Reinforcement learning techniques show an AI object progressing with time. While also as accurately as my knowledge of physics and mechanics allows, model a race track and racing car.
+
+Functions available to the intelligent Agent:
+(Methods I will expose from the car to the intelligent Agent)
+Accelerate
+Brake
+Turn Wheel Left
+Turn Wheel Right
+(Clutch Gear Up Gear Down – possible improvements)
+
+Knowledge of the intelligent Agent:
+(Class Variables within the agent)
+Speed its travelling at
+Current Wheel Position (angle)
+Position on the track
+Those three variables at this point on the track from the last lap
+Those three variables at this point on the track from the Intelligent Agents best lap time.
+
+I plan to implement the project in C++ and OpenGL possibly use cel-shading and simple models either made by myself in Blender or freely distributed models from the internet.
+
+More knowledge needed in:
+Competitive Racing Lines
+Motoring Physics
+
+Artificial Intelligent Swarm Simulation
+
+Model 1000’s of intelligent agents as ants in an ants nest situation.
+My aim: To simulate a swarm of ants and their nest with a believable graphical representation consisting of particles.
+
+What I’m trying to do: Using Machine Learning and possibly Neural Network Algorithms a colony of simulated ants with the aim of protect maintaining and increasing their nest. They will go out in search of building materials, food and water. They will also need to “scout” as things like nest security and degenerating food sources will be factors of concern for the nest. Ants will also be born and die.
+
+I plan to implement the project in C++ and OpenGL using the boost libraries to plug python scripting abilities into the project. Python scripts will be used to allow easily editing of factors in the world that affect the ants without going into the source and recompiling. With OpenGL I plan to use particles, small 1x1 cubes for each ant. Each ant will be able to have a texture applied to it to show what task its currently performing.
+
+Areas to research further:
+Open GL collisions on large scale things like 10,000 objects
+Genetic Algorithms
+Neural Networks
+
+
+
+
+
+Posted 5th October 2011 by Michael
+  
+Topic Decision 
+I met with the 4 tutors who I thought may be interested in the project ideas over the last few days and after listening to their advice and ideas I felt most comfortable progressing with the Ant Swarm Simulation. I did a little more research into all the topics taking the each tutors advice in looking at different ways to approach each idea. But I found the ant swarm by far the most interesting area, so from now on I will be writing about ants!
+
+I know have to look at the various areas my project will cover, one area that was identified in my "ant swarm idea" meeting was the fact that the project's main problem was a concurrent one. I would be simulating thousands if not tens of thousands of ants, each behaving independently. Then there is collision detection each ant checking it wasn't going to collide with every other ant in the simulation would be ALOT of in some cases needless processing. So over the last day I've been looking for ways to address this problem, in the meeting, potential ways to solve the problem were identified in:
+
+-The programming Language Haskell
+-Parallel Programming
+-Distributed Programming
+-Binary Space Partitioning
+
+These were just a few ideas I've got more notes written down somewhere but I'll blog them tomorrow. Yesterday I looked at a few of these areas. I downloaded the Haskell platform for windows but plan to get a Unix based system set up on my Netbook before the weekend. I also spent a little bit of time looking into the theory of Parallel programming. While doing this I encountered Amdahl's Law which basically states that splitting a problem up for parallel processing to several processors may increase the performance dramatically at first, but this effect of adding more processors to aid in the solution of the problem eventually tails off at a point and when you factor in the fact that organizing a problem for parallel processing can incur a sequential overhead the parallel solution can even become less effective than the original sequential one. Ok, maybe I didn't explain that quite as eloquently as I had planned.
+
+Here is a small video I stumbled across yesterday which says things a lot better.
+
+
+Today I'm gonna keep looking at methods of parallel programming and dabble in some Haskell and possibly Scala tutorials today. I also hope to get my module registration form signed off with my tutor of choice tomorrow.
+
+-Mikey
+
+
+
+
+
+Posted 7th October 2011 by Michael
+
+Specifics of my Project 
+Today I spent some time trying to nail down the specifics of my project, specifically what areas I am going to research as so far I have just been running all over the internet reading a bit of everything and not taking much in. I also want to do a little bit of reading up on research techniques, as I'm sure they will come in handy but with what little knowledge I have I am pretty sure a list of topics would be useful. So things I will be looking at straight away is.
+
+Programming languages
+Haskell
+Scala
+Erlang
+
+Erlang's use in cloud computing
+Scala and its use of actors in parallel programming
+The Map-Reduce method used by Google in distributed programming
+
+Concurrency and Parallelism
+Network programming
+Large scale collision detection
+
+Over this weekend I hopefully plan to nail down the exoskeleton for the basics of my idea in the imperative languages C++ and Java. This way I'll have a way to compare my hopefully functional solutions. I'll also make a few Flowcharts and notes about how the program will work as I reading around for ways to model systems for functional language but came up empty.
+
+I guess that's all for now.
+Mikey.
+
+
+
+
+
+Posted 16th October 2011 by Michael
+
+Assignments and Progress 
+Over the last week I haven't really given my project the focus that it really needs, but that will change this week, last week I focused mainly on my assignments.
+
+CI312 - Computer graphics algorithms
+CI328 - Internet games design and development
+CI339 - Emerging Technologies
+CI346 - Programming Languages, Concurrenccy and Client-Server Computing
+
+As my overall grade depends on each of these being good as well as my project they have to take a considerable amount of my attention too thus, there mention in my final year project blog. So this past week I have taken a long hard look at both Concurrency and Graphics Algorithms, opting for the dive straight into the assignment approach to things as I'm sure I'll need all the time I can get my hands on. Awesomely all the assignments for these modules are out so I can get my hands dirty, which I have been over the last week. So the progress?
+
+Well the concurrency assignment consists of 4 programming tasks and a write up/critique. Of the four I have done the first one and made a sizeable dent in the second, I would say I'm about 80% through it. The word is the third and fourth aren't so hard once you have the second task working robustly, so that's good news.
+
+The Computer Graphics Algorithms module has given me the fun task of implementing Catmull-Clark subdivision on a cube, the top marks go to people who take this a step further and implement Loop Subdivision and Butterfly subdivision or demonstrate Non-uniform rational B-splines. So far I have been hammering out a little Face Edge Vertex class system which has now allowed me to pop out, what I think are, all the edge points on a cube whose original points I have hard coded. I'm having a few issues with Edge midpoints which I hope to iron out soon. they are returning memory addresses instead of floats.
+
+For Emerging Technology I had the burden of finding yet another idea which I found in GPGPU, General purpose Programming on Graphics processing Units. Its a really interesting topic covering a very large area, I have found some really papers which I will make time to read over the coming week I also hope to form some sort of structure to base my paper around before Thursday when I next have that lesson. During the last lesson I was made aware of a group called functional Brighton which I will be sure to check out. I also stumbled across a Workshop in Berlin which I'm seriously thinking about going to on CUDA, an architecture found on Nvidia graphics cards with CUDA the graphics card is exposed to the programmers allowing us to code 'massively parallel' computations on hardware found in millions of machines all around the world.
+
+Finally internet games development, over the coming few weeks I will have to come up with an idea for a game to be developed by me in Flash, I've made the least progress in this so far. I have a few ideas but nothing I really like yet.
+
+This week I hope to spend much more time on my project starting on Monday by producing a Gant chart breaking up what I plan to do with small deadlines and also mention the major deadlines too.
+
+-Mikey..
+
+
+
+
+
+
+Posted 21st October 2011 by Michael  
+
+Meeting with Supervisor and Panic 
+On Wednesday of these week I had a very interesting meeting with my project supervisor in which we went into a lot of detail of how the research report will come together and what it will contain, I have been left with a lot more research areas to look at points to consider and books/papers/journals to read. This afternoon, or rather yesterday afternoon as I post this I realized with my friends we have 3 weeks until the Planning and Research report deadline is here and if we want our supervisors to check through what we've written we technically have 2 weeks. and then a couple days for modification. This has freaked me out to say the least I remember saying "a month till the next deadline" as if it was almost yesterday. Anyways, I have blitzed out 1,500 words of preamble-introduction-y stuff to the my Planning and research report I plan to read at least 2 articles/chapters/journals of something citeable and relevant to my dissertation each day until the hand in and to try and put together 1000 words of text too. This is the real stuff now.
+
+-Mikey..
+
+
+
+
+
+
+Posted 25th October 2011 by Michael
+
+A Little Ambitious, Maybe? 
+So far my plan to write 1,000 words each day to put towards my first draft for my Planning research report hasn't gone exactly to plan. My paper currently stands at 2,500 words and is definitely still in progress. The momentum is picking up though, after putting together what I feel is a solid introduction I'm beginning to tackle some of the more technical parts of the paper and am having to do more reading before I write. Currently I'm reading through "Introduction to Automata Theory, Languages and Computation" after it was recommended to me by my personal tutor during a meeting, which I mentioned in my last post. It's very interesting and I can see that I could create pretty impressive diagrams of Automaton's to represent processes within my program to include in my Research report, but I'm still not sure to what level of detail the research report should go into. I'm starting to hate the words "a substantial document".
+
+Yesterday I went into the library again to look for more resources which was a success I had been looking for a .pdf of a book online, "Highly Parallel Computing, Almasi/Gottleib" it appears to be referenced quite frequently by a lot of papers on my topic. So after failing to find it online or through the University Library search engine and just bumping into it when walking amongst the shelves I'm really happy.
+
+In other news I'm going to Germany on November 4th for the weekend to catch a 2 day workshop on GPGPU programming I'm pretty sure this will prove to be invaluable for my Emerging Tech paper and also likely to bring up some interesting things to discuss in my Research paper if I can squeeze them in before the deadline on the 10th of November. I also still have a few questions about the marking of the Planning and Research report and questions about whether it can be changed or not after the deadline if we hand it in again at the April deadline, and if we can edit it do we get to freely edit or only append. I plan to email Jane about these questions today and discuss things with my personal tutor tomorrow.
+
+Also I'm planning to finish a first draft of this report by Sunday night, so I can get some feedback on it from my personal Tutor if not during our meeting on the 2nd of November then hopefully before the weekend.
+
+Hopefully this will be another smoothly executed hand in!
+-Mikey..
+
+
+Posted 31st October 2011 by Michael
+
+Writing but more Reading 
+I came away from the last meeting with my tutor with a few new objectives. Firstly I was to look into getting some parallel algorithms running in Erlang and Haskell, specifically the Fibonacci sequence. So far I've been unsuccessful in this task but I'm getting closer in Haskell. It is a little worrying that he described the Fibonacci sequence as the 'Hello world' of parallel computing. Anyways I'll get my head down and hope to pull something out the bag before I see him on Wednesday.
+
+Besides the Fibonacci sequence I have also been looking at other things this past weekend. I expanded the writing I have for my Research Report tackling a few more technical topics. I am however confused as to how the bottleneck the von Neumann machine/architecture is avoided by parallel programming. Do we now produce non-von Neumann machines/are multi-core processors outside of the von Neumann architecture? or is the benefit of parallel programming that it makes use of multiple instances of the von Neumann architecture at once. This has caused me to read the article "Can programming be liberated from the von Neumann style?: a functional style and its algebra of programs" and watch a lecture from David Patterson a Professor in Computer Science at UC Berkeley, but I haven't twigged yet.
+
+
+-Mikey..
+
+
+
+
+
+
+Posted 13th November 2011 by Michael
+
+Post Research and Planning Hand in 
+So I submitted my research and planning report last Wednesday, it detailed my plans for the project and a lot of what I have researched so far on the topic. Unfortunately I don't feel it included one hundred percent of what I have researched so far, which is a shame but my tutor told me not to worry so much about that as producing code is what I should be focusing on right now. So that's reassuring, the next major stage in the project is a 'viva voce' meeting with my second reader who has now been assigned.Until then I will be focusing on producing more code, prototype modules - functions and types which I hope to use and improve in my final implementation.
+
+Since the deadline I have dived head first into the book 'Real World Haskell' by Bryan O'Sullivan, Don Stewart, and John Goerzen. It has been greatly insightful into the functional language I aim to program the majority of my project in. If time allows I hope to port a good deal of my project into Erlang as this allows for distributive parallelism almost innately in the language.
+
+I have also turned a lot of my attention into the first draft of my Emerging Technology paper. I hope to have a six page paper or something close to present at my Emerging Technology next Thursday. Hopefully I can balance the two well and make decent progress on each in the coming week.
+
+-Mikey..
+  
+
+
+
+
+
+
+
+Posted 21st November 2011 by Michael
+
+Research, Progress and Arranging Viva 
+Over the last week or so I have done some intense research into the programming language Haskell which my deliverable will be primarily programmed in. The more I've read the more daunted I feel by the task in hand. Haskell is totally different to any programming I have done so far, naturally because its a whole new paradigm. But the reality of this paradigm shift is sinking in as I begin to start programming. So far I have an ant represented in R2. Over the weekend I managed to get movement incorporated into the ants behaviour on function calls. I'm hoping now to automate random movement and display the movement within some world representation, over the next few days.
+
+So far my primary resources on the Haskell journey have been "Learn You A Haskell (For Great Good)" by Miran Lipovača and "Real World Haskell" by Bryan O'Sullivan, Don Stewart, and John Goerzen without these two books I really don't know where I would be. I'm currently 4 chapters into Real World Haskell, and have read the majority of Learn you a Haskell skimming through some sections.
+
+Over the coming weeks I will be having my Viva I put out a Doodle invite to my personal tutor and second reader this morning. So all going well I should have a date for that soon.
+
+More updates soon.
+-Mikey..
+
+
+
+
+
+Posted 22nd November 2011 by Michael
+
+Viva Date Set 
+Today I finalized a date for my viva with my personal tutor. It is set for 10:30 on the 6th of December. So between now and then I will prepare especially for questions that may arise during the viva. Paying particular attention to the definition of my projects requirements and expectations. Also today, I'm also trying to program some list parsing functions for a list based grid representation of a world I'm currently trying to produce in order to place ants at various points on the grid.
+
+Yesterday a book I ordered arrived called "Beautiful Code : Leading Programmers Explain How They Think" By Andy Oram, Greg Wilson, there is a very interesting chapter by Simon Peyton Jones which I have seen referenced and recommended a few times during my initial research phase of the project on parallelism. In the chapter he discusses Haskell Parallelism and STM (Software Transactional Memory), all three topics very relevant to my project.
+
+
+
+
+
+
+Posted 29th November 2011 by Michael
+
+Representing a World, Data Structures. 
+While going through the process of setting up a basic world to contain my ants within, it has become apparent that there are many different ways of doing so. I initially set out trying to using a grid method. which was represented in Haskell by a list of Rows. each Row then contained the same amount of Square types. The Square type held everything there was to know about that particular cell in the grid. The ant, if it contained one, the surface of that particular cell whether or not there was food in that cell and the location.
+
+However it came to my attention that the Ant type also stores its location. So it would make more sense to store ants in a separate list seeing as they knew their location information this wasn't lost. Surface and Food types could be stored in a list with their respective locations an ant would then just have to scan these lists for a location it was interested in what was there in terms of food and surface.
+
+I quite like this approach and can see it working quite well with the prototype code I have at the moment. however it does sound quite computationally expensive having each ant scan the same lists. and as the list of ants will grow quite large if the whole world is modelled in such a manner. One way this problem could be tackled is with Graphs. each area could be modelled with separate "world element" lists which are stored in different nodes on a graph. only ants on the edge cases of a list will be analysed to see if their next movement takes them off their current node and into another list on another node.
+
+This is one approach which I may look at prototyping as well as another suggestion from my tutor to model the whole thing as a graph with each node acting as a location point. Collision would be as easy as checking if a node was free on the graph. This is also very appealing but I'm not sure how adaptable this approach will be. This week I have been looking at the Data.Graph Haskell library. The graphs in this library deal with adjacendency list representations of graphs using lists and Haskell arrays, found in Data.Array which I also experimented with. I managed to get as far as representing a graph but it only held integers in the nodes. As far as I can see this is the only data type the library will hold in the node. For me the only natural solution to this problem is to keep everything in a list which the graph then indexes but this would then defeat the purpose of me storing my separate lists in a graph as they will now be held in this new immutable Graph type.
+
+For now I will continue to focus on the "separate elements with locations " list representation. I will be aiming to write a few functions which will ultimately assist in the writing of my updateAntPositions function with the type signature: updateAntPositions:: [Ant]->[Ant]. What is nice about this representation can be seen here. the updateAntPositions functions would only access the Ant list, so potentially an updateFood and updateSurface function could be running, in parallel.
+
+;)
+Hopefully
+Mikey.
+
+
+
+
+
+
+Posted 4th December 2011 by Michael
+
+Monad Misery 
+I'm gradually developing more and more code for my project's simulation but I'm currently hitting a wall when it comes to Monads. Currently I am able to generate any given amount of Ants but the function which gives each of these ants life will always give them the same location and direction. In order to create these ants in random positions I need to generate random numbers. I'm currently generating random numbers in two ways.
+
+\begin{code}
+genRandoms :: IO [Int]
+genRandoms = do { g <- getStdGen; return $ randomRs (1, 10) g}
+
+random :: (MonadIO m) => m Int
+random = liftIO $ randomRIO (1, 10)
+\end{code}
+
+These are two of the most common methods to generate random numbers in Haskell.
+
+The first method returns something of type IO [Int] and the second returns a type m Int. Which means I still need to extract the value from the IO monad or a monad of some sort to put the value into some of my pure functions. I've been reading into it a lot and it seems to require do notation and the <- symbol however trying this yesterday was of not profitable. I'm also reading that I should be using >>= the bind symbol which as far as I understand means my pure functions could only be called inside the do{} area. Which will mean throwing a lot of stuff into the do area. After reading a lot about
+
+I will go on further reading and experimenting with IO, monads and do notation in order to come up with a solution but today I won't be able to focus on the project as much as two of my other modules Computer graphics Algorithms, imminent deadline, and Emerging Tech, half finished draft, should be finished last Thursday, need my urgent attention.
+
+But at the same time this is rather pressing so I may end up spending too much time on this anyway, as I have my Viva on Tuesday.
+
+-Mikey..
+
+
+
+
+
+
+Posted 4th December 2011 by Michael
+
+
+Surface Generation 
+I soon switched from looking at the IO monad to sorting out a function to generate the surface. I am also a little stumped here too however I will be able to get this pretty quickly in a little time. Unfortunately now I must focus on other modules but here is the code I have so far.
+
+\begin{code}
+generateInitialSurface :: (maxX,maxY,minX,minY)->[Surface]
+generateInitialSurface = genSurface minX minY
+let genSurface x y
+| x==minX && y==minY = StableDry (Location minX minY) : genSurface (x+1) y
+| x LT||EQ maxX && y LT||EQ maxY = StableDry (Location x y) : genSurface (x+1) y
+| x GT maxX && y LT maxY = StableDry (Location minX (y+1)) : genSurface (minX+1) (y+1)
+\end{code}
+
+Note the use of the keyword let here is incorrect and this code won't compile but I need to do something similar to this.
+
+
+
+
+
+
+
+Posted 6th December 2011 by Michael
+
+Viva la Graph 
+Today I had my Viva with my tutor and second reader at which I laid out the aims of my dissertation project. These were then discussed with my second reader who I feel now has a good understanding of what I'm aiming to achieve. After talking about discussed the implementation of the my simulation and agreed that a Graph based representation would be the based way to look at things.
+
+I quite a bit of code focused around list based representations of the world and after the viva meeting was worried about moving over to a graph representation as I didn't see how anything other than Ints could be stored in it. But I pored over the Data.Graph hackage page for a good 20 minutes while eating lunch and I believe I understand how to store anything in a Graph. I was thinking the data was held at the Vertex. which the package type classes as an Int. from this my conclusion that you can only store Ints. but there was the use of a type variable node which to me now seems the logical place to store data within the graph as the type of node isn't defined anywhere else in the package I'm pretty sure I'm right. I will hack something simple together tomorrow to make sure my new assumptions are correct.
+
+The other thing that came out of the meeting was an internal deadline. After the Xmas break I need to have a working basic model world going from which I can go forward and add complexity to and parallelize from Janurary through to March. Everyone seemed to be happy about the meeting but my supervisor urged me to code more which I shall. I plan to put in an hour of hacking on the projects code (outside of any reading or lookign up questions I have about Haskell) each day until my pre Christmas deadline for Computer Graphics Algorithms is out of the way then I plan to increase that to two or three hours. We'll see how it goes.
+
+-Mikey..
+
+
+
+
+
+Posted 17th December 2011 by Michael
+
+More Time More Graphs 
+Now I've handed my first piece of Coursework I've found myself having a lot more time to work on my project. I'm now adding functions to my GraphWorld Haskell program to make the generation of grid shaped graphs dynamic. Secondly I am working on a series of functions which will join together to make a function which updates a graph with a moved Ant. Finally where I have free time I'll be reading up on and understanding monads.
+
+
+
+
+
+Posted 19th December 2011 by Michael
+
+List Foo 
+So, I'm getting down and dirty with lists, again! Even though I supposed to be working on Graphs, well it turns out you can't really escape working with lists when getting functional. After producing a a graph with an "Ant" inside, it turns out one can view this Graph in one of two ways, as an Array, or as a List. As excited as I am about having effectively represented a small world held within a Graph it was static. In Haskell data is immutable meaning once you assign something to x, you can't assign something different to x. If you try your program won't compile. So I knew now from what I have seen of Haskell so far is to give any element of "dynamic-ness" to my world I would have to produce a new world which had changed slightly. I need a function which takes a Graph and returns a Graph. Graph ... -> Graph.
+
+Unfortunately the only function that follows this type signature in the Data.Graph library is transposeG :: Graph -> Graph which only reverses all the edges within the Graph, not helpful.
+
+I have mused over this and I have come to the conclusion the only way to swap a node on the Graph is to produce a list of the nodes and swap two nodes in that list then zip that up with the rest of the unchanged Graph structure to produce a list.
+
+graphFromEdges' :: Ord key => [(node, key, [key])] -> (Graph, Vertex -> (node, key, [key]))
+
+zip goes through a list making a list of pair tuples, zip3 goes through three lists making a list of 3 tuples so this is what I will use. My problem is that as of yet, I can't find a swap function for a list, so I'm now programming my own.
+
+
+
+
+
+
+Posted 23rd December 2011 by Michael
+
+Data.Graph Hate. 
+I have swapped an element within a list of nodes that I have extracted from my Data.Graph Graph. I've tested it and it performs as expected. I've zipped it up with a list of key's that correspond to the nodes. But I am stumped in producing a list of nodes with edges to a particular node. I've read through the Data.Graph page several times and nothing seems to be of real use. The closest thing I can see is the "edges" function takes a Graph and returns all the edges as tuples.
+
+I was about to begin hacking away at a function that would fold over this list of edges compiling the list of lists I desired, each list holding the second value of the tuple and the lists grouped where the first value of the tuple is the same. However I figured this was a bit of overkill for a function that in the end simulation would be being called heavily. I caved and submitted a question to StackOverflow asking if there was an easier way to update i.e return a Graph when passed a Graph where two nodes of the original Graph have been swapped. A swift reply came back from Anthony, FGL. The functional Graph Library however is a lot more complex to use, Anthony graciously provided some example code but although it compiles and works on my ghc I don't fully understand.
+
+{-# LANGUAGE TupleSections #-}
+import Control.Applicative
+import Control.Arrow
+import Data.Graph.Inductive
+
+-- Example graph from SO question.
+graph :: Gr (Maybe Int) ()
+graph = mkGraph (map (id&&&Just) [1,2,3,4,5,6,7,8,9])
+(map (\(x,y) -> (x,y,())) $
+concatMap gridNeighbors [1..9])
+where gridNeighbors n = map (n,) 
+. filter ((&&) <$> valid <*> not . boundary n) 
+$ [n-3,n-1,n+1,n+3]
+valid x = x > 0 && x < 10
+boundary n x = case n `rem` 3 of
+0 -> x == n + 1
+1 -> x == n - 1
+_ -> False
+
+-- Swap the labels of nodes 4 and 7
+swapTest g = case match 4 g of
+(Just c4, g') -> case match 7 g' of
+(Just c7, g'') -> setLabel c4 (lab' c7) & 
+(setLabel c7 (lab' c4) &
+g'')
+_ -> error "No node 7!"
+_ -> error "No node 4!"
+where setLabel :: Context a b -> a -> Context a b
+setLabel (inEdges, n, _, outEdges) l = (inEdges, n, l, outEdges)
+
+
+I have inserted the code above one day soon I hope to understand this. I will look at Data.Graph.Inductive but it feels a shame to leave my current progress behind. Clearly I need to start getting a grip on these things called Monads.
+
+
+
+
+
+
+
+Posted 23rd December 2011 by Michael
+
+Quest To Understand Monads 
+I've been learning Haskell for nearly three months now, and although that might not be a long time I have been at it pretty intensely. While reading around about Haskell in the context of simulations I read this email on the Haskell-Cafe mailing list archive which talked about how Arrows can be used when doing Fuctional Reactive Programming (FRP) which is a common functional way to handle simulations and is even used in the game Frag (A first person shooter in Haskell). Due to the situation in last post about me not understanding fully a response to my question I decided enough was enough and I was going to set out to understand Monads.
+
+The problem is a lot of the feed back I have received about Monads so far is "don't worry about them now", or "don't try and understand them when the time comes you'll just use them". This advice has come alongside descriptions of Monads as these "horrible things" and "stuff derived from category theory which you probably won't need to understand to use them". All this has made me want to get into learning Monads but also want to run in the opposite direction at the same time. However seeing as Monads are such a key part of programming functionally and as I seem to be pretty stuck with things in my project, its late, and I have a meeting with my tutor tomorrow morning at 9.00. It sounds like the perfect situation to start learning all about Monads.
+
+I came upon this realization whilst talking in the IRC channel #haskell-blah where one person replied that there really wasn't much to learning Monads and if I completed the 20 Intermediate Haskell Exercises he would teach me all there is to know about Monads. I headed over and began the exercises but realized I had no idea what an instance declaration was. I soon found myself reading about type classes and class methods and then functors. I soon twigged that completeding these 20 exercises would take more than the two hours I'd planned.
+
+A guy in the same IRC channel then began talking to me about Maybe, a type that I was quite familiar with, because he was happy with my understanding of Maybe he began to teach me monads though asking me questions which involved me generalizing the Maybe type.
+
+First he asked me to write a function which added one to a Maybe type. I had the right idea but it took him awhile to accept my answer because he was (pedantic with the syntax, a good thing!)
+addOne Nothing = Nothing
+addOne (Just x) = Just (x+1)
+
+Second he asked me " now generalize it so it can add any number, not just 1"
+Which I worked out was:
+addToMaybe x Nothing = Nothing
+addToMaybe x (Just y) = Just (x+y)
+
+The then asked me to generalize so this function took any function and applied it to a Maybe.
+I took an educated stab in the dark with..
+doStuffToMaybe x y Nothing = Nothing
+doStuffToMaybe x y (Just z) = Just (x`y`z)
+
+you're getting closer
+but there's an unnecessary complication in your solution.. Replace the `y` syntax with prefix syntax
+(so it's easier to see what it is)
+
+This resulted in - doStuffMaybe x y (Just z) = Just (y x z)
+
+He then challenged me with:
+so you take 2 args, x and y, only to apply them to one another, before applying them to z
+why not have your caller apply them to one another?
+-- He had to prompt me but I eventually got the idea.
+doStuffToMaybe is currently doing 2 things instead of just 1: Combining its two args (x and y), and applying the result of that combination to z
+<_Mikey> I see
+_Mikey: what happens if instead of taking both x and y and then using (y x) you just take the result of applying y with x?
+<_Mikey> so pass in partially applied y x
+
+I mused that a partially applied function as a parameter would just be represented as a normal parameter in Haskell so I came up with.
+StuffToMaybe y (Just z) = Just (y z)
+
+great! now rename doStuffToMaybe to "fmap", "y" to "f", and "z" to "x"
+and write the whole definition
+
+Which resulted in:
+fmap f Nothing = Nothing
+fmap f (Just x) = Just (f x)
+
+Then seeing as we established that this could be used like "fmap (+1) (Just 7)" or like "fmap (*2) (Just 4)" Peaker then asked "can you use "fmap" to add the contents of two Maybe values? Say, plusMaybes :: Maybe Int -> Maybe Int -> Maybe Int, can plusMaybe be built from fmap and (+) ?
+
+I came up with
+plusMaybe Nothing Nothing = Nothing
+plusMaybe Nothing (Just x) = Just x
+plusMaybe (Just x) Nothing = Just x
+plusMaybe (Just x) (Just y) = Just (x+y)
+
+There was then some confusion of what was meant by type declaration so we backtracked to fmap and type declared it as fmap :: (a -> b) -> f a -> f b
+
+We then generalized the addition of two Maybe's
+plusMaybe (Just x) (Just y) = Just (x+y)
+plusMaybe _ _ = Nothing
+
+We then established that the type declaration is plusMaybe :: Maybe Integer -> Maybe Integer -> Maybe Integer (The integer constrain is because Bool's, for example, can't be operated on by "+")
+
+Peaker then asked me to abstract beyond addition for applying a function using two Maybe's and we type def'd this as plusMaybe :: (a -> b-> c) -> Maybe a -> Maybe b -> Maybe c.
+
+"fmap" is also called "liftA" (ignore the A for now. It "lifts" a function from (a->b) inside Maybe, so it becomes (Maybe a -> Maybe b))
+and plusMaybe is also called: "liftA2" (ignore the A. it "lifts" a function of 2 args (a->b->c) inside Maybe, so it becomes (Maybe a -> Maybe b -> Maybe c)
+
+Terms I've started to see popping up in a lot of Monad tutorial which loose me. Unfortunately our discussion stopped shortly after this point but I feel I'm getting a better grasp on Haskell and I believe I'm getting closer to that point of "just using" monads without knowing what they are.
+
+-Mikey..
+
+
+
+
+
+
+Posted 23rd December 2011 by Michael
+
+Christmas Supervisor Meeting and the "Pretty Little" Swap Function 
+Today I had a meeting with my Final Year Project supervisor, I must say he is the best supervisor of all time, taking time out to skype me during what is officially the Christmas Holiday's even if the University building is still open. We discussed my project and I told him about my Graph node swapping woes. We analysed the problem, he also mentioned FGL. But we were both bemused why Data.Graph wouldn't provide this functionality. Getting desperate we were beginning to think the only way to do it was to look at the module's source and determine how the "Graph" type was built and then produce my own build graph function which took the modification as a parameter and hen built a new Graph with the modification applied. However when looking at the build graph functions provided by Data.Graph my Tutor noted that the function returns a value which takes a Vertex and returns information about it. INCLUDING! vertices connected to it IN A LIST! Here is the magical line which was being overlooked.
+
+graphFromEdges' :: Ord key => [(node, key, [key])] -> (Graph, Vertex -> (node, key, [key]))
+
+I even believe this line was featured in a previous post. Seeing as I just wanted the graph before I had called fst on the result of the function to pull it out. I'd even called snd on the result and stored the function but it never occurred to me look back at what this function was returning. the list of key's "[key]" is exactly what I needed.
+
+Shortly after the meeting I was able to fix my problems and I now have a function which takes my Graph world and I can swap stuff in a new returned Graph.
+
+Also in my meeting with my supervisor we discussed the "Game plan" for going into what is probably going to be the busiest January of my life. So I made a list of aims which need to be achieved in order to reach my main aim of completing my project.
+
+I will copy the aims in as is, excuse the shocking grammar.
+Ant Simulation Tasks.
+
+Mainline that creates a graph
+Mainline that creates and prints a graph
+Mainline that creates a graph and prints the dfs of a graph
+Mainline that creates a graph, "copies" the graph, then prints both the original and the copy
+
+Mainline that creates a graph and takes two set vertices, using these two vertices creates another graph with nodes at the two given vertices swapped. <- if I'm not passed here by the 4th of January I will email.
+Mainline that does the same as the above but only allows vertex values where the first value is a valid "key" and the second value in the "list of keys of nodes this node should have edges to."
+Creates a graph and maps this function across all nodes in the graph this would produce a new graph as each node is updated. <- hopefully here by the end of the Christmas break.
+Creates a graph and maps across it as done previously, but only operating on nodes with Ant types present.
+
+Change the type held by the node to hold Maybe Ant, Maybe Pheromone. 
+Adjust swapNodes function only swap the Ant value held in the node.
+Create a function which decrements the value of every node's Maybe Pheromone or leaves it as Nothing if < 0 or Nothing.
+Create a function which decrements the value of every node's Maybe Ant.Pheromone or leaves it as Nothing if < 0 or Nothing.
+Create a function which selects a key from a list of keys with edges to a particular key, where the key selected has the highest pheromone level.
+Adjust the swap nodes function to pick a value based on the Pheromone level checking function above.
+
+Add type Maybe Food to the type held by each node in the graph in some sort of tuple structutre.
+Add an Ant.Pheromone increase function when checking for Ants and Food in the same node, before increasing the value of an Ant's Pheromone.
+Adjust the swapNodes (now swapAnts as the rest of the node's values stays the same) function to increment the value of the Maybe Pheromone in the node if the Ant occupying the node has a Pheremone level > 0. 
+
+Move graph into Software Transactional Memory. need to do more reading on this... http://research.microsoft.com/en-us/um/people/simonpj/papers/stm/beautiful.pdf
+Parallel Map each function over the graph using par.
+
+
+That's all for now.
+-Mikey..
+
+
+
+Posted 23rd December 2011 by Michael
+
+(Stuck in a very slow train) Home For Christmas! 
+Took the book Beautiful Code which I bought a month or so ago, I believe I even brought it up in this little blog. There is a pretty awesome Chapter on Haskell and STM there and all though I haven't finished it yet I can't describe how much it has opened my eyes to the way Haskell works. The chapter in question is by Simon Peyton Jones and in his chapter entitled "Beautiful Concurrency" he sets about explaining why he's so excited about Haskell, and Software Transactional Memory. He also endeavours to do it in a way which is not only concise enough to fit into a single chapter of a collaborative book, but also in a way that someone who has never programmed in Haskell can understand. I have been in the Haskell world for about 3 months now and as those months have been quite intense, I've exposed myself to a considerable amount of Haskell which makes this chapter a very soothing read. However at the same time as being easy reading its pace, introducing IO and heading into Mutable types in Haskell.
+
+I'm well over half way through the chapter now and I already feel comfortable with the idea of STM theoretically, The last major Portion of the Chapter is spent discussing a solution for the "Santa Claus Problem" which is rather fitting seeing the time of year, making the chapter that much more easier to read. The Santa Claus Problem is a concurrency problem proposed by J.A Trono in 1994. Using this problem Simon Peyton Jones demonstrates the use of STM in a "complete, runnable" program. On the way back to Brighton I will try and follow along the implementation with my gedit and ghc. STM will be a very useful area of Haskell to be comfortable with in order to get my program functioning on more than one thread.
+
+Things I have learnt so far from the "Beautiful Concurrency" chapter.
+
+"hPutStr" is the Daddy - before I seen and used a few times putStr but I didn't realize it was actually calling hPutStr which takes a handle, h and a String the handle h "plays the role of a file descriptor in c", basically it can be supplied with three default handles stdin, stdout and stderr. Which look familiar :) putStr just calls hPutStr and automagically supplies stdout.
+
+The Basic STM Operations
+atomically
+retry
+orElse
+newTVar
+readTVar
+writeTVar
+
+I have seen all these functions in use within examples of a bank account or in the beginning of his implementation to the Santa Claus Problem.
+
+Simon also provides a quick two page run down of IO in Haskell which cleared things in my mind a bit too. Gosh I hate Monads!
+
+-Mikey..
+
+
+
+
+
+Posted 25th December 2011 by Michael
+
+Christmas 
+Today I got bored while waiting for my Mum to finish cooking up the annual epic Christmas dinner which seems to keep me feeling full till New Year. So I got on with some Haskell, as well as doing a bit more writing for my Academic writing module, Emerging Technologies.
+
+But when it came to Haskell, I was mainly reading up on Functors. I talked with a few people on the #haskell forum. It's very friendly there at Christmas time.I also did some more reading into Functors and Applicative functors. They're starting to make sense but I'm yet to be able to think of them in a practical manner like I can with maps and folds.
+
+
+
+
+
+
+
+Posted 27th December 2011 by Michael
+
+
+Beautiful STM 
+Travelling back from my parents today and finished Simon Peyton Jones' article on STM. It was enlightening, I now feel I can use IO comfortably in Haskell and have a basic idea of of what MVars are. The article also introduced the idea of IORef's but I'm still a bit unclear on how much they are like C++ references.
+
+When I get back I will try and implement the Santa and his helpers problem and try and get a better idea. Although I don't think this will be the only approach to achieving parallelism I will take in my project, I'm pretty sure STM could be useful in picking up the some of the more communicative parts of my simulation and making the concurrency aspect of my project more elegant, cleaner and possibly beautiful.
+  
+

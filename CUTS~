@@ -1,0 +1,57 @@
+cuts
+
+
+\subsection{Biological Simulations}
+Blue brain
+Fully implicit parallel simulation of single neuron
+experiencing linear speed up
+
+Made use of a message passing interface (Still experiencing more computation time than message time due to the small size of messages being sent)
+
+http://bluebrain.epfl.ch/files/content/sites/bluebrain/files/Scientific%20Publications/2008%20-%20Fully%20Implicit%20Parallel%20Simulation%20of%20Single%20Neurons.pdf
+
+
+
+
+There are two words which occur often in discussions about multicore programming and these are Parallelism and Concurrency. It is important to clarify these terms:
+Parallelism: It’s a property of the machine where software is to be run. The application runs on multiple processors/cores, with the hope for faster speed than on a single processor machine.
+Concurrency: Software is composed of, possibly unrelated, computations and multiple threads of control making effects to the world, via arbitrary interleaving. The expected results are therefore, non-deterministic because the total effect of the program may depend on the particular order of interleaving at runtime. Computation is based on this non-determinism. [Nino and RWH]
+Where concurrency is utilized the programmer has the responsibility of controlling the non-determinism using synchronisation, to make sure that the program runs as it is supposed to regardless of the order of execution. This is not an easy task because there’s no reasonable way to test that you have covered all the cases. <testing threaded programs cite!>
+In order to make programs run faster on parallel hardware, it is not necessary to have concurrency.
+It’s important that this issue is well understood if we’re to find a way to enable everyday programmers to use multicore CPUs.
+
+
+
+
+
+
+
+-Functional programming as opposed to other paradigms
+
+A functional language is language  in  which  computation  is  carried  out  entirely  through  the evaluation  of  expressions. [Evolution of Functional hudak] Burge back in 1975 suggested the approach of evaluating function arguments in parallel, with the possibility of functions absorbing unevaluated arguments and perhaps also exploiting speculative evaluation [W. H. Burge. Recursive Programming Techniques. Addison-Wesley, 1975.]. <??Berkling also considered the application of functional languages to parallel processing??> [K. J. Berkling. Reduction Languages for Reduction Machines. In 2nd. Annual ACM Symp. on Comp. Arch., pages 133-140. ACM/IEEE 75CH0916-7C, 1975.].
+
+<!Definition of purity!>
+
+To be functionally pure, a method must satisfy two critical properties
+
+First, it must have no side effects. For a computational method to be free of side effects, its execution must not have any visible effect other than to generate a result. A method that modiﬁes its arguments or global variables, or that causes an external effect like writing to disk or printing to the console, is not side-effect free.
+
+The second property is functional determinism: the method’s behaviour must depend only on the arguments provided to the method. The method must return the same answer every time it is invoked
+
+on equivalent arguments, even across different executions of the program
+[Verifiable functional purity in Java Matthew Finifter Adrian Mettler Naveen Sastry David Wagner 2008]
+
+Due to the absence of side-effects in a purely functional program, it is relatively easy to partition programs into sub-programs which can be executed in parallel: any computation which is needed to produce the result of the program may be run as a separate task. There may, however, be implicit control- and data- dependencies between parallel tasks, which will limit parallelism to a greater or lesser extent. [Parallel Functional programming an introduction Kevin Hammond] http://www-fp.dcs.st-and.ac.uk/~kh/papers/pasco94/pasco94.html
+
+<!!needed? Higher-order functions (functions which act on functions) can also introduce program-specific control structures, which may be exploited by suitable parallel implementations, such as those for algorithmic skeletons (Section 3.2).!!>
+
+Here is a classic divide-and-conquer program, a variant on the naive Fibonacci program. Since the two recursive calls to nfib are independent, they can each be executed in parallel. If this is done naively, then the number of tasks created is the same as the result of the program. This is an exponentially large number ().
+
+There are many ways to exploit the possible parallelism present in a functional program.
+Most systems have selected a set of these, and it is therefore difficult to isolate the effect of a single technique on overall performance, even when concrete performance results are available.
+
+
+
+In the context of a casual simulation the accuracy and need for it to be real time aren't imperative but, in the computer games industry this is increasingly becoming not the case. The games produced by the big development houses which really turnover money, in terms of the amount spent developing them and the amount they sell for, come under more and more scrutiny from the average game player as they expect their gaming experience to become more immersive and realistic. Although realtime in games, often classified as soft realtime because the usefulness of information recieved after it is due degrades the longer the delay is, the market has become such that game development houses who allow their products too push the leaniancy of the soft realtime requirements will suffer at the hand of bad reviews. As the major companies in the industry who produce AAA titles sell alot of releases based of the reputation their previous products having a good reputation, as in most industries, is vital.
+
+Making games has been described by many as an art, (Wired reference) and just as in the art of story telling it is important for characters to have life and feel real so too it's important for many games because of the aesthetic path they've chosen to present every object and every movement within as realistically as the end users machine will allow in order to fully immerse the player. Ofcourse there are many tricks a programmer can employ to fake the feeling of real physics, true artificial intelligence and produce graphics that stun the gamer. But these tricks often get swapped out for the real deal when technology catches up with designers imaginations. Way back games were displayed on monochrome screens and made use of coloured film over the display to create the illusion that different colours were on the screen, while today most people think nothing of their 1080p widescreen displays which absorb our natural field of view with high definition. There is always a demand for accuracy within computer games and research tries to meet these demands. Take for example one of the most accurate forms of rendering in computer graphics, ray tracing, in August of 2009 Nvidia launched what they dubbed 'The World's First Interactive Ray Tracing Engine' the engine OptiX (<?better source) which is just the result of one of many projects which will ultimately allow developers to bring games and many other application of computers to another level of accuracy and realism.

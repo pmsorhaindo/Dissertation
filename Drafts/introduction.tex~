@@ -1,78 +1,46 @@
 \documentclass[main.tex]{subfiles} 
 \begin{document}
-%% my intro content
+%% The Intro Content
+%%Acknowledgements TODO
 
-Acknowledgements
-Background and Research and Context
+%------The project and what it should entail.
+The final year project is described as an extensive piece of individual work relevant to the course. One of liberties this project offers is a chance to take a particular area of interest and significantly deepen the knowledge in the subject. Therefore, an important decision that is made early on in any final year project, is the choice of topic and subject areas on which to focus. An interest in the subject area can play a key part in a projects success or failure and for this reason the process of settling on a topic involved a significant amount of time and research.
 
-- Simulations
-A simulation is a genre of game, a life simulation game could revolve around a particular character and its relationships with other things within the simulation, or it could be a simulation of an ecosystem (Spore). Biological simulations may allow the player to experiment with genetics, survival or ecosystems, this can often be for educational purposes. Unlike other genres of games, simulation games do not usually have a set goals that allow a player to win the game. Rather they focus on the experience of control, wheter it be the lives of people, when micromanaging a family (The most notable example of this is Will Wright's The Sims.) to overseeing the rise of a civilization or success of a business. 
+%------Alternative choices why I didn't pick them
+\paragraph{} The initial idea which was developed into a project proposal involved the production of software within the Natural Language Processing field. The primary aim was to implement an intelligent agent that would parse text, recognizing relationships between pronouns and the nouns they refer to. The program would store everything in a database that it could then parse in order to analyse the collected data statistically. Based on user feedback, as to whether the system was parsing correctly or not, the program would then self optimize the initial parsing rules given to it in order to parse more efficiently and accurately. Furthermore, this could be extended further to include text generation functionality allowing it to communicate with a user via a keyboard and screen. It would effectively function as a chat-bot which ``learnt'' from its mistakes via Artificial Intelligence algorithms such as reinforced learning and Genetic Algorithms. After further research into the Natural Language Processing field it was realized just how ambitious these plans were. The subject of data mining a corpus of descriptive text in isolation is a broad field subject to much academic research.
 
-Outside of games, biological simulations can be used for more than educational purposes, and are utilized by researchers, to test theories, which in practise would be impossible to carry out because of technological or financial constraints, and show their findings visually. These are often large scale simulations which demand large anounts of processing power due to the nature of the problems. for example the Blue Brain Project http://www.newscientist.com/article/dn7470--mission-to-build-a-simulated-brain-begins.html and weather prediction http://en.wikipedia.org/wiki/Climate_model
+\paragraph{}Following interest developed exploring the field of Artificial Intelligence in particular genetic algorithms a second concept took form. The aims were to recreate a race track and racing car and implement an intelligent agent with a limited view of the track such as a human would have. After exposing the functionality of the car to the agent it would then be given the goal of completing the track in the least amount of time possible. This idea was dismissed in favour of the final idea because it required more development on an environment and physics involved in simulating a car accurately than the development of an intelligent agent that it was possible that the Artificial Intelligence element would not get the time required to produce a finished artefact.
 
-Linking paragraph on why simulations need Multicore programming
+%------My choice  of Project
+\paragraph{}After reading around the field of Artificial Intelligence the topic of swarm intelligence was discovered which was first used in reference to robots. The definition given of Swarm Intelligence is ``systems of non-intelligent robots exhibiting collectively intelligent behaviour evident in the ability to unpredictably produce `specific' ([i.e.] not in a statistical sense) ordered patterns of matter in the external environment''\cite{Beni1989} the idea of implementing a system that could simulate a group of simple objects that together worked intelligently was greatly appealing as a final year project. Ants and ant colonies provide an interesting application to the real world for the abstract idea behind swarm intelligence. Also the large amount of ants often found in colonies offered the opportunity to look at the problem on a large scale, providing a large amount of computation in terms of decisions, movement and collisions.
 
--Multicore Programming
-Processor clockspeeds aren't increasing at the rate they used to, with the [GPGPU cite!]. However Moore's law is still in tact as the processors are consisting of more cores. In order to harness the full potential of these multicore processors it is necessary to run computations on all the processors available cores. While the splitting up of work between a processor's cores might be a trivial process in theory. In practice it opens up several new issues which a programmer must address; into how many pieces should the computation be split, will the smaller computations need to communicate their results to other computations, is it necessary for some computations to finish executing before others begin? These are all questions which face a programmer when designing an application to make use of a multicore processor. 
+\paragraph{}During the process of drawing up the project proposal the decision was made to focus on how the problem could still be run efficiently while increasing the amount of computation being carried out. When reasoning about the problem it was clear that many decisions would need to be made at once, these circumstances would be best dealt with simultaneously, hence using parallel processing it would be possible to exploit this demand for things to be computed at the same time in order to efficiently process these simultaneous computations in parallel. As parallel processing would be an important factor in achieving an efficiency product it was decided that a range of programming paradigms should be researched in order to determine the most effective methods in achieving performance increases in this manner. The project proposal concluded as the production of an ant colony simulation with an emphasis on designing code, while exploring multiple paradigms, to produce a product that scaled as the problem size increased, through the use of parallel algorithms.
 
-There are two words which occur often in discussions about multicore programming and these are Parallelism and Concurrency. It is important to clarify these terms:
+%------Why it entails what it should entail
+\paragraph{Relevance to Degree} During the early stages of the project much reading was done on topics related to Artificial Intelligence, and the research in this area inspired the choice of project. This research also aided learning later in the course when CI342 - Advanced Artificial Intelligence was a required module. The project also covers the design of algorithms thus many of the topics covered in the CI312 - Computer Graphics Algorithms module provided valuable information in regard to measuring the time complexity of an algorithm. This module's assignment also encouraged the implementation of algorithms based on information presented in academic papers. The experience of successfully programming algorithms from this approach provided confidence when researching new techniques. Research techniques applied throughout the project were also developed in the module CI339 - Emerging Game Technologies, which involved an investigation and the production of an academic paper based on an emerging trend. CI346 - Programming Languages, Concurrency and Client-Server Computing was a module which not only greatly aided the study and development within this project but knowledge acquired throughout this process has also been of great assistance in the CI346 module. For instance, implementing a solution to a problem in the statically typed programming language ADA was far easier to realise than it would have been without the knowledge and experience gained within the project.
 
-Parallelism: It’s a property of the machine where software is to be run. The application runs on multiple processors/cores, with the hope for faster speed than on a single processor machine.
+%------Major Aspects
+\paragraph{Major Aspects}As identified in the preparation of the proposal there are two major aspects to this project, a simulation and multi-core programming. Simulations are sometimes seen as a genre of game; a life simulation game could revolve around a particular character and its relationships within the simulation, or it could be a simulation of an ecosystem \cite{Spore2009}. Biological simulations often allow the player to experiment with genetics, survival or ecosystems; this can often be for the purposes of education. Unlike other genres of games, simulation games do not usually have set goals or end conditions that allow a player to win the game. Rather, they focus on the experience of control whether it be the lives of people, when micromanaging a family (the most notable example of this is Will Wright's The Sims), to the overseeing the rise of a civilization or success of a business. Outside of recreational and educational games, biological simulations are utilized by researchers to test theories, which in practise would be impossible to carry out because of technological or financial constraints. It also gives the opportunity to show research findings visually. These are often large scale simulations which demand large amounts of processing power due to the nature of the problems. For example, neurological simulation in the Blue Brain Project\cite{Graham-Rowe2005} or weather prediction \cite{Michalakes2008}.
 
-Concurrency: Software is composed of, possibly unrelated, computations and multiple threads of control making effects to the world, via arbitrary interleaving. The expected results are therefore, non-deterministic because the total effect of the program may depend on the particular order of interleaving at runtime. Computation is based on this nondeterminism. [Nino and RWH]
+The second aspect of the project is multi-core programming - Processor clockspeeds aren't increasing at the rate they used to, with the focus of hardware manufacturers now producing processors consisting of multiple cores\cite{Sutter2005}. This shift in focus still keeps Moore's law intact, but order to harness the full potential of these multi-core processors, it is necessary to run computations on all of the processors' available cores. While it possible to describe the splitting up of work between a processor's cores as a trivial process, in practice it opens up several new issues which a programmer must address; into how many pieces should the computation be split, will the smaller computations need to communicate their results to other computations, is it necessary for some computations to finish executing before others begin? These are all questions which a programmer faces when designing an application to make use of a multi-core processor. There are two words which often occur in discussions about multi-core programming, Parallelism and Concurrency. It is important to clarify these terms when addressing the questions multi-core programming poses and further research will attempt to achieve this clarity.
 
-Where concurrency is utilized the programmer has the responsibility of controlling the non-determinism using synchronisation, to make sure that the program runs as it is supposed to regardless of the order of execution. This is not an easy task because there’s no reasonable way to test that you have covered all the cases. <testing threaded programs cite!>
+%------Summary of the Project CHECK THE CHAPTER NUMBER TODO Something more?
+\paragraph{Summary}
+Although qualitative objectives were not achieved in their entirety the project has proven an academic success, as the knowledge gained and the potential for further work makes it a good candidate for continued research. The experiences gained over the course of the project now allows for the reasoning of new programming problems from a different perspective. Also the produced artefact, although incomplete has the potential to yield interesting results in the field of parallel processing. A detailed chronological and evaluative description of the implementation process can be found in Chapter 5 of this document. The following is a brief summary of the documents structure.
 
-In order to make programs run faster on parallel hardware, it is not neccessary to have concurrency.
-It’s important that this issue is well understood if we’re to find a way to enable everyday programmers to use multicore CPUs.
-
-
--Functional programming as opposed to other paradigms
-
-A functional language is language  in  which  computation  is  carried  out  entirely  through  the evaluation  of  expressions. [Evolution of Functional hudak] Burge back in 1975 suggested the approach of evaluating function arguments in parallel, with the possibility of functions absorbing unevaluated arguments and perhaps also exploiting speculative evaluation [W. H. Burge. Recursive Programming Techniques. Addison-Wesley, 1975.]. <??Berkling also considered the application of functional languages to parallel processing??> [K. J. Berkling. Reduction Languages for Reduction Machines. In 2nd. Annual ACM Symp. on Comp. Arch., pages 133-140. ACM/IEEE 75CH0916-7C, 1975.].
-
-<!Definition of purity!>
-To be functionally pure, a method must satisfy two critical properties
-First, it must have no side effects. For a computational method to be free of side effects, its execution must not have any visible effect other than to generate a result. A method that modiﬁes its arguments or global variables, or that causes an external effect like writing to disk or printing to the console, is not side-effect free.
-
-The second property is functional determinism: the method’s behavior must depend only on the arguments provided to the method. The method must return the same answer every time it is invoked
-on equivalent arguments, even across different executions of the program
-[Verifiable functional purity in java Matthew Finifter Adrian Mettler Naveen Sastry David Wagner 2008]
-
-Due to the absence of side-effects in a purely functional program, it is relatively easy to partition programs into sub-programs which can be executed in parallel: any computation which is needed to produce the result of the program may be run as a separate task. There may, however, be implicit control- and data- dependencies between parallel tasks, which will limit parallelism to a greater or lesser extent. [Parallel Functional programming an introduction Kevin Hammond] http://www-fp.dcs.st-and.ac.uk/~kh/papers/pasco94/pasco94.html
-
-<!!needed? Higher-order functions (functions which act on functions) can also introduce program-specific control structures, which may be exploited by suitable parallel implementations, such as those for algorithmic skeletons (Section 3.2).!!>
-
-Here is a classic divide-and-conquer program, a variant on the naive Fibonacci program. Since the two recursive calls to nfib are independent, they can each be executed in parallel. If this is done naively, then the number of tasks created is the same as the result of the program. This is an exponentially large number ().
-
-
-There are many ways to exploit the possible parallelism present in a functional program. <<<Most systems have selected a set of these, and it is therefore difficult to isolate the effect of a single technique on overall performance, even when concrete performance results are available.>>>
-
-
-
--Haskell's Benifits
--The problem
-
-
-<<<
-In Chapter 2 important concepts in parallelism in the last decade and relevant publications are reviewed. Studying them provided insights about the inherent problems in the development of large scale simulations and their possible solutions.
+%------Future Chapters DOUBLE CHECK NUMBERS AND DESCRIPTIONS ARE STILL GOOD WHEN FINISHED TODO
+In Chapter 2 important concepts in parallelism  and information from relevant publications on the topic is gathered. Studying them provided insights about the inherent problems in the development of large scale simulations and their possible solutions.
 
 Chapter 3 is focused on specifying the goals of this project and on analysis of the algorithms that are going to be used as a basis of the application.
 
-Chapter 4 explains and justifies the architectural and simulation design choices that were made.
+Chapter 4 details the evolution of the design for the final product explaining and justifying the architectural and design choices that were made.
 
 Chapter 5 describes the progress made up to the current stage of the development process. Specific problems that appeared during implementation and testing and suggestions for their resolution are examined.
 
 Chapter 6 shows and discusses the findings made and the level up to which the project goals were achieved. It also mentions possible improvements for the simulation and suggests new areas of investigation prompted by the lessons learned and the inevitable evolution of hardware.
 
-Chapter 7 gives a brief summary of the points made in the previous chapters.>>>
+Chapter 7 gives a brief summary of the points made in the previous chapters.
 
-
-
-SUMMARY
-Although several of the Qualitative objectives have not been achieved in their entirety the project has proven an academic success, as the extent of further work possible makes it the perfect candidate for continued research, that has the potential to yield important results in the field of parallel processing.
-
-%% more of my intro content
-
+%% End of Intro Content
 \end{document}
-%[AWC 1209]
+

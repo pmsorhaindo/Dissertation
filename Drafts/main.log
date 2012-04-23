@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.9)  20 MAR 2012 08:49
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.9)  23 APR 2012 13:01
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -48,153 +48,744 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 
 (./introduction.tex
-! Missing $ inserted.
-<inserted text> 
-                $
-l.12 ...tion http://en.wikipedia.org/wiki/Climate_
-                                                  model
-? 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 12.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 12.
-! Missing $ inserted.
-<inserted text> 
-                $
-l.13 
-     
-? 
 
-Overfull \hbox (35.04703pt too wide) in paragraph at lines 12--13
-\OT1/cmr/m/n/10 lems. for ex-am-ple the Blue Brain Project http://www.newscient
-ist.com/article/dn7470--
- []
+LaTeX Warning: Citation `Beni1989' on page 1 undefined on input line 15.
 
-
-Overfull \hbox (152.48605pt too wide) in paragraph at lines 12--13
-\OT1/cmr/m/n/10 mission-to-build-a-simulated-brain-begins.html and weather pre-
-dic-tion http://en.wikipedia.org/wiki/Climate$[]\OML/cmm/m/it/10 odel$ 
- []
-
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
+
+LaTeX Warning: Citation `Spore2009' on page 2 undefined on input line 23.
+
+
+LaTeX Warning: Citation `Graham-Rowe2005' on page 2 undefined on input line 23.
+
+
+
+LaTeX Warning: Citation `Michalakes2008' on page 2 undefined on input line 23.
+
+[2]
+
+LaTeX Warning: Citation `Sutter2005' on page 3 undefined on input line 25.
+
+[3]) (./context.tex
+
+LaTeX Warning: Citation `Insect1997' on page 4 undefined on input line 13.
+
+
+LaTeX Warning: Citation `Jackson2006' on page 4 undefined on input line 13.
+
+
+LaTeX Warning: Citation `Senthilingam2012' on page 4 undefined on input line 13
+.
+
+[4]
+
+LaTeX Warning: Citation `OSullivan2008' on page 5 undefined on input line 21.
+
+
+LaTeX Warning: Citation `Curriculum2008' on page 5 undefined on input line 25.
+
+[5]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 29.
+ (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
+
+Overfull \hbox (3.50063pt too wide) in paragraph at lines 30--31
+[]\OT1/cmr/m/n/10 Compare lan-guages that could be used in the im-ple-men-ta-ti
+on of the project. 
+ []
+
+
+LaTeX Warning: Citation `Vujosevic2008' on page 6 undefined on input line 39.
+
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
+
+LaTeX Warning: Citation `Vujosevic2008' on page 6 undefined on input line 42.
+
+
+LaTeX Warning: Citation `Backus1978' on page 6 undefined on input line 42.
+
+
+LaTeX Warning: Citation `Aaby1996' on page 6 undefined on input line 42.
+
+[6]
 Missing character: There is no Ô in font cmr10!
 Missing character: There is no ¨ in font cmr10!
 Missing character: There is no Å in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+
+
+LaTeX Warning: Citation `Backus1998' on page 7 undefined on input line 44.
+
+
+LaTeX Warning: Citation `DavidJ.Barnes2008' on page 7 undefined on input line 4
+8.
+
+
+LaTeX Warning: Citation `Aaby1996' on page 7 undefined on input line 48.
+
+
+LaTeX Warning: Citation `DavidJ.Barnes2008' on page 7 undefined on input line 5
+0.
+
+
+LaTeX Warning: Citation `Warg2001' on page 7 undefined on input line 53.
+
+
+LaTeX Warning: Citation `Hughes2003' on page 7 undefined on input line 55.
+
+
+LaTeX Warning: Citation `Muller1998' on page 7 undefined on input line 55.
+
+
+LaTeX Warning: Citation `Muller1998' on page 7 undefined on input line 55.
+
+
+LaTeX Warning: Citation `Muller1998' on page 7 undefined on input line 55.
+
+[7]
+
+LaTeX Warning: Citation `Taivalsaari1993' on page 8 undefined on input line 58.
+
+
+
+LaTeX Warning: Citation `Hughes1984' on page 8 undefined on input line 58.
+
+
+LaTeX Warning: Citation `Duame2002' on page 8 undefined on input line 60.
+
+
+LaTeX Warning: Citation `Lipovaca2010' on page 8 undefined on input line 62.
+
+
+LaTeX Warning: Citation `Okasaki1999' on page 8 undefined on input line 62.
+
+[8]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 66.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 66.
+
+Overfull \hbox (413.66818pt too wide) in paragraph at lines 66--74
+ [] 
+ []
+
+
+LaTeX Warning: Citation `Microsoft2010' on page 9 undefined on input line 81.
+
+
+LaTeX Warning: Citation `Aaby1996' on page 9 undefined on input line 85.
+
+
+LaTeX Warning: Citation `Apt2001' on page 9 undefined on input line 85.
+
+
+LaTeX Warning: Citation `Apt2001' on page 9 undefined on input line 85.
+
+
+LaTeX Warning: Citation `Armstrong2009' on page 9 undefined on input line 92.
+
+
+LaTeX Warning: Citation `Trottier-Hebert2011' on page 9 undefined on input line
+ 92.
+
+
+LaTeX Warning: Citation `Armstrong1995' on page 9 undefined on input line 92.
+
+[9]
+
+LaTeX Warning: Citation `Armstrong1995' on page 10 undefined on input line 94.
+
+
+LaTeX Warning: Citation `Armstrong2009' on page 10 undefined on input line 94.
+
+
+LaTeX Warning: Citation `Armstrong1995' on page 10 undefined on input line 96.
+
+Runaway argument?
+{Armstrong{1995} so all interaction between processes is done through\ETC.
+! Paragraph ended before \@citex was complete.
+<to be read again> 
+                   \par 
+l.99 
+     
+? 
+
+LaTeX Warning: Citation `Wadler1997' on page 10 undefined on input line 101.
+
+[10]
+
+LaTeX Warning: Citation `Marlow2008' on page 11 undefined on input line 103.
+
+
+LaTeX Warning: Citation `Lee2006' on page 11 undefined on input line 103.
+
+
+LaTeX Warning: Citation `Lipovaca2010' on page 11 undefined on input line 107.
+
+
+LaTeX Warning: Citation `Marlow2010' on page 11 undefined on input line 109.
+
+[11]
+
+LaTeX Warning: Citation `Odersky2004' on page 12 undefined on input line 114.
+
+
+LaTeX Warning: Citation `Odersky2008' on page 12 undefined on input line 114.
+
+Missing character: There is no √ in font cmr10!
+Missing character: There is no ∂ in font cmr10!
+
+LaTeX Warning: Citation `Reynolds1998' on page 12 undefined on input line 114.
+
+
+LaTeX Warning: Citation `OSullivan2008' on page 12 undefined on input line 114.
+
+
+
+Overfull \hbox (4.47758pt too wide) in paragraph at lines 114--115
+\OT1/cmr/m/n/10 object-oriented and func-tional pro-gram-ming'' paradigms [[]].
+ Sim-i-larly to Haskell,
+ []
+
+
+LaTeX Warning: Citation `Scala2008' on page 12 undefined on input line 116.
+
+
+LaTeX Warning: Citation `Odersky2008' on page 12 undefined on input line 116.
+
+
+LaTeX Warning: Citation `Venners2009' on page 12 undefined on input line 118.
+
+
+LaTeX Warning: Citation `Odersky2011' on page 12 undefined on input line 118.
+
+[12]
+
+LaTeX Warning: Citation `Trinder1998' on page 13 undefined on input line 124.
+
+
+LaTeX Warning: Citation `Jones1996' on page 13 undefined on input line 124.
+
+
+LaTeX Warning: Citation `Harris2005' on page 13 undefined on input line 124.
+
+
+LaTeX Warning: Citation `Chakravarty2007' on page 13 undefined on input line 12
+4.
+
+
+LaTeX Warning: Citation `Amdahl1967' on page 13 undefined on input line 135.
+
+[13]
+
+LaTeX Warning: Citation `Amdahl1967' on page 14 undefined on input line 142.
+
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+
+LaTeX Warning: Citation `Jones2008' on page 14 undefined on input line 144.
+
+
+LaTeX Warning: Citation `Harris2005' on page 14 undefined on input line 144.
+
+
+Underfull \vbox (badness 1348) has occurred while \output is active []
+
+ [14]
+
+! LaTeX Error: Environment lstlisting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.149 \begin{lstlisting}
+                        
+? 
+
+! LaTeX Error: \begin{document} on input line 2 ended by \end{lstlisting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.153 \end{lstlisting}
+                      
+? 
+
+LaTeX Warning: Citation `Jones2008' on page 15 undefined on input line 155.
+
+
+LaTeX Warning: Citation `Odersky2006' on page 15 undefined on input line 158.
+
+
+LaTeX Warning: Citation `Armstrong2007' on page 15 undefined on input line 160.
+
+
+
+LaTeX Warning: Citation `Haller2006' on page 15 undefined on input line 160.
+
+
+LaTeX Warning: Citation `Trinder1998' on page 15 undefined on input line 163.
+
+[15]
+
+LaTeX Warning: Citation `Dean2004' on page 16 undefined on input line 170.
+
+
+Underfull \vbox (badness 2088) has occurred while \output is active []
+
+ [16]
+
+LaTeX Warning: Citation `Fujimoto2003' on page 17 undefined on input line 178.
+
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+
+LaTeX Warning: Citation `Plimpton1995' on page 17 undefined on input line 182.
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+
+LaTeX Warning: Citation `Plimpton1995' on page 17 undefined on input line 184.
+
+[17]
+
+LaTeX Warning: Citation `KyleIntel' on page 18 undefined on input line 186.
+
+
+LaTeX Warning: Citation `KyleIntel' on page 18 undefined on input line 186.
+
+
+LaTeX Warning: Citation `KyleIntel' on page 18 undefined on input line 188.
+
+
+LaTeX Warning: Citation `KyleIntel' on page 18 undefined on input line 188.
+
+
+LaTeX Warning: Citation `Ericson2005' on page 18 undefined on input line 194.
+
+[18]
+
+LaTeX Warning: Citation `Ericson2005' on page 19 undefined on input line 197.
+
+
+LaTeX Warning: Citation `Ericson2005' on page 19 undefined on input line 197.
+
+
+LaTeX Warning: Citation `Ericson2005' on page 19 undefined on input line 204.
+
+[19] [20]
+Overfull \hbox (2.72284pt too wide) in paragraph at lines 250--252
+[]\OT1/cmr/m/n/10 Intellectual prop-erty of the dis-ser-ta-tion is taken by the
+ Uni-ver-sity of Brighton.
+ []
+
+) (./requirements.tex [21]
+
+LaTeX Warning: Citation `OSullivan2008' on page 22 undefined on input line 37.
+
+[22]) (./design.tex
+
+! LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \usepackage
+               {listings}
+? 
+! Undefined control sequence.
+l.3 \lstset
+           {language=Haskell}
+? 
+[23]
+
+LaTeX Warning: Citation `OSullivan2008' on page 24 undefined on input line 7.
+
+
+LaTeX Warning: Citation `Foster1995' on page 24 undefined on input line 13.
+
+[24]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no é in font cmr10!
+ [25] [26] [27] [28] [29]
+
+LaTeX Warning: Citation `Larman2003' on page 30 undefined on input line 107.
+
+
+LaTeX Warning: Citation `Larman2003' on page 30 undefined on input line 107.
+
+[30] [31]) (./implementation.tex
+
+! LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \usepackage
+               {listings}
+? 
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
-
-Overfull \hbox (23.63974pt too wide) in paragraph at lines 44--45
-\OT1/cmr/m/n/10 Kevin Ham-mond] http://www-fp.dcs.st-and.ac.uk/ kh/papers/pasco
-94/pasco94.html 
- []
-
-[2]) (./requirements.tex) (./design.tex [3]
-! You can't use `macro parameter character #' in horizontal mode.
-l.34 ...re,[5] Common Lisp,[6] D,[7] Erlang,[8] F#
-                                                  ,[9] Factor,[10] Io,[11] J...
-
+[32]
+! Display math should end with $$.
+<to be read again> 
+                    
+l.19 \begin{equation}$ 
+                       sqrt( sqr(m) + sqr(n)) $\end{equation}
 ? 
-[4]
-Overfull \hbox (12.13034pt too wide) in paragraph at lines 39--43
-\OT1/cmr/m/n/10 Haskell, a lan-guage you al-ready know. Like other for-mal spec
--i-fi-ca-tions, QuickCheck
- []
-
-[5]
-Overfull \hbox (0.7413pt too wide) in paragraph at lines 116--118
-[]\OT1/cmr/m/n/10 processAntQuadrant - Moves each Ant within a quad-rant. pro-c
-es-sPherQuad-
- []
-
-) (./implementation.tex [6]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.23 Printing Ant Quadrants for testing -^
-                                           Serial Mode
+! You can't use `\eqno' in math mode.
+\endequation ->\eqno 
+                     \hbox {\@eqnnum }$$\@ignoretrue 
+l.19 ...n}$ sqrt( sqr(m) + sqr(n)) $\end{equation}
+                                                  
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.32 
-     
+l.19 ...n}$ sqrt( sqr(m) + sqr(n)) $\end{equation}
+                                                  
 ? 
-
-Overfull \hbox (519.74164pt too wide) in paragraph at lines 19--32
-\OT1/cmr/m/n/10 for test-ing -$[]\OML/cmm/m/it/10 erialModeProcessingstepsandpa
-rallelismThreadscopedebuggingPheremoneQuadrantPrintingantWorldsfortestingTheint
-roductionofAntBehaviour\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 followthehighestPherem
-one \OMS/cmsy/m/n/10 ^^@
- []
-
-
-Overfull \hbox (261.0726pt too wide) in paragraph at lines 19--32
-\OML/cmm/m/it/10 Getsstuckincorners\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 Introducti
-onofFoodQuadrantsfortestingExpandingAntBehaviour\OT1/cmr/m/n/10 (\OML/cmm/m/it/
-10 Exploration\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Random\OT1/cmr/m/n/10 ))\OML/cm
-m/m/it/10 IntroducingtheNest \OMS/cmsy/m/n/10 ^^@[]
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.54 http://www.haskell.org/haskellwiki/Haskell_
-                                                program_coverage
-? 
-! You can't use `macro parameter character #' in math mode.
-l.55 http://www.haskell.org/haskellwiki/Debugging#
-                                                  Infinite_loops
+! Display math should end with $$.
+<to be read again> 
+                   x
+l.24 \begin{equation}$x
+                       ^2 + y^2 = r^2$\end{equation}
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.57 
-     
+l.24 \begin{equation}$x^
+                        2 + y^2 = r^2$\end{equation}
+? 
+! You can't use `\eqno' in horizontal mode.
+\endequation ->\eqno 
+                     \hbox {\@eqnnum }$$\@ignoretrue 
+l.24 ...n{equation}$x^2 + y^2 = r^2$\end{equation}
+                                                  
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.24 ...n{equation}$x^2 + y^2 = r^2$\end{equation}
+                                                  
+? 
+! Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.24 ...n{equation}$x^2 + y^2 = r^2$\end{equation}
+                                                  
+? 
+[33]
+
+LaTeX Warning: Citation `Lipovaca2010' on page 34 undefined on input line 32.
+
+
+! LaTeX Error: Environment lstlisting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 \begin{lstlisting}
+                       
 ? 
 
-Overfull \hbox (10.2349pt too wide) in paragraph at lines 53--57
-[]\OT1/cmr/m/n/10 Debugging http://www.haskell.org/haskellwiki/Haskell$[]\OML/c
-mm/m/it/10 rogram[]overagehttp \OT1/cmr/m/n/10 :
+! LaTeX Error: \begin{document} on input line 3 ended by \end{lstlisting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.42 \end{lstlisting}
+                     
+? 
+[34] [35]
+
+! LaTeX Error: Environment lstlisting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.64 \begin{lstlisting}
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.66 map' _
+            []           = []
+? 
+
+! LaTeX Error: \begin{document} on input line 3 ended by \end{lstlisting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.78 \end{lstlisting}
+                     
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.78 \end{lstlisting}
+                     
+? 
+
+Overfull \hbox (67.26303pt too wide) in paragraph at lines 65--79
+[]\OT1/cmr/m/n/10 map' :: (a -> b) -> [a] -> [b] map' $[]] = []\OML/cmm/m/it/10
+ map[]function\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 w \OT1/cmr/m/n/10 : []) = [\OML
+/cmm/m/it/10 functionw\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 map[]function\OT1/cmr/m
+/n/10 (\OML/cmm/m/it/10 w \OT1/cmr/m/n/10 :
  []
 
 
-Overfull \hbox (164.82823pt too wide) in paragraph at lines 53--57
-\OML/cmm/m/it/10 ==www:haskell:org=haskellwiki=DebuggingInfinite[]oopshttp \OT1
-/cmr/m/n/10 : \OML/cmm/m/it/10 ==stackoverflow:com=questions=\OT1/cmr/m/n/10 28
-61988\OML/cmm/m/it/10 =haskell \OMS/cmsy/m/n/10 ^^@
+Overfull \hbox (73.63315pt too wide) in paragraph at lines 65--79
+\OT1/cmr/m/n/10 []) = \OML/cmm/m/it/10 fx\OT1/cmr/m/n/10 `\OML/cmm/m/it/10 par\
+OT1/cmr/m/n/10 `\OML/cmm/m/it/10 fy\OT1/cmr/m/n/10 `\OML/cmm/m/it/10 par\OT1/cm
+r/m/n/10 `[\OML/cmm/m/it/10 functionw; fx; fy\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 
+wherefx \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 functionxfy \OT1/cmr/m/n/10 = \OML/c
+mm/m/it/10 functionxmap[]function\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 w \OT1/cmr/m
+/n/10 :
  []
 
-) (./conclusion.tex) [7] (./main.aux) ) 
+
+Overfull \hbox (70.41808pt too wide) in paragraph at lines 65--79
+\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 y \OT1/cmr/m/n/10 : \OML/
+cmm/m/it/10 z \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 zs\OT1/cmr/m/n/10 ) = \OML/cmm
+/m/it/10 fx\OT1/cmr/m/n/10 `\OML/cmm/m/it/10 par\OT1/cmr/m/n/10 `\OML/cmm/m/it/
+10 fy\OT1/cmr/m/n/10 `\OML/cmm/m/it/10 par\OT1/cmr/m/n/10 `\OML/cmm/m/it/10 fz\
+OT1/cmr/m/n/10 `\OML/cmm/m/it/10 par\OT1/cmr/m/n/10 `(\OML/cmm/m/it/10 function
+w \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 fx \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 fy \
+OT1/cmr/m/n/10 : \OML/cmm/m/it/10 fz \OT1/cmr/m/n/10 : (\OML/cmm/m/it/10 map[]f
+unctionzs\OT1/cmr/m/n/10 ))\OML/cmm/m/it/10 wherefx \OT1/cmr/m/n/10 =
+ []
+
+
+LaTeX Warning: Citation `Marlow2010a' on page 36 undefined on input line 81.
+
+
+! LaTeX Error: Environment lstlisting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83 \begin{lstlisting}
+                       
+? 
+
+! LaTeX Error: \begin{document} on input line 3 ended by \end{lstlisting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.86 \end{lstlisting}
+                     
+? 
+[36]
+
+! LaTeX Error: Environment lstlisting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.105 \begin{lstlisting}
+                        
+? 
+! Misplaced alignment tab character &.
+l.107       | (isNothing currAnt) &
+                                   & (isNothing adjAnt) = procEdgeAntAtNode ...
+
+? 
+! Misplaced alignment tab character &.
+l.107       | (isNothing currAnt) &&
+                                     (isNothing adjAnt) = procEdgeAntAtNode ...
+
+? 
+! Misplaced alignment tab character &.
+l.108       | (isJust currAnt) &
+                                & (isNothing adjAnt)    = loneEdgeAnt qs Tru...
+
+? 
+! Misplaced alignment tab character &.
+l.108       | (isJust currAnt) &&
+                                  (isNothing adjAnt)    = loneEdgeAnt qs Tru...
+
+? 
+! Misplaced alignment tab character &.
+l.109       | (isNothing currAnt) &
+                                   & (isJust adjAnt)    = loneEdgeAnt qs Fal...
+
+? 
+! Misplaced alignment tab character &.
+l.109       | (isNothing currAnt) &&
+                                     (isJust adjAnt)    = loneEdgeAnt qs Fal...
+
+? 
+! Misplaced alignment tab character &.
+l.110       | (isJust currAnt) &
+                                & (isJust adjAnt)       = doubleEdgeAnt qs F...
+
+? 
+! Misplaced alignment tab character &.
+l.110       | (isJust currAnt) &&
+                                  (isJust adjAnt)       = doubleEdgeAnt qs F...
+
+? 
+
+! LaTeX Error: \begin{document} on input line 3 ended by \end{lstlisting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.111 \end{lstlisting}
+                      
+? 
+[37] [38]
+
+! LaTeX Error: Environment lstlisting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.132 \begin{lstlisting}
+                        
+? 
+
+! LaTeX Error: \begin{document} on input line 3 ended by \end{lstlisting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 \end{lstlisting}
+                      
+? 
+
+Overfull \hbox (136.24283pt too wide) in paragraph at lines 133--136
+[]\OT1/cmr/m/n/10 let di = gs (((set-Dir (fst$\OML/cmm/m/it/10 antGraphsqs\OT1/
+cmr/m/n/10 )\OML/cmm/m/it/10 nd\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 d\OT1/cmr/m/n/
+10 )\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 snd$\OT1/cmr/m/n/10 an
+tGraphs qs)), ((fst$\OML/cmm/m/it/10 antGraphsqs\OT1/cmr/m/n/10 )\OML/cmm/m/it/
+10 ; \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 setDir\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
+snd$\OT1/cmr/m/n/10 antGraphs
+ []
+
+[39]
+
+! LaTeX Error: Environment lstlisting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 \begin{lstlisting}
+                        
+? 
+
+! LaTeX Error: \begin{document} on input line 3 ended by \end{lstlisting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.150 \end{lstlisting}
+                      
+? 
+[40]
+Overfull \hbox (2.3107pt too wide) in paragraph at lines 163--164
+\OT1/cmr/m/n/10 duced in Haskell. The Quickcheck prop-er-ties were gen-er-ated 
+for the GraphOps.hs
+ []
+
+
+! LaTeX Error: Environment lstlisting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.165 \begin{lstlisting}
+                        
+? 
+[41]
+
+! LaTeX Error: \begin{document} on input line 3 ended by \end{lstlisting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.170 \end{lstlisting}
+                      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.170 \end{lstlisting}
+                      
+? 
+) (./conclusion.tex
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+ [42]) [43] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 282 strings out of 495061
- 3226 string characters out of 1182622
+ 370 strings out of 495061
+ 4398 string characters out of 1182622
  53849 words of memory out of 3000000
- 3522 multiletter control sequences out of 15000+50000
- 3993 words of font info for 15 fonts, out of 3000000 for 9000
+ 3601 multiletter control sequences out of 15000+50000
+ 5511 words of font info for 20 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 23i,5n,17p,946b,170s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/pu
-blic/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (7 pages, 80359 bytes).
+ 24i,7n,20p,1670b,289s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsl10.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on main.pdf (43 pages, 247622 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
+ 178 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

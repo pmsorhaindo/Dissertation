@@ -1,0 +1,108 @@
+
+
+
+DEC
+27
+Beautiful STM 
+Travelling back from my parents today and finished Simon Peyton Jones' article on STM. It was enlightening, I now feel I can use IO comfortably in Haskell and have a basic idea of of what MVars are. The article also introduced the idea of IORef's but I'm still a bit unclear on how much they are like C++ references.
+
+When I get back I will try and implement the Santa and his helpers problem and try and get a better idea. Although I don't think this will be the only approach to achieving parallelism I will take in my project, I'm pretty sure STM could be useful in picking up the some of the more communicative parts of my simulation and making the concurrency aspect of my project more elegant, cleaner and possibly beautiful.
+Posted 27th December 2011 by Michael
+  
+0  Add a comment
+DEC
+25
+Christmas 
+Today I got bored while waiting for my Mum to finish cooking up the annual epic Christmas dinner which seems to keep me feeling full till New Year. So I got on with some Haskell, as well as doing a bit more writing for my Academic writing module, Emerging Technologies.
+
+But when it came to Haskell, I was mainly reading up on Functors. I talked with a few people on the #haskell forum. It's very friendly there at Christmas time.I also did some more reading into Functors and Applicative functors. They're starting to make sense but I'm yet to be able to think of them in a practical manner like I can with maps and folds.
+Posted 25th December 2011 by Michael
+  
+0  Add a comment
+DEC
+23
+(Stuck in a very slow train) Home For Christmas! 
+Took the book Beautiful Code which I bought a month or so ago, I believe I even brought it up in this little blog. There is a pretty awesome Chapter on Haskell and STM there and all though I haven't finished it yet I can't describe how much it has opened my eyes to the way Haskell works. The chapter in question is by Simon Peyton Jones and in his chapter entitled "Beautiful Concurrency" he sets about explaining why he's so excited about Haskell, and Software Transactional Memory. He also endeavours to do it in a way which is not only concise enough to fit into a single chapter of a collaborative book, but also in a way that someone who has never programmed in Haskell can understand. I have been in the Haskell world for about 3 months now and as those months have been quite intense, I've exposed myself to a considerable amount of Haskell which makes this chapter a very soothing read. However at the same time as being easy reading its pace, introducing IO and heading into Mutable types in Haskell.
+
+I'm well over half way through the chapter now and I already feel comfortable with the idea of STM theoretically, The last major Portion of the Chapter is spent discussing a solution for the "Santa Claus Problem" which is rather fitting seeing the time of year, making the chapter that much more easier to read. The Santa Claus Problem is a concurrency problem proposed by J.A Trono in 1994. Using this problem Simon Peyton Jones demonstrates the use of STM in a "complete, runnable" program. On the way back to Brighton I will try and follow along the implementation with my gedit and ghc. STM will be a very useful area of Haskell to be comfortable with in order to get my program functioning on more than one thread.
+
+Things I have learnt so far from the "Beautiful Concurrency" chapter.
+
+"hPutStr" is the Daddy - before I seen and used a few times putStr but I didn't realize it was actually calling hPutStr which takes a handle, h and a String the handle h "plays the role of a file descriptor in c", basically it can be supplied with three default handles stdin, stdout and stderr. Which look familiar :) putStr just calls hPutStr and automagically supplies stdout.
+
+The Basic STM Operations
+atomically
+retry
+orElse
+newTVar
+readTVar
+writeTVar
+
+I have seen all these functions in use within examples of a bank account or in the beginning of his implementation to the Santa Claus Problem.
+
+Simon also provides a quick two page run down of IO in Haskell which cleared things in my mind a bit too. Gosh I hate Monads!
+
+-Mikey..
+Posted 23rd December 2011 by Michael
+  
+0  Add a comment
+DEC
+23
+Christmas Supervisor Meeting and the "Pretty Little" Swap Function 
+Today I had a meeting with my Final Year Project supervisor, I must say he is the best supervisor of all time, taking time out to skype me during what is officially the Christmas Holiday's even if the University building is still open. We discussed my project and I told him about my Graph node swapping woes. We analysed the problem, he also mentioned FGL. But we were both bemused why Data.Graph wouldn't provide this functionality. Getting desperate we were beginning to think the only way to do it was to look at the module's source and determine how the "Graph" type was built and then produce my own build graph function which took the modification as a parameter and hen built a new Graph with the modification applied. However when looking at the build graph functions provided by Data.Graph my Tutor noted that the function returns a value which takes a Vertex and returns information about it. INCLUDING! vertices connected to it IN A LIST! Here is the magical line which was being overlooked.
+
+graphFromEdges' :: Ord key => [(node, key, [key])] -> (Graph, Vertex -> (node, key, [key]))
+
+I even believe this line was featured in a previous post. Seeing as I just wanted the graph before I had called fst on the result of the function to pull it out. I'd even called snd on the result and stored the function but it never occurred to me look back at what this function was returning. the list of key's "[key]" is exactly what I needed.
+
+Shortly after the meeting I was able to fix my problems and I now have a function which takes my Graph world and I can swap stuff in a new returned Graph.
+
+Also in my meeting with my supervisor we discussed the "Game plan" for going into what is probably going to be the busiest January of my life. So I made a list of aims which need to be achieved in order to reach my main aim of completing my project.
+
+I will copy the aims in as is, excuse the shocking grammar.
+Ant Simulation Tasks.
+
+Mainline that creates a graph
+Mainline that creates and prints a graph
+Mainline that creates a graph and prints the dfs of a graph
+Mainline that creates a graph, "copies" the graph, then prints both the original and the copy
+
+Mainline that creates a graph and takes two set vertices, using these two vertices creates another graph with nodes at the two given vertices swapped. <- if I'm not passed here by the 4th of January I will email.
+Mainline that does the same as the above but only allows vertex values where the first value is a valid "key" and the second value in the "list of keys of nodes this node should have edges to."
+Creates a graph and maps this function across all nodes in the graph this would produce a new graph as each node is updated. <- hopefully here by the end of the Christmas break.
+Creates a graph and maps across it as done previously, but only operating on nodes with Ant types present.
+
+Change the type held by the node to hold Maybe Ant, Maybe Pheromone. 
+Adjust swapNodes function only swap the Ant value held in the node.
+Create a function which decrements the value of every node's Maybe Pheromone or leaves it as Nothing if < 0 or Nothing.
+Create a function which decrements the value of every node's Maybe Ant.Pheromone or leaves it as Nothing if < 0 or Nothing.
+Create a function which selects a key from a list of keys with edges to a particular key, where the key selected has the highest pheromone level.
+Adjust the swap nodes function to pick a value based on the Pheromone level checking function above.
+
+Add type Maybe Food to the type held by each node in the graph in some sort of tuple structutre.
+Add an Ant.Pheromone increase function when checking for Ants and Food in the same node, before increasing the value of an Ant's Pheromone.
+Adjust the swapNodes (now swapAnts as the rest of the node's values stays the same) function to increment the value of the Maybe Pheromone in the node if the Ant occupying the node has a Pheremone level > 0. 
+
+Move graph into Software Transactional Memory. need to do more reading on this... http://research.microsoft.com/en-us/um/people/simonpj/papers/stm/beautiful.pdf
+Parallel Map each function over the graph using par.
+
+
+That's all for now.
+-Mikey..
+Posted 23rd December 2011 by Michael
+  
+
+  
+
+  
+
+  
+
+
+
+  
+
+  
+
+
+

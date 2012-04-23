@@ -2,189 +2,140 @@
 \usepackage{listings}
 \lstset{language=Haskell}
 \begin{document}
-%% my design content
 
-Design
+%------Design techniques
+\paragraph{}There is no standard way to model programs in Haskell and many different methods are used to carry an idea through from concept to code. Some programmers use modelling techniques similar to the Unified Modelling Language (UML), which is geared heavily towards object orientated languages with its use of class diagrams, commonly used in object-orientated languages such as Java. While other developers use concept maps and data flow diagrams to provide a general picture of the design before they begin programming. However, because Haskell is both a strongly and statically typed language it is a common practise to start constructing a program by working out the data types needed to complete the task. Then implement the functions for working with the newly created data types. Finally culminating in writing modules that bring together all the functions in a structured way \cite{OSullivan2008}. The approach to modelling however, differs from project to project.
 
-Desgin techniques
-There is no standard way to model programs in Haskell and many different methods are used to carry an idea through from concept to code. Some programmers use modelling techniques similar to the Unified Modeling Language (UML) [Which is geared heavliy towards object orientated languages with its use of class diagrams/Commonly used in object-orientated languages such as Java] While other developers use concept maps and data flow diagrams to provide a general picture of the design before they begin programming. However, because Haskell is both a strongly and statically typed language it is a common practise to start constructing a program by working out the data types needed to complete the task. Then implement the functions for working with the newly created data types. Finally culminating in writing modules that bring together all the functions in a structured way. The approach to modelling however, differs from project to project.
-%Modelling Programs in Haskell (Real World Haskell: JSON library chapter)
+%---Data types in Haskell as Design %---UML is not limited to OOP
+\paragraph{} As identified during research data types can play an important role in program design, as Haskell is a statically typed languages the types of expressions will have to be validated by the type checker in order for the program to compile therefore it is practical to get the types organized within the design phase. UML is not limited to Object Orientated Programming. Even though it is founded in Object Orientated design it can be adapted a long way. The data structures are typically determined by the operations one wishes to run on them, so the usefulness of a diagram ultimately depends upon the kind of UML diagram being used and what is trying to be shown by the diagram. Package diagrams, Communication diagrams and Sequence diagrams may all be of use when designing an application such as a simulation in Haskell. Package diagrams can aid in making useful decisions as to what modules are necessary when importing, and also helping the programmer to make decisions as to what function should be exposed by each module. In approaches like the Actor model, discussed in the research chapter, communication between processes in necessary and mapping out such communications during the design phase would minimize bugs later on in development.
 
-Data types in Haskell and then quick checks [ Method::Type-> Type -> Type  - Method x y = undefined  - quickCheck]
--- reference
+%------Points to consider when designing a parallel Algorithm %---Granularity
+\paragraph{}Ian Foster\cite{Foster1995}, identifies several key points to consider when designing a parallel algorithm these include, Granularity, Load Balancing, Dependency, Scheduling. Unless the problem already contains tasks which are by nature separate and independent in order to introduce parallelism to the problem it must go through a partitioning phase. The amount of individual parts the problem is broken up into is arguably the first thing that must be considered as this has a bearing on the following points. If the objective of the program is to produce a single result from the tasks evaluated in parallel there will have to be some communication between the process running the tasks in parallel in order to compute the final result. This results in an issue that the further the problem is split the greater the amount of communication that will occur to achieve the result. 
 
-UML is not limited to OOP. Even though it's founded in OOA/D it can be adapted a long way. The data structures are typically determined by the operations one wishes to run on them, so the usefulness of a diagram ultimately lies with t depends on the kind of UML model do you wish to make
+%---Load Balancing
+\paragraph{}When deciding on an approach to partition the problem it is important that the partitions are of comparable size as this will make it easier to keep the load balanced across the processors. If this is not the case, the efficiency of the parallel computation as a whole could always be increased by keeping all the processors available working on a task by introducing a pre-processing step to choose appropriate partitions. However, a pre-processing step may slow the computation as a whole as it may take more time to calculate the most effective partitioning strategy for optimal load balancing and run these partitioned tasks in parallel than it would take to process the problem with a less sophisticated strategy.
 
-Parametric polymorphism's also remarkably effective at helping strip out the irrelevant (use of type variables in)
+%---Dependency - Dependeny Graphs %---Scheduling
+\paragraph{}There is a danger that portions of a program intended to run in parallel may become concurrent if they are dependant on information other tasks. Dependancies should be sought out and where possible to identify how important a task depending on how many processes are dependent on the result it produces. These dependencies in within parallel program can be modelled using a Directed Acyclic Graph. If the amount of processes dependant on a task can be identified early enough the pogram can priorize task in order to create the opportunity for more parallelism. These decisions can be made before the program is compiled if enough is known about the behaviour of the application or the responsibility of which tasks to compute first can be given to a scheduler process.
 
+%------Epochs of Design - High level parallel design discussion
+\paragraph{}The project's design began by looking at parallelism from a high level, as it is important to parallelize tasks a seperation on the data level was decided on, between ants, the simulations surface and pheromones. Operations that affected each of these datatypes could then run in parallel. Thus a divide and conquer approach was taken to the problem of the ant colony simulation. The design of the simulation was also an iterative process as the knowledge of both Haskell and parallelism grew throughout the early stages of the project the initial design concept evolved into a final design which better fitted the requirements and specifications set out in previous chapters.
 
-Points to consider when desiging a parallel Algorithm
-Granularity
-Load Balancing
-Dependancy - Dependancy Graphs - http://msdn.microsoft.com/en-us/library/ee847415.aspx
-Scheduling
+%---The list based Worlds design free movement
+\paragraph{}The first design was list based and involved the free movement of ants with in the simulation (i.e. movements not being bound to a grid). The Ant type held two values of type Double representing its x and y coordinates in a two dimentional plane. Ants would be updated by a function which mapped across a list of Ant values. A seperate list would contain a list of pheremone drops which would be generated from the list of ants. But being stored seperately functions such as the disipation of pheremone could be handled in parallel by mapping a function which increased the radius of a pheremone drop locationand decreased its strength. Mapping a function like this at regular intervals in parallel with the ants movements would allow for a dynamic simulation with two tasks being able to be carried out in parallel. However this idea was deprecated in favour of an approach which offered further parallelism.
+%[The locations held by each item would have an x and y value, and information radius or a second x and y in order to calculate a bounding box.]
 
-The partitioning phase of a design should produce one or more possible   decompositions of a problem. Before proceeding to evaluate communication requirements, Ian Foster [ Designing and Building Parallel Programs  1995 by Ian Foster] reccomends the use of the following checklist to ensure that the design has no obvious flaws. Generally, all these questions should be answered in the affirmative.
+%---List based Worlds location tags
+\paragraph{}The next concept for the data representation of the simulation world was to produce a list for every type of item in the world. For instance there would be an Ant List, a Food List and a Surface type List. Each item in the list would also be given a location to represent where it was in the simulation world. Each list could then be processed in parallel. Copies of each list would be made for lists which needed other lists in order to compute their changes. Once each list had updated the old lists would be discarded and  copies of the new lists would once again be made for the next simulation step.‎ Each item in every list would be paired with a location value of type Int Int. This combined with a limitation that every element within the simulation is the same size, allows for fast checks to be performed as to whether an ant is within range of a certain pheremone, or if an ant is at a particular food source. These lists of data tagged with locations could also easily be split allow for partitioning of data by grouping data with location tags within a certain range together, processing each of these groups in parallel. This design was dropped due to the preprocessing step needed to split the data up for parallel processing.
 
-Does your partition define at least an order of magnitude more tasks than there are processors in your target computer? If not, you have little flexibility in subsequent design stages.
-Does your partition avoid redundant computation and storage requirements? If not, the resulting algorithm may not be scalable to deal with large problems.
-Are tasks of comparable size? If not, it may be hard to allocate each processor equal amounts of work.
-Does the number of tasks scale with problem size? Ideally, an increase in problem size should increase the number of tasks rather than the size of individual tasks. If this is not the case, your parallel algorithm may not be able to solve larger problems when more processors are available.
-Have you identified several alternative partitions? You can maximize flexibility in subsequent design stages by considering alternatives now. Remember to investigate both domain and functional decompositions.
-%Answers to these questions may suggest that, despite careful thought in this and subsequent design stages, we have a ``bad'' design. In this situation it is risky simply to push ahead with implementation. We should use the performance evaluation techniques described in Chapter 3 to determine whether the design meets our performance goals despite its apparent deficiencies. We may also wish to revisit the problem specification. Particularly in science and engineering applications, where the problem to be solved may involve a simulation of a complex physical process, the approximations and numerical techniques used to develop the simulation can strongly influence the ease of parallel implementation. In some cases, optimal sequential and parallel solutions to the same problem may use quite different solution techniques. While detailed discussion of these issues is beyond the scope of this book, we present several illustrative examples of them later in this chapter.
-[Ian Foster]
+%---Graph based World Hold all
+\paragraph{}In order to improve the design an effort was made to select a datastructure which held more information about the simulation. Using a Graph representation of the world collitions are cheap and the possibilty for ants intersecting is non existant. The adjacency list of the graph always holds the locations of the surrounding nodes and making inquires as to what is in surrounding cells is straight forward as only the nodes in the adjacency list have to be queried. An ant can therefore make a decision on which node it wants to move to in the graph from its current node, and a simple check to see if that node is currently occupied before it moves is computed. If the node is full the ants request is not carried out and no movement occurs.
 
-High level parallel design (pmap) discussion.
-Map Reduce
--In a purely functional setting, elements of a list being computed by map cannot see the effects of the computations on other elements
--If order of application of f to elements in list is commutative, we can reorder or parallelize execution
--This is the “secret” that MapReduce exploits
-Actors
-Embarassingly Parallel
-Replicable
-Repository
-Pipeline A series of ordered but independent computation stages need to be applied on data,
-where each output of a computation becomes input of subsequent computation
+%A seperate Ant graph would hold the ants within the simulation, each node capable of holding one ant. Checks would be carried out before moving an ant to a new node these checks acting as collision tests would ensure no ant occupied the same physical location in the simulation at any one time.
 
-`par `seq` annotations and other forms of denoting parallelism.
+%--- Embarassingly Parallel Areas to process GBWHA
+\paragraph{}This design maintained the attribute of confining the ants movements to set locations, however now these locations were represented by nodes within a particular graph. When looking at previous large scale simulations which tried to exploit the benefits of parallel programming it was noted especially in the simulation produced by Intel that identifying tasks which can be computed independantly of other tasks and arranging the computation of these tasks is key to achieving speed up. In previous designs a seperation has been made between pheromone and ant data to allow for operations which run in an embarassing manner. This was maintained throughout this design using multiple graphs to represent pheromones and food data seperately from ant data.
 
+%---Graph based Worlds parallel - How the design choices have been influenced by research.
+\paragraph{}The final design that was settled on was graph based, using graphs to represent individual portions of the world, referred to as quadrants, that could be processed in parallel. These graphs were each held inside an overarching world graph which was used to derive the positions of each of the quadrants in the simulation world. Again, graph representations of the world were then responsible for holding certain information. The concept of a Nest graph was also introduced, which held the location and would monitor the expansion and possible reduction of the nest's size depending on the success of the colony. Further, seperate, graphs holding pheromone information and food locations and quantities would also be passed around in the simulation as functions required their infomation for processing but their processing for the next simulation step could be carried out in parallel as they are seperate and independant data structures.
 
+%---Map Reduce with respect to the problem
+\paragraph{}This splitting of the data representing a world into quadrants introduced a new problem, the movement of ants between quadrants. Divide and conquer can only work when all the sub problems are independent. In a purely functional setting, elements of a data structure being computed by map cannot see the effects of the computations on other elements. If the order of application of a function to elements in the datastructure is commutative, for example the movement of ants elements in multiple quadrants, it is possible to reorder or parallelize execution. If an ant is moved in quadrant one then an ant is moved in quadrant two the resulting world would be the same if the operation were performed on quadrant 2 first, or in parallel. This is the opportunity that divide and conquer algorithms and MapReduce frameworks exploit.
 
--Predicted code flow of the application
-On the function/method level.
-More detailed than that.
+% Actors - Swapping ants between quadrants - Message passing system - more suited to Erlang %-STM edge cells being lockable concurrency style.
+\paragraph{}One proposition that was debated as a potential solution to the problem of ants moving between quadrants, was a message passing system based on the actor model. Each quadrant would be processed by a seperate actor on a different thread, processor or machine and when ants needed to move between. Their details could be sent to the thread processing the quadrant the ant wished to move to as a request. The request could be then accepted or a message could be sent back with the ants details if the request to move the ant was declined due to the node the ant wanted to move to being occupied. Another approach that was considered to solve the problem of passing ants between quadrants for processing was the use of software transactional memory. All methods updating edge nodes would become atomic blocks allowing for updates to nodes on the edge of a quadrant to be recorded as transactions and when the data representing the edge needs to be shown there would be the assurance that every operation on edge nodes had seen a valid state of memory due to the way atomic blocks function, meaning that no ants would be over written by other processes running concurrently.
 
-Data flow
+%-Hyper jumping (ants holding the state if they had been moved or not(is that more processing)
+\paragraph{} The finalsolution to the problem of moving ants between nodes was to process ants on the edge seperately to other ants in a quadrant. By taking pairs of quadrants and running functions which handle necessary transfers between the two quadrants before processing the ants which are not on the edge would ensure the parallel phase of processing would not affect other quadrants. Another issue arises when handling the edges of quadrants and the centers in different steps. Ants moving across an edge are processed more than once by both the edge ant movement function and the function that handles ant movement for the quadrant as a whole. To prevent ants from appearing to jump or increase speed when passoing between quadrants in the simulation world, a list of ants processed for each quadrant should be maintained in order to prevent these ants being processed again during the parallel phase of ant movement.
 
-Representing Source code
+\paragraph{}The initialisation of the simulation would begin by taking an initial set of parameters. These parameters would define the size of the simulation world in terms of the World graph, how many quadrants each world would hold and the quadrant size the square root of how many nodes each quadrant would contain. The initial number of ants the simulation would begin simulating would be a further parameter along with the amount of food within the simulation on start up. The program would then initialize each these graphs as empty and randomly determine the position of the nest within the simulation world by updating the nest graph. Following this the ant graph would be updated by adding the amount of ants specified by the simulation parameters to the ants nest in random positions in proximity to the nest. The next step would then update the food graph with the amount of food locations required by the parameters, these are to be added to random locations within the simulation world with the exception of the nest location. The program then moves on to the simulation loop.
 
-(
-Talk about the non parallel
+%Important functions
+\paragraph{}In order to produce more parallelism within the simulation loop the dependencies of important functions within the simulation were analysed. In order to determine which functions could be run in parallel while maintaing consistant data and which functions relied on the results of other functions and therefore had to be computed sequentially. Generation functions which initialze the simulation have been identified as follows:
+\begin{itemize}
+        \item The generation of empty Nest, Pheremone, Ant, Food and Nest structures of uniform size.
+        \item The generation of a Nest location.
+        \item The generation of the simulations inital ants.
+        \item The generation of Food sources
+\end{itemize}
 
-Then the parallel version
+The following function which the simulation loop composes of are as follows:
+\begin{itemize}
+        \item Move ants
+        \item Add new ants to the simulation (Birth ants)
+        \item Remove ants from the simulation (Kill ants)
+        \item Removing food from a food location and allowing an ant to carry it (Harvest Food)
+        \item Removing food from an ant and placing it in the nest (Deposit Food)
+        \item Transferring pheremone from the simulation surface to an ant.
+        \item The evaporation and dissipation of Pheromone on the simulation surface (Dissipate Pheremone)
+        \item The transfer of ant pheremone to the simulation surface
+        \item Adjusting the size of the nest.
+        \item Adding new food sources or increasing old food sources (Update Food)
+\end{itemize}
 
-Split into Epochs of design
+%DAG TODO Insert figs
+\paragraph{}Each of these proposed functions were then analysed to determine what datastructures they would update and produce as results. A diagram was then produced showing each of the structures linking them to the functions which would update them [Fig], along with a diagram showing the information which each function will need in order to compute its result [Fig].
 
-Mind map
-)
+%TODO Figs
 
-Alternate designs
-Everthing is based on message passing ants are grouped into oiiks and processed in batches by threads/ processors. Each processor gets representation of the world and sends requests to all other processors to check if it can move its ant in a particular direction, this design is possible more suitable for Erlang
+% Use of dependancy graphs %---Types %-Types used
+\paragraph{}Through the use of these graphs, due to the indication of the types returned and the purity of each function, dependencies could easily be higlighted within the data being processed. This allowed for a decision to be made on in what sequence the functions should be called. For instance, the function to dissipate pheromones throughout the simulation surface would not be able to run in parallel with a function which updates the updates the pheromone levels on the surface of the simulation with respect to the ants pheromone levels and positions. As both functions produce a new instance of the pheromone graph. Within the main loop six steps take place are as follows.
 
+\begin{itemize}
+        \item The current state of the pheremone, food, and nest worlds are passed to the ant processing functions in order for the ant world to update according to them.
+        \item The following steps can take place in parallel.
+        \begin{itemize}
+                \item The pheremone world is updated with respect to its dispertion and evaopration functions.
+                \item The food world is updated with respect to its generating further food in current sources and new sources.
+                \item The more sequential process of updating the edges of each quadrant and stitching them together, allowing the crossover of ants.
+        \end{itemize}
+        
+        \item The internal processing of each ant quandrant with respect to ant movement is carried out in parallel.
 
+        \begin{itemize}
+                \item The nest world is updated with respect to its changing size 
+                \item The ant and food quadrants update with respect to ants harvesting food where possible.
+                \item The pheremone quadrants update with respect to ants dropping off pheremone trail.
+        \end{itemize}
+        \item The ant quadrants update with respect to ants absorbing the pheremone from the surface. 
+        \item Simulation step is complete and viewable, calling itself recursivley to continue looping.
+\end {itemize}
 
-Representation of the Simulation world - Split into Epochs of design
+\section{Planning}
 
-The design of the simulation went through many iterations.
+\section{Software Development Model}
+This project will take an iterative and modular approach to development. This approach can also be seen as ``a way to manage the complexity and risks of large-scale development''\cite{Larman2003}.  It is a useful coding practise to develop small modules which are capable of functioning independantly from the code as these modules can then be reused, in developing other programs. There is also another advantage to be drawn from modular development, each module would be able to be tested sperately which would in turn ensure less bugs when assembling the final product. Another advantage of the iterative incremental approach is that the developer is able to take advantage of what is learned during the development of earlier, increments of the system. As learning comes from both the development and use of the system \cite{Larman2003}.
 
-Alternative considered designs
-Everything is Based on Message passing Ants are grouped in Pools and Pools are processed by seperate cores, processors or machines. Each Processor gets a reperesentation of the world and sends and recieves requests to find  out if it can move its ant to the cell it wishes. This design is possibly more suited to Erlang and the Actor model.
+\section{Important Tasks}
+The following is a break down of the project into smaller iterations this can then be used alongside the various project deadlines the project entails, to produce a Gantt chart of how the project's workflow will be carried out.
+\begin{itemize}
+	\item Representing an ant
+	\item Representing the worlds
+	\item Individual ant behaviour
+        \item Implement dissapating pheromone levels
+	\item Implement the critical simulation functions
+	\item Parallelize algorithms further
+	\item Extending the solution through application to a distibuted system.
+\end{itemize}
 
+\section{A Schedule of Activities}
+The produced Gantt chart attached to this report visualizes the following information. Throughout the following paragraphs a description of the plan for the project will be detailed in the form of a schedule. Although this plan looks at the project lifecycle as a fixed stages to be completed in an order, work further work on refactoring tasks which have been achieved earlier on in the project will be an going process throughout the later stages of the schedule.
 
+\paragraph{October-November}
+Throughout the course of October and November the project will focus mainly on gathering resources  and research. Much of the research will be conducted in the functional language Haskell and small experiments will be made to demonstrate any concepts that have been learnt. Further research will be carried out in areas of the project that will pose potential problems that need to be dealt with later on in the implementation stage of the project. Even at this point in the project the implementation process will begin. As development will be iterative small aims will be set such as representing a single ant and then these aims will be expanded upon.
 
-The list based Worlds design free movement
-The initial concept for the representation of the simulation world was list based. Several lists would be produced for everything in the world, for an example a list of Ants currently in the simulation, a list of Food currently in the simulation and a list of the surfaces in the simulation. Each element in the lists would hold a location value and --------------------
-The  initial concept for the data representation of the simulation world was to produce a list for every type of item in the world. For instance there would be an Ant List, a Food List a Surface Type List. Each item in the list would also be given a location to represent where it was in the simulation world. Each list could then be processed in parallel. Copies of each list would be made for lists which needed other lists in order to compute their changes. Once each list had updated the old lists would be discarded and  copies of the new lists would once again be made for the next simulation step.‎ The locations held by each item would have an x and y value, and information radius or a second x and y in order to calculate a bounding box.
+\paragraph{December-Janurary}
+In the months of December and Janurary the code produced in the first section will be expanded upon to produce a working base system. At the end of this this period a simulation of the ant colony should be able to be run. The simulation should include the all the basic functionality of the final system. Ants will be able to move and collide. Each ant will respond to its surroundings by referencing its own basic behaviour tree.
 
-List based Worlds location tags
-This approach was similar to the previous idea, using lists to process objects of similar types. However placing a restriction that x and y coordinates must be integers and each location is the size of one ant. This concept influenced all following design decisions, making it trivial to reason about collision detection. The more rigid location system doesn't only aid in collision detection but now help when considering parallel strategies like map reduce, the reduction step will be alot simpler. partitioning the wor
+\paragraph{February-March}
+In Feburary and March the focus will be on improving the algorithms which have been used within the system. Making them more efficient and looking at structuring more of them to work in parallel. At the end of this period the project's delieverable, the simulation, will be in a state that is presentable with as few bugs as possible. Towards the end of this period if things are on schedule the project's focus will shift from improving the base simulation to adding extentions and making it more usable.
 
-Graph based World Hold all
-Using a Graph representation of the world Collitions are cheap, the adjacency list of the graph always holds the locations of the surrounding nodes and making inquires as to what is in surrounding cells is straight forward as only the nodes in the adjacency list have to be queried.
+\paragraph{April}
+During the final few weeks of the project there will be the fixing of any bugs in the simulation and finishing up any extentions that may be added to the project. During this time the projects focus will be on documentation and producing an informative and evaluative technical report.
 
-Graph based Worlds non parallel
-
-Graph based Worlds parallel
-
-Evolution of the Ant,
-Originally held its location, this is now held by knowing its position within the graph. Considered making each Ant a stateful monad, seemed to be confusing the state Monad and dropped this idea.
-Holding its Direction facing
-list of where it has been.
-Age, incremented each step. (incremented at each step/simulation days.)
-Its current behaviour (Bool,Bool,Bool) changed to a parametric data type.
-Recognition of circles; so s,w,n,e would be pruned from the list and the and would be able to make the decision not to go South on its next move, unless the pheremone was now higher or it was returning home.
-
-Types
-The types that will be involved in modeling the simulation of an Ant colony are as follows.
-
-\begin{lstlisting}
-
-
-Ant          :: Ant
-Pheremone    :: Double
-Food         :: Double
-Nest         :: Bool
-AntQuadrant  :: Graph -> Holds- Possible Ant
-PherQuadrant :: Graph -> Holds- Pheremone Level
-FoodQuadrant :: Graph -> Holds- Possible Food
-NestQuadrant :: Graph -> Holds- Possible NestArea
-AntWorld     :: Graph -> Holds- Many Ant Quadrants
-PherWorld    :: Graph -> Holds- Many PherQuadrants
-FoodWorld    :: Graph -> Holds- Many FoodQuadrants
-NestWorld    :: Graph -> Holds- Many NestQuadrants
-
-\end{lstlisting}
-
-
-Key Functions
-The functions responsible for the flow of the program are
-
-
-(MENTIONED-IN-IMPLEMENTATION) (Need to discuss hyper jumping (ants holding the state if they had been moved or not(is that more processing), message systems quadrants telling other quadrants that they which to pass ants. STM edge cells being locable concurrency style)).
-stitchUpAntQuads - Sequentially processes pairs of edge-nodes on a Graph (to possibly move Ants between AntQuadrants).
-The could be parallelised to a degree - Enter processing batches!
-stitchUpPherQuads - Sequentially processes pairs of edge-nodes on a Graph (to manage the spread of Phermone between PherQuadrants).
-
-processAntQuadrant - Moves each Ant within a quadrant.
-processPherQuadrant - Evaporates the Pheremone 
-
-
-Main
-Given Starting parameters create a World.
--Parameters
-
-\begin{lstlisting}
-Size of Quadrant :: Int
-Size of World :: Int
-Amount of Ants :: Int
-Amount of Food :: Int
-
-\end{lstlisting}
-
-
--Initialize random nest area proportional to the amount of Ants.
--Randomly position Ants around the Nest Area
--Randomly position Food (not In Food Area)
--Initialize all PherQuadrants as 0 except for Food Quadrants which maintain 10.0
-
-Simulation Loop
-
-Parallelisable functions
--stitchAntQuads
--stitchPherQuads
-
-In parallel
-- processAntQuads
-- processPherQuads
-
-Display
-
-
-ReQuading 
-Graph Density
-calculating densest points NP-hard?
-
-When graphs are split at densest points
-More serial calculations.
-
-QUICK CHECK NOTES
-
-
-
-How the design choices have been influenced by research.
-
-%% more of my design content
+\section{Risk Analysis} %Good maybe expand
+Throughout this project there are several things that could go wrong, such as  loss of work, hardware failure and the inability to surpass certain bugs which may be encountered throughout the project. To minimize the chances of loss of work source control tools will be utilized in the form of muliple git repositories. This will not only backup the project but keep a track of changes and monitor its evolution. In the event of hardware failiure all the software required for the project is freely available and it would be possible to set up for work either in the University or on a replacement system with minimal effort. There is also a chance that bugs may be encountered which appear impossible to overcome this is a risk that can only be managed through planning and research. Should difficulties be encountered there is a vast range of resources for functional programming online and a Brighton functional programming user group, this would provide a great opportunity to increase my knowledge but should it not be possible to find a solution the only course of action would be to alter the future plans of the project.
 
 \end{document}
 
-%[AWC 1073]
+%[AWC 2482]

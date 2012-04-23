@@ -2,24 +2,6 @@
 
 
 
-A directed asyclic graph can be generated from the runtime of such a program where vertices are each [portion of execution up until a spawn/sync/return statment]
-
-Two performance measures sufﬁce to gauge the theoretical efﬁciency of multithreaded algorithms. We deﬁne the work  of a multithreaded computation to be the total time to execute all the operations in the computation on one processor. We deﬁne the critical-path length  of a computation to be the longest time to execute the threads along any path of dependencies in the dag. Consider, for example, the computation in Figure 1. Suppose that every thread can be executed in unit time.
-
-Then, the work of the computation is 17, and the critical-path length is 8. When a multithreaded computation is executed on a given number P of processors, its running time depends on how efﬁciently the underlying scheduler can execute it. Denote by TP the running time of a given computation on P processors. Then, the work of the computation can be viewed as T1, and the critical-path length can be viewed as T∞. The work and critical-path length can be used to provide lower bounds on the running time on P processors.
-We have TP ≥ T1/P , (1)
-since in one step, a P-processor computer can do at most P work.
-We also have TP ≥ T∞ , (2)
-
-since a P-processor computer can do no more work in one step than an infinite-processor computer. The speedup of a computation on P processors is the ratio T1/TP , which indicates how many times faster the P-processor execution is than a one-processor execution. If T1/TP = Θ(P), then
-we say that the P-processor execution exhibits linear speedup. The maximum possible speedup is T1/T∞, which is also called the parallelism of the computation, because it represents the average amount of work that can be done in parallel for each step along the critical path. We denote the parallelism of a computation by P.
-
-
-Scheduling
-MIT http://www.catonmat.net/blog/mit-introduction-to-algorithms-part-thirteen/
-
-
-
 
 
 To exploit a parallel processor, it must be possible to decompose a program into components that can be executed in parallel, assign these components to processors, coordinate their execution by communicating data as needed among the processors, and reassemble the results of the computation. Compared to traditional imperative programming languages, it is quite easy to execute components of a functional program in parallel \cite{Kelly1989}. Due to the property of referential transparencyand the lack of sequencing, there are no time dependencies in the evaluation of expressions; the ﬁnal value is the same regardless of which expression is evaluated ﬁrst. The nesting of expressions within other expressions deﬁnes the data communication that must occur during execution. \cite{Cunningham2010}

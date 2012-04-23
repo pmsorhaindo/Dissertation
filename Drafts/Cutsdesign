@@ -1,0 +1,150 @@
+
+Points to consider when desiging a parallel Algorithm
+Granularity
+Load Balancing
+Dependancy - Dependancy Graphs - http://msdn.microsoft.com/en-us/library/ee847415.aspx
+Scheduling
+
+The partitioning phase of a design should produce one or more possible   decompositions of a problem. Before proceeding to evaluate communication requirements, Ian Foster [ Designing and Building Parallel Programs  1995 by Ian Foster] reccomends the use of the following checklist to ensure that the design has no obvious flaws. Generally, all these questions should be answered in the affirmative.
+
+Does your partition define at least an order of magnitude more tasks than there are processors in your target computer? If not, you have little flexibility in subsequent design stages.
+Does your partition avoid redundant computation and storage requirements? If not, the resulting algorithm may not be scalable to deal with large problems.
+Are tasks of comparable size? If not, it may be hard to allocate each processor equal amounts of work.
+Does the number of tasks scale with problem size? Ideally, an increase in problem size should increase the number of tasks rather than the size of individual tasks. If this is not the case, your parallel algorithm may not be able to solve larger problems when more processors are available.
+Have you identified several alternative partitions? You can maximize flexibility in subsequent design stages by considering alternatives now. Remember to investigate both domain and functional decompositions.
+
+%Answers to these questions may suggest that, despite careful thought in this and subsequent design stages, we have a ``bad'' design. In this situation it is risky simply to push ahead with implementation. We should use the performance evaluation techniques described in Chapter 3 to determine whether the design meets our performance goals despite its apparent deficiencies. We may also wish to revisit the problem specification. Particularly in science and engineering applications, where the problem to be solved may involve a simulation of a complex physical process, the approximations and numerical techniques used to develop the simulation can strongly influence the ease of parallel implementation. In some cases, optimal sequential and parallel solutions to the same problem may use quite different solution techniques. While detailed discussion of these issues is beyond the scope of this book, we present several illustrative examples of them later in this chapter.
+
+
+High level parallel design (pmap) discussion.
+Map Reduce
+
+Parametric polymorphism's also remarkably effective at helping strip out the irrelevant (use of type variables in)
+
+
+-Predicted code flow of the application
+On the function/method level.
+More detailed than that.
+
+Data flow
+
+Representing Source code
+
+Talk about the non parallel
+
+Then the parallel version
+
+Split into Epochs of design
+
+Alternate designs
+Everthing is based on message passing ants are grouped into pools and processed in batches by threads or even seperate processors. Each processor gets representation of the world and sends requests to all other processors to check if it can move its ant in a particular direction, this design is more suitable for Erlang.
+
+
+
+Representation of the Simulation world - Split into Epochs of design
+
+The design of the simulation went through many iterations.
+
+Alternative considered designs
+Everything is Based on Message passing Ants are grouped in Pools and Pools are processed by seperate cores, processors or machines. Each Processor gets a reperesentation of the world and sends and recieves requests to find  out if it can move its ant to the cell it wishes. This design is possibly more suited to Erlang and the Actor model.
+
+
+
+The list based Worlds design free movement
+The initial concept for the representation of the simulation world was list based. Several lists would be produced for everything in the world, for an example a list of Ants currently in the simulation, a list of Food currently in the simulation and a list of the surfaces in the simulation. Each element in the lists would hold a location value and --------------------
+
+
+List based Worlds location tags
+This approach was similar to the previous idea, using lists to process objects of similar types. However placing a restriction that x and y coordinates must be integers and each location is the size of one ant. This concept influenced all following design decisions, making it trivial to reason about collision detection. The more rigid location system doesn't only aid in collision detection but now help when considering parallel strategies like map reduce, the reduction step will be alot simpler. partitioning the wor
+
+Graph based World Hold all
+
+Graph based Worlds non parallel
+
+Graph based Worlds parallel
+
+Evolution of the Ant,
+Originally held its location, this is now held by knowing its position within the graph. Considered making each Ant a stateful monad, seemed to be confusing the state Monad and dropped this idea.
+Holding its Direction facing
+list of where it has been.
+Age, incremented each step. (incremented at each step/simulation days.)
+Its current behaviour (Bool,Bool,Bool) changed to a parametric data type.
+Recognition of circles; so s,w,n,e would be pruned from the list and the and would be able to make the decision not to go South on its next move, unless the pheremone was now higher or it was returning home.
+
+Types
+The types that will be involved in modeling the simulation of an Ant colony are as follows.
+
+
+\begin{lstlisting}
+
+
+Ant          :: Ant
+Pheremone    :: Double
+Food         :: Double
+Nest         :: Bool
+AntQuadrant  :: Graph -> Holds- Possible Ant
+PherQuadrant :: Graph -> Holds- Pheremone Level
+FoodQuadrant :: Graph -> Holds- Possible Food
+NestQuadrant :: Graph -> Holds- Possible NestArea
+AntWorld     :: Graph -> Holds- Many Ant Quadrants
+PherWorld    :: Graph -> Holds- Many PherQuadrants
+FoodWorld    :: Graph -> Holds- Many FoodQuadrants
+NestWorld    :: Graph -> Holds- Many NestQuadrants
+
+\end{lstlisting}
+
+
+Key Functions
+The functions responsible for the flow of the program are
+
+
+(MENTIONED-IN-IMPLEMENTATION) (Need to discuss hyper jumping (ants holding the state if they had been moved or not(is that more processing), message systems quadrants telling other quadrants that they which to pass ants. STM edge cells being locable concurrency style)).
+stitchUpAntQuads - Sequentially processes pairs of edge-nodes on a Graph (to possibly move Ants between AntQuadrants).
+The could be parallelised to a degree - Enter processing batches!
+stitchUpPherQuads - Sequentially processes pairs of edge-nodes on a Graph (to manage the spread of Phermone between PherQuadrants).
+
+processAntQuadrant - Moves each Ant within a quadrant.
+processPherQuadrant - Evaporates the Pheremone 
+
+
+Main
+Given Starting parameters create a World.
+-Parameters
+
+\begin{lstlisting}
+Size of Quadrant :: Int
+Size of World :: Int
+Amount of Ants :: Int
+Amount of Food :: Int
+
+\end{lstlisting}
+
+
+-Initialize random nest area proportional to the amount of Ants.
+-Randomly position Ants around the Nest Area
+-Randomly position Food (not In Food Area)
+-Initialize all PherQuadrants as 0 except for Food Quadrants which maintain 10.0
+
+Simulation Loop
+
+Parallelisable functions
+-stitchAntQuads
+-stitchPherQuads
+
+In parallel
+- processAntQuads
+- processPherQuads
+
+Display
+
+
+ReQuading 
+Graph Density
+calculating densest points NP-hard?
+
+When graphs are split at densest points
+More serial calculations.
+
+QUICK CHECK NOTES
+%TODO
+How the design choices have been influenced by research.

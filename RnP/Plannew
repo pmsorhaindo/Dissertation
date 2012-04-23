@@ -1,0 +1,318 @@
+PLAN! ^^ - This dissertation is going to kick ass ;)
+
+==========================
+Introduction.tex
+==========================
+------The project and what it should entail. -------------------------------------------(X)
+------Alternative choices why I didn't pick them ---------------------------------------(X)                                      
+------My choice  of Project ------------------------------------------------------------(X)
+------Why it entails what it should entail ---------------------------------------------(X)
+------Major Aspects --------------------------------------------------------------------(X)
+------Summary of the Project -----------------------------------------------------------(?)
+------Future Chapters ------------------------------------------------------------------(?)
+
+
+==========================
+Definitions
+==========================
+------From the research the following definitions for terms used in this project can be concluded (Defs and Accs with referenced meanings).
+---Accronyms ---------------------------------------------------------------------------(X)
+-CPU -----------------------------------------------------------------------------------(X)
+-GPU -----------------------------------------------------------------------------------(X)
+---Terms -------------------------------------------------------------------------------(X)
+-Functional Programming ----------------------------------------------------------------(X)
+-Purity --------------------------------------------------------------------------------(X)
+-Deterministic/Non Deterministic -------------------------------------------------------(X)
+-Parallelism ---------------------------------------------------------------------------(X)
+-Concurrency ---------------------------------------------------------------------------(X)
+
+
+==========================
+Context.tex
+==========================
+
+------Social, Ethical and Legal Issues - NEEDS TO BE PUT SOMEWHERE??? ------------------(X)
+---Intellectual property ---------------------------------------------------------------(X)
+---Research ethics ---------------------------------------------------------------------(X) 
+---Plagiarism --------------------------------------------------------------------------(X)
+
+------Research Overview ----------------------------------------------------------------(X)
+------Ant Colony Generalizations -------------------------------------------------------(X)
+------Problem Area ---------------------------------------------------------------------(X)
+------Research Aims --------------------------------------------------------------------(X)
+------What I hope to learn -------------------------------------------------------------(?)
+
+------Programming Paradigms ------------------------------------------------------------(?)
+---Imperative --------------------------------------------------------------------------(X)
+---Object Orientated -------------------------------------------------------------------(X)
+---Functional --------------------------------------------------------------------------(X)
+---Logical -----------------------------------------------------------------------------(?)
+---Decision of Language ----------------------------------------------------------------(X)
+
+------Development Language -------------------------------------------------------------(X)
+---Erlang ------------------------------------------------------------------------------(X)
+---Haskell -----------------------------------------------------------------------------(?)
+---Scala -------------------------------------------------------------------------------(X)
+---Choice ------------------------------------------------------------------------------(X)
+
+------Approaches to Parallelism --------------------------------------------------------(X)
+---The Limits of Parallelization -------------------------------------------------------(X)
+---Software Transactional Memory -------------------------------------------------------(?)
+---Data Parallelism --------------------------------------------------------------------(X)
+---The Actor Model ---------------------------------------------------------------------(?)
+---The Consumer Producer Model ---------------------------------------------------------(X)
+---Divide and Conquer ------------------------------------------------------------------(?)
+---Embarassingly Parallel --------------------------------------------------------------(?)
+
+------Large Scale Simulations ----------------------------------------------------------(X)
+---Networks simulations ----------------------------------------------------------------(?)
+-What they are and what they do --------------------------------------------------------(?)
+-Serial Time Slicing -------------------------------------------------------------------(?)
+-Parallel Speed ups --------------------------------------------------------------------(?)
+---Molecular dynamics ------------------------------------------------------------------(X)
+-What they are and what they do --------------------------------------------------------(X)
+-Three approaches of partitioning the problem to produce Parallelism -------------------(X)
+---Biological Simulations --------------------------------------------------------------(D)
+-What they are and what they do --------------------------------------------------------(D)
+---Simulations for Games and Other Purposes --------------------------------------------(X)
+-Parallel crowd simulations ------------------------------------------------------------(X)
+-The work being done on the cell processor - "buckets" lattices and nearest n. ---------(D)
+
+
+------Collision Detection --------------------------------------------------------------(X)
+---A look at different methods of collision detection to prevent Ants colliding --------(D)
+---Why each method is effective and disadvantages. -------------------------------------(D)
+-Priori and Posteri / Discrete vs Continuous -------------------------------------------(X)
+-Bounding Boxes various types ----------------------------------------------------------(X)
+-Partitioning - Elluding to Paralleism -------------------------------------------------(X)
+
+------Visual Representation ------------------------------------------------------------(X)
+---What it should include --------------------------------------------------------------(X)
+---Methods of producing it in Haskell --------------------------------------------------(X)
+-WxWidgets Benifits - Drawbacks --------------------------------------------------------(X)
+-Gtk+ -GTK Haskell Benifits - Drawbacks ------------------------------------------------(X)
+-Gloss - Seen in the REPA projects Unused why ------------------------------------------(X)
+-GLUT - Have experience with it --------------------------------------------------------(X)
+
+==========================
+Requirements.tex
+==========================
+------Aims
+----------------------------------------------------------------------------------------(X)
+-Technical Aims ------------------------------------------------------------------------(X)
+-Qualitative Aims ----------------------------------------------------------------------(X)
+-Learning Outcomes ---------------------------------------------------------------------(X)
+
+------Technical Requirements -----------------------------------------------------------(X)
+---Data Structures ---------------------------------------------------------------------(X)
+---Collision Detection -----------------------------------------------------------------(X)
+---Demonstrate Speedup on a Serial Algorithm -------------------------------------------(X)
+---Algebraic Test Driven Development ---------------------------------------------------(X)
+-The Quick Check package ---------------------------------------------------------------(X)
+-Test completeness ---------------------------------------------------------------------(X)
+-Test correctness ----------------------------------------------------------------------(X)
+
+------Qualitative Requirements ---------------------------------------------------------(X)
+---Exploration Strategies --------------------------------------------------------------(X)
+---Communication - locations of food -Other communication as an extension --------------(X)
+---Return to ant Colony-----------------------------------------------------------------(X)
+
+==========================
+Design.tex
+==========================
+
+------Desgin techniques ----------------------------------------------------------------(X)
+---Data types in Haskell as Design -----------------------------------------------------(X)
+---UML is not limited to OOP. ----------------------------------------------------------(X)
+-The other diagrams which may be applicable --------------------------------------------(X)
+------Points to consider when desiging a parallel Algorithm ----------------------------(?)
+---Granularity -------------------------------------------------------------------------(?)
+---Load Balancing ----------------------------------------------------------------------(?)
+---Dependancy - Dependancy Graphs - http://msdn.microsoft.com/en-us/library/ee847415.aspx-------(X)
+---Scheduling --------------------------------------------------------------------------(X)
+
+------High level parallel design discussion --------------------------------------------(X)
+---Map Reduce with respect to the problem ----------------------------------------------(X)
+-pMap(Implementation?) -----------------------------------------------------------------(X)
+-In a purely functional setting, elements of a list being computed by map cannot see the effects of the computations on other elements ---(X)
+-If order of application of f to elements in list is commutative, we can reorder or parallelize execution------(X)
+-This is the ``secret'' that MapReduce exploits ----------------------------------------(X)
+---Actors ------------------------------------------------------------------------------(X)
+- with respect to the problem ----------------------------------------------------------(X)
+- more suited to Erlang ----------------------------------------------------------------(X)
+--- Embarassingly Parallel Areas to process --------------------------------------------(X)
+-Pheremone Quadrant update -------------------------------------------------------------(X)
+
+------Epochs of Design -----------------------------------------------------------------(X)
+---The list based Worlds design free movement ------------------------------------------(X)
+---List based Worlds location tags -----------------------------------------------------(X)
+-Restriction and simplification --------------------------------------------------------(X)
+---Graph based World Hold all ----------------------------------------------------------(X)
+-Restriction and simplification --------------------------------------------------------(X)
+---Graph based Worlds non parallel (split phermone food nest) --------------------------(X)
+-How the design choices have been influenced by research. ------------------------------(X)
+-Hyper jumping (ants holding the state if they had been moved or not(is that more processing) -----(X)
+-Message systems quadrants telling other quadrants that they wish to pass ants ---------(X)
+-STM edge cells being lockable concurrency style. --------------------------------------(X)
+
+---Graph based Worlds parallel ---------------------------------------------------------(X)
+-How the design choices have been influenced by research. ------------------------------(X)
+
+---Types -------------------------------------------------------------------------------(X)
+-As explained important for composing Haskell functions --------------------------------(X)
+-Types used ----------------------------------------------------------------------------(X)
+
+---Predicted code flow of the application ----------------------------------------------(X)
+---On the function level ---------------------------------------------------------------(X)
+---Data flow ---------------------------------------------------------------------------(X)
+
+------Key functions --------------------------------------------------------------------(X)
+--- Important parallelizable functions -------------------------------------------------(X)
+-stitching Ant Quadrants ---------------------------------------------------------------(X)
+-stitching Pheremone Quadrants ---------------------------------------------------------(X)
+-processing Ant Quadrants --------------------------------------------------------------(X)
+-processing Pheremone Quadrants --------------------------------------------------------(X)
+---Important sequential functions ------------------------------------------------------(X)
+-Display -------------------------------------------------------------------------------(X)
+-Graph Density -------------------------------------------------------------------------(X)
+-ReQuading -----------------------------------------------------------------------------(X)
+-Display -------------------------------------------------------------------------------(X)
+
+------Mind map???possibiilty(on topic?) ------------------------------------------------(X)
+
+Initial planning -----------------------------------------------------------------------(X)
+
+
+==========================
+Implementation.tex
+==========================
+
+------Methodology - The progression of Feature sets -----------------------------------(X)
+
+------Emergence from research ---------------------------------------------------------(X)
+
+------List based Worlds free movement -------------------------------------------------(X)
+---All ants held ----------------------------------------------------------------------(X)
+---Persistance and updating -----------------------------------------------------------(X)
+---Complexity of the pheremone calculations would be out of the scope -----------------(X)
+
+------List based Worlds location tags -------------------------------------------------(X)
+
+------Graph based Worlds Hold all -----------------------------------------------------(X)
+---The introduction of Ant Behaviour (follow the highest Pheremone - Gets stuck in corners) ---(X)
+---Processing steps and parallelism ---------------------------------------------------(X)
+using pattern matching to break types down into parts Lists and recursion. ------------(X)
+---Implementing Quadrants and Worlds --------------------------------------------------(X)
+---Thread scope debugging (Move to later section to follow true chronological Order?)
+
+------Graph based Worlds non parallel (split phermone food nest) ----------------------(X)
+---Printing Ant Quadrants for testing -^ Serial Mode ----------------------------------(X)
+-Debugging incorrectly sized grids ----------------------------------------------------(X)
+-:trace -------------------------------------------------------------------------------(X)
+-type Ambiguity -----------------------------------------------------------------------(X)
+---Stitching together the Graphs. (Ant Movement between Quadrants) --------------------(X)
+-Use of lazy evaluation in the fst snd selector of which stitch up effect. ------------(X)
+---Pheremone World (with Quadrants) ---------------------------------------------------(X)
+-Similar bugs a Quadrants -------------------------------------------------------------(X)
+-Reasoning about the program mathematically -------------------------------------------(X)
+---Printing ant Worlds for testing ----------------------------------------------------(X)
+
+------Developing the process loop. Parallel Strategies (exposing the embarassing parallelism). --(X)
+---Debugging the hanging loop ---------------------------------------------------------(X)
+-The use of HPC -----------------------------------------------------------------------(X)
+-the use of -Wall ---------------------------------------------------------------------(X)
+-Shadowing! >.< -----------------------------------------------------------------------(X)
+---Positioning new Ants in the world. -------------------------------------------------(X)
+---Debugging the edge case. -----------------------------------------------------------(X)
+-Positioning food locations. ----------------------------------------------------------(X)
+---Introduction of Food Quadrants for testing -----------------------------------------(X)
+
+------Graph based Worlds parallel -----------------------------------------------------(X)
+---Expanding Ant Behaviour (Exploration(Random)) --------------------------------------(X)
+--- `par `seq` annotations and other forms of denoting parallelism. -------------------(X)
+-Their failure. -----------------------------------------------------------------------(X)
+---Introducing the Nest -^ Parallel mode ----------------------------------------------(X)
+
+------Haddock and documentation -------------------------------------------------------(X)
+------ GUI ----------------------------------------------------------------------------(X)
+--- wxcore fail built from scratch 4 times --------------------------------------------(X)
+--- GTK -------------------------------------------------------------------------------(X)
+--- Run simulation based on Settings --------------------------------------------------(X)
+
+------Testing -------------------------------------------------------------------------(X)
+---QuickCheck properties --------------------------------------------------------------( )
+---Generating Test Data ---------------------------------------------------------------( )
+
+==========================
+Conclusion.tex
+==========================
+
+-----Extentions and Future work -------------------------------------------------------(?)
+---Memoisation -> Optimisation --------------------------------------------------------(?)
+---Quadrant splitting -----------------------------------------------------------------(?)
+- Naievely ----------------------------------------------------------------------------(?)
+-Barnes-Hut Algorithm -----------------------------------------------------------------(?)
+-Markov clusters ----------------------------------------------------------------------(D)
+-Graph averaging -??? Need to discuss? ------------------------------------------------(?)
+---Distrubuted mode -------------------------------------------------------------------(X)
+-Implementing Client Server (Remote. Cloud Haskell) -----------------------------------(X)
+---GPU acceleration -------------------------------------------------------------------(X)
+
+------Process Evaluation --------------------------------------------------------------(X)
+------Evaluation of Planning ----------------------------------------------------------(X)
+---Original Plan ----------------------------------------------------------------------(X)
+---Revised Plan -----------------------------------------------------------------------(?)
+---Actual Project Timeline. -----------------------------------------------------------(?)
+
+------ Evaluation of Design -----------------------------------------------------------(?)
+
+------Product Evaluation --------------------------------------------------------------( )
+------Actual solutions Vs feasible alternatives ---------------------------------------( )
+------Progress ------------------------------------------------------------------------( )
+-Incomplete ---------------------------------------------------------------------------( )
+-Algorithm with dynamic expansion potential -------------------------------------------( )
+-Parallel speedup achieved based on sequential algorithm ------------------------------(X)
+-Proud of's... Speed up ---------------------------------------------------------------(X)
+---Problems and Solutions -------------------------------------------------------------(X)
+- Debugging ---------------------------------------------------------------------------(X)
+- QuickCheck Generation ---------------------------------------------------------------( )
+- GUI ---------------------------------------------------------------------------------( )
+- Producing ANY side affects / Monads. ------------------------------------------------( )
+-Many problems stemmed from the use of a new language and new programming paradigm ----(X)
+
+---Lessons Learned --------------------------------------------------------------------(X)
+-Would have used a better Graph API (instance of Functor) -----------------------------(X)
+-Explored the Repa data structures (seemingly parallelism for free) -------------------(X)
+-Able to look at programming from a differet point of view ----------------------------(X)
+-Understand a lot more about parallelism. ---------------------------------------------(X)
+
+
+
+:::TODO's::
+WRITE!!!!!!
+analyse the sequential portion and  parallel portions of my program.
+ACTUAL parallelism
+and just Design in the design
+
+Andrew suggests a "my worries about the final write up" talk with Aidan
+-- latex Style .cls
+-- size of bibliography
+-- focus?
+-- how does he prefer the sourcecode and documentation CD/printed.
+
+Remove some headers to make it seem less fragmenty (Dave)
+More detail on Ant behaviour?? (Andrew)
+What I have written in terms of structure.
+Should the structure be changed
+Details that may be lacking
+Where does Aidan feel the emphasis should lie
+Any areas to remove/add
+use the word extrapolate
+
+--more expert in the project area. ----------------------------------------------------( )
+--used and integrated significant areas of the knowledge ------------------------------( )
+--intellectual skills and practical abilities that you have acquired during your course and develop them further. ---( )
+--plan and carry out work independently, over a lengthy period. -----------------------( )
+--Shown capacity for responsible, self-directed work of high quality. -----------------( )
+
+

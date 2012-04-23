@@ -121,7 +121,7 @@ Logic programming is characterized by its use of relations and inference.\cite{A
 \paragraph{Summary and choice}
 This project chose Haskell as the development language for the solution even though it had not been encountered prior to the initial research of this project. As such, the language was learnt throughout the duration of the project because of the substantial amount of benefits the language provides in tackling the problem. It offers referential transparency through its purity, allowing parallelism in algorithms to be exploited in an easier manner than would be possible in imperative languages. Of the languages that have been reviewed here Haskell's type system is the richest and most expressive. Haskell is also the strictest on purity. While Erlang maintains purity within its processes, Haskell forces the programmer to separate code with side effects from pure code with the use of monads. In contrast, Scala embraces impurity, allowing the programmer to freely choose whether their functions should be side affect free or not. The higher levels of abstraction offered by Haskell promote it further as a language, which would incubate design ideas for new and more efficient algorithms.
 
-The Haskell compiler GHC supports multi-core programming as installed and includes multiple parallel programming models: Strategies \cite{Marlow2010a}, Concurrent Haskell \cite{Jones1996} with Software Transactional Memory \cite{Harris2005}, and Data Parallel Haskell \cite{Chakravarty2007}. Furthermore, it has many third party libraries for distributed parallel frameworks such as MapReduce and the Actor model, in the `compressed' and `remote' packages respectively. This extensive support for a variety of multi-core programming techniques is unrivalled by either Scala or Erlang.
+The Haskell compiler GHC supports multi-core programming as installed and includes multiple parallel programming models: Strategies \cite{Trinder1998}, Concurrent Haskell \cite{Jones1996} with Software Transactional Memory \cite{Harris2005}, and Data Parallel Haskell \cite{Chakravarty2007}. Furthermore, it has many third party libraries for distributed parallel frameworks such as MapReduce and the Actor model, in the `compressed' and `remote' packages respectively. This extensive support for a variety of multi-core programming techniques is unrivalled by either Scala or Erlang.
 
 %[programming language times diagram]
 
@@ -206,7 +206,7 @@ The final simulation loop for Colony performed three steps in parallel, operatin
 
 \paragraph{Visual Representation} 
 
-%------Visual Representation %---What it should include TODO
+%------Visual Representation %---What it should include
 Although development and testing will primarily work with a textual representation of the information within the system, it would be valuable to produce a more visually appealing representation of the simulation allowing the information presented to be comprehended easily. 
 
 

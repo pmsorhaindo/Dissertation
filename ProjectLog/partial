@@ -1,0 +1,78 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Posted 4th December 2011 by Michael
+
+Monad Misery 
+I'm gradually developing more and more code for my project's simulation but I'm currently hitting a wall when it comes to Monads. Currently I am able to generate any given amount of Ants but the function which gives each of these ants life will always give them the same location and direction. In order to create these ants in random positions I need to generate random numbers. I'm currently generating random numbers in two ways.
+
+\begin{code}
+genRandoms :: IO [Int]
+genRandoms = do { g <- getStdGen; return $ randomRs (1, 10) g}
+
+random :: (MonadIO m) => m Int
+random = liftIO $ randomRIO (1, 10)
+\end{code}
+
+These are two of the most common methods to generate random numbers in Haskell.
+
+The first method returns something of type IO [Int] and the second returns a type m Int. Which means I still need to extract the value from the IO monad or a monad of some sort to put the value into some of my pure functions. I've been reading into it a lot and it seems to require do notation and the <- symbol however trying this yesterday was of not profitable. I'm also reading that I should be using >>= the bind symbol which as far as I understand means my pure functions could only be called inside the do{} area. Which will mean throwing a lot of stuff into the do area. After reading a lot about
+
+I will go on further reading and experimenting with IO, monads and do notation in order to come up with a solution but today I won't be able to focus on the project as much as two of my other modules Computer graphics Algorithms, imminent deadline, and Emerging Tech, half finished draft, should be finished last Thursday, need my urgent attention.
+
+But at the same time this is rather pressing so I may end up spending too much time on this anyway, as I have my Viva on Tuesday.
+
+-Mikey..
+
+
+
+
+
+
+
+
+
+Posted 4th December 2011 by Michael
+
+
+Surface Generation 
+I soon switched from looking at the IO monad to sorting out a function to generate the surface. I am also a little stumped here too however I will be able to get this pretty quickly in a little time. Unfortunately now I must focus on other modules but here is the code I have so far.
+
+\begin{code}
+generateInitialSurface :: (maxX,maxY,minX,minY)->[Surface]
+generateInitialSurface = genSurface minX minY
+let genSurface x y
+| x==minX && y==minY = StableDry (Location minX minY) : genSurface (x+1) y
+| x LT||EQ maxX && y LT||EQ maxY = StableDry (Location x y) : genSurface (x+1) y
+| x GT maxX && y LT maxY = StableDry (Location minX (y+1)) : genSurface (minX+1) (y+1)
+\end{code}
+
+Note the use of the keyword let here is incorrect and this code won't compile but I need to do something similar to this.
+
